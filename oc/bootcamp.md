@@ -54,10 +54,16 @@ Next navigate to the `bootcamp-{filename}\BootCamp` folder and run the Setup.exe
 
 Once all is finished, you now have Bootcamp switching! There should be a little BootCamp icon in you tray now that you can select which drive to boot to.
 
-* Note: For those no needing the extra drivers Bootcamp provides, you can delete the following:
-  * `$WinPEDriver$`: **Do not** delete the folder itself, just the drivers inside
+* Note: For those no needing the extra drivers BootCamp provides, you can delete the following:
+  * `$WinPEDriver$`: **DO NOT** delete the folder itself, just the drivers inside
+    * Apple Wifi card users will want to keep the following:
+	 * `$WinPEDriver$/BroadcomWireless`
+	 * `$WinPEDriver$/BroadcomBluetooth`
+	 * `$WinPEDriver$/AppleBluetoothBroadcom`
   * `BootCamp/Drivers/...`
-    * **Do not** delete `BootCamp/Drivers/Apple` 
+    * **DO NOT** delete `BootCamp/Drivers/Apple` 
+    * Apple Wifi card users will want to keep the following:
+	 * `BootCamp/Drivers/Broadcom/BroadcomBluetooth`
 
 ## Troubleshooting
 
