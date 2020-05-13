@@ -28,7 +28,7 @@ To start we'll need the following:
 To install, it's as simple as grabbing [Brigadier](https://github.com/corpnewt/brigadier) and running either `Brigadier.bat` for Windows or `Brigadier.command` for macOS. If the SMBIOS you're currently using either has BootCamp issues or want to download for another SMBIOS, you can add `--  model{SMBIOS}` to the end:
 
 ```
-path/to/Brigadier --Model MacPro7,1
+path/to/Brigadier --model MacPro7,1
 ```
 
 ![](/images/bootcamp-md/extension.png)
