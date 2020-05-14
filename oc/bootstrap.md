@@ -46,8 +46,8 @@ This is mainly as a mini-guide in case BootProtect doesn't work or you'd like to
 * Use `ls` to determine the content of the device. It should contain an EFI folder. Use `ls EFI` to look inside the EFI folder. Within the EFI folder you should find BOOT and OC.
 * Use `bcfg boot dump` to view your currently configured boot devices.
 * Use `bcfg boot add 00 {The device containing your EFI}:\EFI\OC\Bootstrap\Bootstrap.EFI Boot9696` to add an entry to the beginning of your boot map.
-   * ex. `bcfg boot add 00 FS0:\EFI\OC\Bootstrap\Bootstrap.EFI Boot9696`
-   * Note: 00 is the boot order ranking, 00 being the very first one, and it increments by one, 01 being the second, 02 being the third and so on.
+  * ex. `bcfg boot add 00 FS0:\EFI\OC\Bootstrap\Bootstrap.EFI Boot9696`
+  * Note: 00 is the boot order ranking, 00 being the very first one, and it increments by one, 01 being the second, 02 being the third and so on.
 * Rerun the boot dump command to verify.
 * Reboot.
 

@@ -4,9 +4,11 @@
 * [Installation](#installation)
 * [Troubleshooting](#troubleshooting)
 
-So a neat feature of OpenCore is the ability to avoid the BIOS entirely and use Startup disk solely for multiboot. Problem comes in when we try to boot windows and have no way of setting the boot option back to macOS. That's where the BootCamp utilities come in. 
+So a neat feature of OpenCore is the ability to avoid the BIOS entirely and use Startup disk solely for multiboot. Problem comes in when we try to boot windows and have no way of setting the boot option back to macOS. That's where the BootCamp utilities come in.
 
-* Note: This guide will not cover the creation of the Windows installer, only the installation of BootCamp drivers. 
+* Note: This guide will not cover the creation of the Windows installer, only the installation of BootCamp drivers.
+  * Example of a guide: [Build a Bootable Windows ISO](https://www.freecodecamp.org/news/how-make-a-windows-10-usb-using-your-mac-build-a-bootable-iso-from-your-macs-terminal/)
+  * Reminder: Windows **MUST** be GPT/GUID based, OpenCore will not boot legacy installs
 * Note 2: Using BootCamp utilities from macOS will erase the EFI/BOOT/BOOTx64.efi file on your EFI, which is needed for booting OpenCore. And OpenCore itself does not support MBR based installs so the utility is useless to us
 
 ## Preparations
@@ -15,13 +17,12 @@ To start we'll need the following:
 
 * Windows already installed
   * MUST be UEFI/GPT based
-* [Brigadier](https://github.com/corpnewt/brigadier) 
+* [Brigadier](https://github.com/corpnewt/brigadier)
   * To download the BootCamp drivers
-* SMBIOS injection enabled 
+* SMBIOS injection enabled
   * As the drivers have a SMBIOS check
 * Setup [Bootstrap.efi](/oc/bootstrap.md)
   * Not required but can help alleviate headaches when Windows erases the BOOTx64.efi OpenCore uses
-
 
 ## Installation
 
@@ -36,15 +37,18 @@ path/to/Brigadier --model MacPro7,1
 Next you will find our bootcamp drivers under either:
 
 * Windows:
+
 ```
 \Users\{Username}\bootcamp-{filename}\BootCamp
 ```
+
 * macOS:
+
 ```
 /Users/{Username}/BootCamp-{filename}/WindowsSupport.dmg
 ```
 
-macOS users will next need to expand WindowsSupport.dmg and place it somewhere Windows can get. 
+macOS users will next need to expand WindowsSupport.dmg and place it somewhere Windows can get.
 
 ![](/images/bootcamp-md/done.png)
 
@@ -57,13 +61,13 @@ Once all is finished, you now have Bootcamp switching! There should be a little 
 * Note: For those no needing the extra drivers BootCamp provides, you can delete the following:
   * `$WinPEDriver$`: **DO NOT** delete the folder itself, just the drivers inside
     * Apple Wifi card users will want to keep the following:
-	 * `$WinPEDriver$/BroadcomWireless`
-	 * `$WinPEDriver$/BroadcomBluetooth`
-	 * `$WinPEDriver$/AppleBluetoothBroadcom`
+    * `$WinPEDriver$/BroadcomWireless`
+    * `$WinPEDriver$/BroadcomBluetooth`
+    * `$WinPEDriver$/AppleBluetoothBroadcom`
   * `BootCamp/Drivers/...`
-    * **DO NOT** delete `BootCamp/Drivers/Apple` 
+    * **DO NOT** delete `BootCamp/Drivers/Apple`
     * Apple Wifi card users will want to keep the following:
-	 * `BootCamp/Drivers/Broadcom/BroadcomBluetooth`
+    * `BootCamp/Drivers/Broadcom/BroadcomBluetooth`
 
 ## Troubleshooting
 
@@ -75,13 +79,12 @@ Once all is finished, you now have Bootcamp switching! There should be a little 
 
 ## Can't find Windows/BootCamp drive in picker
 
-So with OpenCore, we have to note that legacy Windows installs are not supported, only UEFI. Most installs now are UEFI based but those made by BootCamp Assistant in macOS are legacy based, so you'll have to find other means to make an installer(Google's your friend). This also means MasterBootRecord/Hybrid partitions are also broken so you'll need to format the drive you want to install onto with DiskUtility. 
+So with OpenCore, we have to note that legacy Windows installs are not supported, only UEFI. Most installs now are UEFI based but those made by BootCamp Assistant in macOS are legacy based, so you'll have to find other means to make an installer(Google's your friend). This also means MasterBootRecord/Hybrid partitions are also broken so you'll need to format the drive you want to install onto with DiskUtility.
 
 Now to get onto troubleshooting:
 
 * Make sure `Misc -> Security -> ScanPolicy` is set to `0` to show all drives
 * Enable `Misc -> Boot -> Hideself` is enabled when Windows bootloader is located on the same drive
-
 
 ## "You can't change the startup disk to the selected disk" error
 
