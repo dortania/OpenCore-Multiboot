@@ -14,7 +14,7 @@ So to start we're gonna need the following:
 * [OpenCore 0.5.8 or newer](https://github.com/acidanthera/OpenCorePkg/releases)
   * Verify you have EFI/OC/Bootstrap/Bootstrap.efi
 * config.plist settings:
-  * Misc -> Security -> BootProtect -> True
+  * Misc -> Security -> BootProtect -> Bootstrap
   * UEFI -> Quirks -> RequestBootVarRouting -> True
 * [OpenShell](https://github.com/acidanthera/OpenCorePkg/releases)
   * Bundled with OpenCore
