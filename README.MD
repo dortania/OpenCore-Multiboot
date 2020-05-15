@@ -14,11 +14,11 @@ The differences are minimal once you're using OpenCore but also it might be a bi
 1. What is multibooting and how does it work?
 2. Partitioning vs Disk separating
 2. UEFI
-	3. One disk for all OSes
-	4. Different disks for different OSes
+   1. One disk for all OSes
+   2. Different disks for different OSes
 3. Legacy
-	3. One disk for all OSes
-	4. Different disks for different OSes
+   1. One disk for all OSes
+   2. Different disks for different OSes
 5. Troubleshooting
 6. Tips and Tricks
 
