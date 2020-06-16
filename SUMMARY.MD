@@ -23,4 +23,6 @@
   * [For Windows booting](/oc/win.md)
   * [For Linux booting](/oc/linux.md)
   * [Installing OpenCore on a legacy system](/oc/duet.md)
+  * [Using Bootstrap.efi](/oc/bootstrap.md)
+  * [BootCamp installation](/oc/bootcamp.md)
 
