@@ -42,7 +42,7 @@ Here is how it goes:
 #### Note:
 
 * You can still do the above if you have macOS already installed, do NOT use bootcamp assistant.
-  * Bootcamp assistant will add extra drivers to the Windows installer that we do not need.
+  * BootCamp assistant will add extra drivers to the Windows installer that we do not need.
 
 ### For the others:
 

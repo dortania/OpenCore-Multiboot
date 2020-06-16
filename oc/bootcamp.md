@@ -1,8 +1,6 @@
 # Installing and using BootCamp utilities
 
-* [Preparations](#preparations)
-* [Installation](#installation)
-* [Troubleshooting](#troubleshooting)
+<extoc></extoc>
 
 So a neat feature of OpenCore is the ability to avoid the BIOS entirely and use Startup disk solely for multiboot. Problem comes in when we try to boot windows and have no way of setting the boot option back to macOS. That's where the BootCamp utilities come in.
 
@@ -21,7 +19,7 @@ To start we'll need the following:
   * To download the BootCamp drivers
 * SMBIOS injection enabled
   * As the drivers have a SMBIOS check
-* Setup [Bootstrap.efi](/oc/bootstrap.md)
+* Setup [Bootstrap.efi](/post-install/multiboot/bootstrap.md)
   * Not required but can help alleviate headaches when Windows erases the BOOTx64.efi OpenCore uses
 
 ## Installation
@@ -31,6 +29,8 @@ To install, it's as simple as grabbing [Brigadier](https://github.com/corpnewt/b
 ```
 path/to/Brigadier --model MacPro7,1
 ```
+
+* **Note**: Older versions of the BootCamp installer(6.0) do not support APFS, you'll need to either choose a newer SMBIOS that would have it bundled(ie. iMac 19,1) or after installation update your bootcamp software. See below for more details on troubleshooting: [Windows Startup Disk can't see APFS drives](#windows-startup-disk-cant-see-apfs-drives)
 
 ![](/images/bootcamp-md/extension.png)
 
@@ -56,18 +56,18 @@ Next navigate to the `bootcamp-{filename}\BootCamp` folder and run the Setup.exe
 
 ![](/images/bootcamp-md/location.png)
 
-Once all is finished, you now have Bootcamp switching! There should be a little BootCamp icon in you tray now that you can select which drive to boot to.
+Once all is finished, you now have BootCamp switching! There should be a little BootCamp icon in you tray now that you can select which drive to boot to.
 
 * Note: For those no needing the extra drivers BootCamp provides, you can delete the following:
   * `$WinPEDriver$`: **DO NOT** delete the folder itself, just the drivers inside
     * Apple Wifi card users will want to keep the following:
-    * `$WinPEDriver$/BroadcomWireless`
-    * `$WinPEDriver$/BroadcomBluetooth`
-    * `$WinPEDriver$/AppleBluetoothBroadcom`
+      * `$WinPEDriver$/BroadcomWireless`
+      * `$WinPEDriver$/BroadcomBluetooth`
+      * `$WinPEDriver$/AppleBluetoothBroadcom`
   * `BootCamp/Drivers/...`
     * **DO NOT** delete `BootCamp/Drivers/Apple`
     * Apple Wifi card users will want to keep the following:
-    * `BootCamp/Drivers/Broadcom/BroadcomBluetooth`
+      * `BootCamp/Drivers/Broadcom/BroadcomBluetooth`
 
 ## Troubleshooting
 
@@ -84,11 +84,27 @@ So with OpenCore, we have to note that legacy Windows installs are not supported
 Now to get onto troubleshooting:
 
 * Make sure `Misc -> Security -> ScanPolicy` is set to `0` to show all drives
-* Enable `Misc -> Boot -> Hideself` is enabled when Windows bootloader is located on the same drive
+
+If Windows and OpenCore's boot loaders are on the same drive, you'll need to add a BlessOverride entry:
+
+```
+Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
+```
+
+* **Note**: As of OpenCore 0.5.9, this no longer needs to be specified. OpenCore should pick up on this entry automatically
+
+![](/images/win-md/blessoverride.png)
 
 ## "You can't change the startup disk to the selected disk" error
 
-This is commonly caused by irregular partition setup of the Windows drive, specifically that the EFI is not the first partition. To fix this, we need to enable this quirk:
+This is commonly caused by either:
+
+* 3rd Party NTFS Drivers(ie. Paragon)
+* Irregular partition setup of the Windows drive, specifically that the EFI is not the first partition.
+
+To fix the former, either disable or uninstall these tools.
+
+To fix the latter, we need to enable this quirk:
 
 * `PlatformInfo -> Generic -> AdviseWindows -> True`
 
@@ -98,14 +114,26 @@ This is commonly caused by irregular partition setup of the Windows drive, speci
 
 This is due to alignment issues, make sure `SyncRuntimePermissions` is enabled on firmwares supporting MATs. Check your logs whether your firmware supports Memory Attribute Tables(generally seen on 2018 firmwares and newer)
 
+For Z390 and newer motherboards, you'll also want to enable `ProtectUefiServices` to ensure OpenCore's patches are applying correctly.
+
+If your firmware is quite old(generally 2013 and older), you'll want to enable `ProtectMemoryRegions`.
+
+Due to the variations of firmwares from vendor to vendor, you'll need to play around with the combination of these 3 quirks and see which works best.
+
 Common Windows error code:
 
 * `0xc000000d`
 
 ## Booting Windows error: `OCB: StartImage failed - Already started`
 
-This is due to OpenCore getting confused when trying to boot Windows and accidentally thinking it's booting OpenCore. This can be avoided by either move Windows to it's own drive *or* adding a custom drive path under BlessOverride. See [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) for more details.
+This is due to OpenCore getting confused when trying to boot Windows and accidentally thinking it's booting OpenCore. This can be avoided by either move Windows to it's own drive *or* adding a custom drive path under BlessOverride. See [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) and [Can't find Windows/BootCamp drive in picker](#cant-find-windowsbootcamp-drive-in-picker) entry for more details.
 
 ## Windows Startup Disk can't see APFS drives
 
-* Outdated BootCamp drivers(generally ver 6.0 will come with brigadier, BootCamp Utility in macOS provides newer version like ver 6.1). You can try to alleviate these issues by selecting a newer SMBIOS from brigadier(ie. `--model iMac19,1`)
+* Outdated BootCamp drivers(generally ver 6.0 will come with brigadier, BootCamp Utility in macOS provides newer version like ver 6.1). You can try to alleviate these issues by either updating to the newest release with Apple's software updater or selecting a newer SMBIOS from brigadier(ie. `--model iMac19,1`) and when running brigadier.
+
+For the latter, you'll need to run the following(replace `filename.msi` with the BootCamp installation msi):
+
+```
+msiexec.exe /x "c:\filename.msi"
+```
