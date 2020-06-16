@@ -1,0 +1,558 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Using Bootstrap.efi · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-medium-zoom/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="bootcamp.html" />
+    
+    
+    <link rel="prev" href="duet.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../QUICK.html">
+            
+                <a href="../QUICK.html">
+            
+                    
+                    Quick! I know what do, just tell me already
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Introduction to multi-booting</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../intro/Def.md">
+            
+                <span>
+            
+                    
+                    What is it?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../intro/Booting-part.md">
+            
+                <span>
+            
+                    
+                    UEFI? Legacy? CSM? What?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../intro/disc.md">
+            
+                <span>
+            
+                    
+                    Disclaimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Multibooting Situations:</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../empty/">
+            
+                <a href="../empty/">
+            
+                    
+                    On empty disks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../empty/samedisk.html">
+            
+                <a href="../empty/samedisk.html">
+            
+                    
+                    One disk - multiple OSes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../empty/diffdisk.html">
+            
+                <a href="../empty/diffdisk.html">
+            
+                    
+                    Multiple disks - multiple OSes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../exist/">
+            
+                <a href="../exist/">
+            
+                    
+                    On filled disks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../exist/data.html">
+            
+                <a href="../exist/data.html">
+            
+                    
+                    On a filled non-OS related disk (Data disk)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../exist/os.html">
+            
+                <a href="../exist/os.html">
+            
+                    
+                    On a filled OS related disk (Windows/Linux)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">OpenCore configuration</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Configuring OpenCore
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="win.html">
+            
+                <a href="win.html">
+            
+                    
+                    For Windows booting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="linux.html">
+            
+                <a href="linux.html">
+            
+                    
+                    For Linux booting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="duet.html">
+            
+                <a href="duet.html">
+            
+                    
+                    Installing OpenCore on a legacy system
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.1.4" data-path="bootstrap.html">
+            
+                <a href="bootstrap.html">
+            
+                    
+                    Using Bootstrap.efi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="bootcamp.html">
+            
+                <a href="bootcamp.html">
+            
+                    
+                    BootCamp installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Using Bootstrap.efi</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p><em>Last modified: Tue Jun 16 2020 19:18:21 GMT+0000 (Coordinated Universal Time)</em></p>
+</blockquote>
+<h1 id="using-bootstrapefi"><a name="using-bootstrapefi" class="plugin-anchor" href="#using-bootstrapefi"><i class="fa fa-link" aria-hidden="true"></i></a>Using Bootstrap.efi</h1>
+<ul>
+<li><a href="#preperation">Preparation</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#quick-uefi-shell-reference-guide">Quick UEFI Shell Reference Guide</a></li>
+<li><a href="#adding-opencore-to-your-bios">Adding OpenCore to your BIOS</a></li>
+</ul>
+<p>So with OpenCore 0.5.8 and newer, we get a neat little file inside our EFI/OC/Bootstrap folder called Bootstrap.efi. What this allows us to do is add OpenCore to our motherboard&apos;s boot menu and prevent issues where either Windows or Linux try to overwrite the BOOTx64.efi file which can happen during updates and completely delete any way of booting OpenCore.</p>
+<h2 id="preparation"><a name="preparation" class="plugin-anchor" href="#preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Preparation</h2>
+<p>So to start we&apos;re gonna need the following:</p>
+<ul>
+<li><a href="https://github.com/acidanthera/OpenCorePkg/releases" target="_blank">OpenCore 0.5.8 or newer</a><ul>
+<li>Verify you have EFI/OC/Bootstrap/Bootstrap.efi</li>
+</ul>
+</li>
+<li>config.plist settings:<ul>
+<li>Misc -&gt; Security -&gt; BootProtect -&gt; Bootstrap</li>
+<li>UEFI -&gt; Quirks -&gt; RequestBootVarRouting -&gt; True</li>
+</ul>
+</li>
+<li><a href="https://github.com/acidanthera/OpenCorePkg/releases" target="_blank">OpenShell</a><ul>
+<li>Bundled with OpenCore</li>
+<li>Remember to add this to both EFI/OC/Tools and config.plist -&gt; Misc -&gt; Tools</li>
+<li>This is mainly for troubleshooting</li>
+</ul>
+</li>
+</ul>
+<h2 id="booting"><a name="booting" class="plugin-anchor" href="#booting"><i class="fa fa-link" aria-hidden="true"></i></a>Booting</h2>
+<p>So once you&apos;ve got the prerequisites out of the way, we&apos;re ready to boot! So what the first boot with these settings enabled is create a new boot option in our BIOS(Boot9696) and every boot after this will update the entry making sure it&apos;s correct. This now allows us to either remove BOOTx64.efi or not worry about it when other OSes overwrite this file.</p>
+<p>If no new boot option is created, you can go down and follow the troubleshooting steps on manually adding it. But triple check the above settings are correct on your system.</p>
+<h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting</h2>
+<p>This is mainly as a mini-guide in case BootProtect doesn&apos;t work or you&apos;d like to do it manually.</p>
+<ul>
+<li><a href="#verify-bootstrap-entry-was-applied">Verify Bootstrap entry was applied</a></li>
+<li><a href="#removing-bootstrap-entry-from-bios">Removing Bootstrap entry from BIOS</a></li>
+</ul>
+<h3 id="verify-bootstrap-entry-was-applied"><a name="verify-bootstrap-entry-was-applied" class="plugin-anchor" href="#verify-bootstrap-entry-was-applied"><i class="fa fa-link" aria-hidden="true"></i></a>Verify Bootstrap entry was applied</h3>
+<p>For those wanting to verify that the entry was applied in OpenCore, enabling logging(see <a href="../troubleshooting/debug.md">OpenCore Debugging</a>) and check for entries similar to these:</p>
+<pre><code>OCB: Have existing option 1, valid 1
+OCB: Boot order has first option as the default option
+</code></pre><h3 id="removing-bootstrap-entry-from-bios"><a name="removing-bootstrap-entry-from-bios" class="plugin-anchor" href="#removing-bootstrap-entry-from-bios"><i class="fa fa-link" aria-hidden="true"></i></a>Removing Bootstrap entry from BIOS</h3>
+<p>Because the Bootstrap entry is a protected entry when resetting NVRAM, you&apos;ll need to set certain settings:</p>
+<ul>
+<li>Misc -&gt; Security -&gt; AllowNvramReset -&gt; true</li>
+<li>Misc -&gt; Security -&gt; BootProtect -&gt; None</li>
+</ul>
+<p>Once these 2 are set in your config.plist, you can next reboot into the OpenCore picker and select the <code>Reset NVRAM</code> entry</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="duet.html" class="navigation navigation-prev " aria-label="Previous page: Installing OpenCore on a legacy system">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="bootcamp.html" class="navigation navigation-next " aria-label="Next page: BootCamp installation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Using Bootstrap.efi","level":"4.1.4","depth":2,"next":{"title":"BootCamp installation","level":"4.1.5","depth":2,"path":"oc/bootcamp.md","ref":"oc/bootcamp.md","articles":[]},"previous":{"title":"Installing OpenCore on a legacy system","level":"4.1.3","depth":2,"path":"oc/duet.md","ref":"oc/duet.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"last-modified":{},"output":"_book","addcssjs":{"js":[],"css":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"oc/bootstrap.md","mtime":"2020-06-16T19:18:21.672Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T19:19:37.843Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    </body>
+</html>
+
