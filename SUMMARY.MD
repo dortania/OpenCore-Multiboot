@@ -4,9 +4,9 @@
 
 ## Introduction to multi-booting
 
-* [What is it?](/intro/Def.md)
-* [UEFI? Legacy? CSM? What?](/intro/Booting-part.md)
-* [Disclaimer](/intro/disc.md)
+* [What is it?](/Intro/Def.md)
+* [UEFI? Legacy? CSM? What?](/Intro/Booting-part.md)
+* [Disclaimer](/Intro/disc.md)
 
 ## Multibooting Situations:
 
