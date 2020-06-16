@@ -89,7 +89,7 @@ You can also download and run `efibootmgr` (available on most distributions) and
 
 # macOS in all of this
 
-macOS requires some special treatment because Apple wants to (papering their OS), and thus requires a set of rules to get it installed on any drive:
+macOS requires some special treatment because Apple wants to (pampering their OS), and thus requires a set of rules to get it installed on any drive:
 
 - GPT formatted disk
 - EFI partition of at least 200MB
