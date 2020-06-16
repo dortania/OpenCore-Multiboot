@@ -1,0 +1,656 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>UEFI? Legacy? CSM? What? · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-medium-zoom/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="disc.html" />
+    
+    
+    <link rel="prev" href="Def.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../QUICK.html">
+            
+                <a href="../QUICK.html">
+            
+                    
+                    Quick! I know what do, just tell me already
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Introduction to multi-booting</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="Def.html">
+            
+                <a href="Def.html">
+            
+                    
+                    What is it?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="Booting-part.html">
+            
+                <a href="Booting-part.html">
+            
+                    
+                    UEFI? Legacy? CSM? What?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="disc.html">
+            
+                <a href="disc.html">
+            
+                    
+                    Disclaimer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Multibooting Situations:</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../empty/">
+            
+                <a href="../empty/">
+            
+                    
+                    On empty disks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../empty/samedisk.html">
+            
+                <a href="../empty/samedisk.html">
+            
+                    
+                    One disk - multiple OSes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../empty/diffdisk.html">
+            
+                <a href="../empty/diffdisk.html">
+            
+                    
+                    Multiple disks - multiple OSes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../exist/">
+            
+                <a href="../exist/">
+            
+                    
+                    On filled disks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../exist/data.html">
+            
+                <a href="../exist/data.html">
+            
+                    
+                    On a filled non-OS related disk (Data disk)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../exist/os.html">
+            
+                <a href="../exist/os.html">
+            
+                    
+                    On a filled OS related disk (Windows/Linux)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">OpenCore configuration</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Configuring OpenCore
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../oc/win.html">
+            
+                <a href="../oc/win.html">
+            
+                    
+                    For Windows booting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../oc/linux.html">
+            
+                <a href="../oc/linux.html">
+            
+                    
+                    For Linux booting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../oc/duet.html">
+            
+                <a href="../oc/duet.html">
+            
+                    
+                    Installing OpenCore on a legacy system
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../oc/bootstrap.html">
+            
+                <a href="../oc/bootstrap.html">
+            
+                    
+                    Using Bootstrap.efi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../oc/bootcamp.html">
+            
+                <a href="../oc/bootcamp.html">
+            
+                    
+                    BootCamp installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >UEFI? Legacy? CSM? What?</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <blockquote>
+<p><em>Last modified: Tue Jun 16 2020 19:27:09 GMT+0000 (Coordinated Universal Time)</em></p>
+</blockquote>
+<h1 id="uefi-systems"><a name="uefi-systems" class="plugin-anchor" href="#uefi-systems"><i class="fa fa-link" aria-hidden="true"></i></a>UEFI Systems</h1>
+<p>Ever since UEFI, the disk default partition map format is GPT (GUID Partition Table), which added support for more than 2TB of disk size and more than 4 partitions that was the limit of MBR while still keeping a backward compatibility with MBR for legacy systems. If your computer (prebuilt) came with Windows 8 (2012 and later), then your disk is probably partitionned as GPT.</p>
+<p>Usually 2012+ computers that came with Windows 8 would have a UEFI firmware (some OEMs released Windows 7 releases alongside those, so make sure yours has UEFI), and this is a newly spread firmware type (that was in developement since the 2000s) and was already deployed on Apple computers ever since the intel switch (but their own heavily modified firmware, it&apos;s called EFI and not UEFI for the lack of Universiality). This new firmware has some new features like SecureBoot, help with faster booting, hardware passthrough, graphical interface with mouse support (and more). To know more about UEFI and SecureBoot check this writeup by Osy86 <a href="https://osy.gitbook.io/hac-mini-guide/details/secure-boot" target="_blank">here</a>. Basically a UEFI boot goes something like this:</p>
+<ul>
+<li>UEFI Firmware loads up</li>
+<li>Loads its integrated drivers and services</li>
+<li>Reads the boot menu entries and start loading the first boot entry<ul>
+<li>If failed starts the next one</li>
+</ul>
+</li>
+<li>Loads the bootloader <ul>
+<li>OS is loaded after that.</li>
+</ul>
+</li>
+</ul>
+<p>Usually the said &quot;bootloader&quot; is contained somewhere in the disk, and that somewhere is called a <strong>EFI Partition</strong>. You can find this named different things like ESP (EFI System Partition), SYSTEM, EFI, BOOT and so on. This partition is <strong>FAT32</strong> formatted and flagged as <strong>EF00</strong> in MBR or <strong>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</strong> GUID in GPT. This partition contains usually the EFI applications (like an OS bootloader) in it that are loaded at boot by the UEFI firmware (remember this as it is important for later for recovery).</p>
+<h1 id="legacycsm-systems"><a name="legacycsm-systems" class="plugin-anchor" href="#legacycsm-systems"><i class="fa fa-link" aria-hidden="true"></i></a>Legacy/CSM Systems</h1>
+<p>Contrary to UEFI, Legacy systems are a older and much more mature (dating back to the first IBM PCs). They&apos;re certainly a lot more limited and slower than UEFI on the same system but hold better compatibility with a lot of OSes (even macOS in some rare cases). Computer pre-2012 usually have this type of firmware (some exceptions like servers and some professional laptops and so on that can also have UEFI, they&apos;re not reliable thought in that mode). The computer would usually come with a version of Windows that is older than Windows 8 with a hard drive that is less than 2TB. Some desktop users at this time would also install OSes in Legacy mode even if their motherboard support the newer UEFI standard. This could create issues with multibooting later on.</p>
+<p>These systems rely on another method of loading the bootloader. This piece of software is usually written in the first sectors of the disk (formatted as MBR) called <strong>boot sector</strong>, this sector is usually 512 or 4096 bytes big, the BIOS would then read the code, copy it to memory and then execute it, at that point an OS or Bootloader menu (like GRUB2) will show up:</p>
+<ul>
+<li>BIOS Starts up</li>
+<li>Reads the <strong>boot sector</strong></li>
+<li>Loads the program into memory</li>
+<li>Executes the program</li>
+<li>Bootloader appears<ul>
+<li>OS Boot.</li>
+</ul>
+</li>
+</ul>
+<h1 id="major-differences-between-the-systems"><a name="major-differences-between-the-systems" class="plugin-anchor" href="#major-differences-between-the-systems"><i class="fa fa-link" aria-hidden="true"></i></a>Major differences between the systems:</h1>
+<p>We&apos;ll put them in a table to show the main differences:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>UEFI</strong></th>
+<th><strong>Legacy</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FastBoot</td>
+<td>&#x2705; (on most)</td>
+<td>&#x274C; (only some do, not a standard)</td>
+</tr>
+<tr>
+<td>Bootloader Chooser through the boot menu</td>
+<td>&#x2705; (on most)</td>
+<td>&#x274C; (only some do, not a standard)</td>
+</tr>
+<tr>
+<td>SecureBoot</td>
+<td>&#x2705; (on most)</td>
+<td>&#x274C; (only some do, not a standard)</td>
+</tr>
+<tr>
+<td>Add a bootloader without overwriting the others</td>
+<td>&#x2705; (on most)</td>
+<td>&#x274C; (only some do, not a standard)</td>
+</tr>
+<tr>
+<td>Supporting 2TB+ boot disks</td>
+<td>&#x2705; (hardware dependent)</td>
+<td>&#x274C; (requires GPT, which is supported on some Legacy systems, 2006+)</td>
+</tr>
+<tr>
+<td>Legacy Hardware Support</td>
+<td>&#x26A0;&#xFE0F; (depends on which hardware, CSM switch should be possible)</td>
+<td>&#x2705; (hardware dependent)</td>
+</tr>
+<tr>
+<td>Easier maintenance (managing bootloaders and boot entries)</td>
+<td>&#x2705; (on most)</td>
+<td>&#x274C; (only some do, not a standard)</td>
+</tr>
+<tr>
+<td>OS Support</td>
+<td>&#x2705;</td>
+<td>&#x2705;</td>
+</tr>
+</tbody>
+</table>
+<p>Aside from Legacy hardware support (which are rare anyways nowadays), UEFI is the firmware to use when dual booting on newer hardware (2012+). But for legacy users, there is also a way to get some UEFI features but only through DUET (will be later discussed).</p>
+<h1 id="detecting-which-firmware-youre-using"><a name="detecting-which-firmware-youre-using" class="plugin-anchor" href="#detecting-which-firmware-youre-using"><i class="fa fa-link" aria-hidden="true"></i></a>Detecting which firmware you&apos;re using</h1>
+<h2 id="no-os"><a name="no-os" class="plugin-anchor" href="#no-os"><i class="fa fa-link" aria-hidden="true"></i></a>No OS:</h2>
+<p>If your computer is:</p>
+<ul>
+<li>From IvyBridge era (~2012) and later</li>
+<li>Has a Windows 8 Sticker</li>
+</ul>
+<p>Then it probably has <strong>UEFI system</strong>, that said, it doesnt mean older generation motherboards do not, however with Windows 8 release, Microsoft standardised the UEFI specs for OEMs to get their certification (usually if you go with brand names like ASUS, Lenovo, HP, Dell... you&apos;re good to go).</p>
+<p>Any older than the above and the chances of having a proper UEFI implementation diminishes and you&apos;re better off with a Legacy booting.</p>
+<h2 id="on-windows"><a name="on-windows" class="plugin-anchor" href="#on-windows"><i class="fa fa-link" aria-hidden="true"></i></a>On Windows:</h2>
+<p>Open Run (Win + R) and type <code>msinfo32</code>, you will be greeted with this window:</p>
+<p><img src="../images/msinfo.png" alt="MSINFO32 Window"></p>
+<p>Check <strong>BIOS Mode</strong>, it will either say <strong>UEFI</strong> or <strong>Legacy</strong>. Note that this is for Windows 8/10, if you&apos;re using Windows 7 or older, you&apos;re probably running it in Legacy mode.</p>
+<h2 id="on-linux"><a name="on-linux" class="plugin-anchor" href="#on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>On linux:</h2>
+<h3 id="method-1"><a name="method-1" class="plugin-anchor" href="#method-1"><i class="fa fa-link" aria-hidden="true"></i></a>Method 1</h3>
+<p>On most linux distributions, you can run </p>
+<p><code>ls /sys/firmware/efi</code></p>
+<p><img src="../Users/midi/Library/Application Support/typora-user-images/image-20200428184918316.png" alt=""></p>
+<p>If the folder exists, then you&apos;re running in UEFI mode.</p>
+<h3 id="method-2"><a name="method-2" class="plugin-anchor" href="#method-2"><i class="fa fa-link" aria-hidden="true"></i></a>Method 2</h3>
+<p>You can also download and run <code>efibootmgr</code> (available on most distributions) and you will either:</p>
+<ul>
+<li>Get boot entries variables<ul>
+<li>Your system is running UEFI</li>
+</ul>
+</li>
+<li>or get an error message that EFI variables aren&apos;t supported<ul>
+<li>Your system is running in Legacy mode</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="macos-in-all-of-this"><a name="macos-in-all-of-this" class="plugin-anchor" href="#macos-in-all-of-this"><i class="fa fa-link" aria-hidden="true"></i></a>macOS in all of this</h1>
+<p>macOS requires some special treatment because Apple wants to (papering their OS), and thus requires a set of rules to get it installed on any drive:</p>
+<ul>
+<li>GPT formatted disk</li>
+<li>EFI partition of at least 200MB</li>
+</ul>
+<p>With these two requirements in mind, you can theoretically just make them happen and you&apos;re good to go. If you understood what to do from these requirements and can do it on your own, you&apos;re good to go, if not, stay here to get more tips and tricks on how to properly fix this.</p>
+<hr>
+<p>Next sections:</p>
+<p>Cases:</p>
+<ul>
+<li>No OS installed on the machine:<ul>
+<li>DB on same disk</li>
+<li>DB on different disks</li>
+</ul>
+</li>
+<li>Already installed OS or existing data in the drive<ul>
+<li>Systems with native UEFI support: convert your legacy booting OS to a UEFI one<ul>
+<li>Linux</li>
+<li>Windows</li>
+<li>Systems with only Legacy booting only option:<ul>
+<li>DUET</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Good luck, and <strong><em>BACKUP YOUR DATA</em></strong>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Def.html" class="navigation navigation-prev " aria-label="Previous page: What is it?">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="disc.html" class="navigation navigation-next " aria-label="Next page: Disclaimer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"UEFI? Legacy? CSM? What?","level":"2.2","depth":1,"next":{"title":"Disclaimer","level":"2.3","depth":1,"path":"Intro/disc.md","ref":"Intro/disc.md","articles":[]},"previous":{"title":"What is it?","level":"2.1","depth":1,"path":"Intro/Def.md","ref":"Intro/Def.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"last-modified":{},"output":"_book","addcssjs":{"js":[],"css":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"Intro/Booting-part.md","mtime":"2020-06-16T19:27:09.344Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T19:28:26.735Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    
+
+    </body>
+</html>
+

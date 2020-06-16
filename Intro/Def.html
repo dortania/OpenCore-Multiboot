@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>On a filled non-OS related disk (Data disk) · GitBook</title>
+        <title>What is it? · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -71,10 +71,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="os.html" />
+    <link rel="next" href="Booting-part.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../QUICK.html" />
     
 
     <style>
@@ -147,9 +147,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../Intro/Def.html">
+        <li class="chapter active" data-level="2.1" data-path="Def.html">
             
-                <a href="../Intro/Def.html">
+                <a href="Def.html">
             
                     
                     What is it?
@@ -160,9 +160,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="../Intro/Booting-part.html">
+        <li class="chapter " data-level="2.2" data-path="Booting-part.html">
             
-                <a href="../Intro/Booting-part.html">
+                <a href="Booting-part.html">
             
                     
                     UEFI? Legacy? CSM? What?
@@ -173,9 +173,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.3" data-path="../Intro/disc.html">
+        <li class="chapter " data-level="2.3" data-path="disc.html">
             
-                <a href="../Intro/disc.html">
+                <a href="disc.html">
             
                     
                     Disclaimer
@@ -238,9 +238,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="./">
+        <li class="chapter " data-level="3.2" data-path="../exist/">
             
-                <a href="./">
+                <a href="../exist/">
             
                     
                     On filled disks
@@ -252,9 +252,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="3.2.1" data-path="data.html">
+        <li class="chapter " data-level="3.2.1" data-path="../exist/data.html">
             
-                <a href="data.html">
+                <a href="../exist/data.html">
             
                     
                     On a filled non-OS related disk (Data disk)
@@ -265,9 +265,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2.2" data-path="os.html">
+        <li class="chapter " data-level="3.2.2" data-path="../exist/os.html">
             
-                <a href="os.html">
+                <a href="../exist/os.html">
             
                     
                     On a filled OS related disk (Windows/Linux)
@@ -404,7 +404,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >On a filled non-OS related disk (Data disk)</a>
+        <a href=".." >What is it?</a>
     </h1>
 </div>
 
@@ -422,7 +422,27 @@
                                 <blockquote>
 <p><em>Last modified: Tue Jun 16 2020 19:27:09 GMT+0000 (Coordinated Universal Time)</em></p>
 </blockquote>
-<h1 id="on-a-filled-non-os-related-disk-data-disk"><a name="on-a-filled-non-os-related-disk-data-disk" class="plugin-anchor" href="#on-a-filled-non-os-related-disk-data-disk"><i class="fa fa-link" aria-hidden="true"></i></a>On a filled non-OS related disk (Data disk)</h1>
+<h1 id="what-is-multibooting"><a name="what-is-multibooting" class="plugin-anchor" href="#what-is-multibooting"><i class="fa fa-link" aria-hidden="true"></i></a>What is multibooting?</h1>
+<p>Multibooting is the process of having multiple OSes booting off a same device and physically present on that device. You might say &quot;well duh!&quot; but some people do not know that you can only boot <strong>one OS</strong> at a time. Contrary to virtualisation, multibooting does <em>NOT</em> load all OSes at the same time but you turn off one to get to the other. Multibooting can be on any machine, whether it&apos;s a virtual one or a real one, as long as the firmware is able to boot either of the OSes, it&apos;s good.</p>
+<p>Here is how we can see Multiboot vs Virtualisation:</p>
+<p><img src="../images/mbvm.png" alt="Left Multibooting  |  Right Virtualisation"></p>
+<p>Now that you made the difference, there are thing you need to know about dualbooting, mainly:</p>
+<ul>
+<li>Disk partitioning</li>
+<li>Bootloader location<ul>
+<li>Legacy</li>
+<li>UEFI</li>
+</ul>
+</li>
+<li>Bootloader selection<ul>
+<li>Legacy</li>
+<li>UEFI</li>
+</ul>
+</li>
+<li>Configuration of the bootloader</li>
+</ul>
+<p>But before starting any of this</p>
+<h1 id="please-backup-your-data"><a name="please-backup-your-data" class="plugin-anchor" href="#please-backup-your-data"><i class="fa fa-link" aria-hidden="true"></i></a>PLEASE BACKUP YOUR DATA.</h1>
 
                                 
                                 </section>
@@ -450,12 +470,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: On filled disks">
+                <a href="../QUICK.html" class="navigation navigation-prev " aria-label="Previous page: Quick! I know what do, just tell me already">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="os.html" class="navigation navigation-next " aria-label="Next page: On a filled OS related disk (Windows/Linux)">
+                <a href="Booting-part.html" class="navigation navigation-next " aria-label="Next page: UEFI? Legacy? CSM? What?">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -466,7 +486,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On a filled non-OS related disk (Data disk)","level":"3.2.1","depth":2,"next":{"title":"On a filled OS related disk (Windows/Linux)","level":"3.2.2","depth":2,"path":"exist/os.md","ref":"exist/os.md","articles":[]},"previous":{"title":"On filled disks","level":"3.2","depth":1,"path":"exist/README.md","ref":"exist/README.md","articles":[{"title":"On a filled non-OS related disk (Data disk)","level":"3.2.1","depth":2,"path":"exist/data.md","ref":"exist/data.md","articles":[]},{"title":"On a filled OS related disk (Windows/Linux)","level":"3.2.2","depth":2,"path":"exist/os.md","ref":"exist/os.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"last-modified":{},"output":"_book","addcssjs":{"js":[],"css":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"exist/data.md","mtime":"2020-06-16T19:27:09.348Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T19:28:26.735Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"What is it?","level":"2.1","depth":1,"next":{"title":"UEFI? Legacy? CSM? What?","level":"2.2","depth":1,"path":"Intro/Booting-part.md","ref":"Intro/Booting-part.md","articles":[]},"previous":{"title":"Quick! I know what do, just tell me already","level":"1.2","depth":1,"path":"QUICK.md","ref":"QUICK.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"last-modified":{},"output":"_book","addcssjs":{"js":[],"css":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"Intro/Def.md","mtime":"2020-06-16T19:27:09.344Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T19:28:26.735Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
