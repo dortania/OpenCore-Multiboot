@@ -30,8 +30,10 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
   ![img](../images/ex-data/mbvm.png)
 - Go to *Volumes* and check *Partition Style*
   - **MBR** drives will show:
+    
     ![image-20200825010342403](../images/ex-data/mbr_disk.png)
   - **GPT** drives will show:
+    
     ![image-20200825010434237](../images/ex-data/gpt_disk.png)
 
 #### In Linux:
@@ -269,7 +271,7 @@ We'll be using a disk managing software named `Minitool Partition Wizard`, ngl, 
 
 ##### But where is muh GpArTeD?
 
-The reason why im not recommending Gparted with NTFS partitions is that it might corrupt the partition easier than when Windows deals with it. I personally didnt have to deal much with corrupt ntfs partitions (I did once or twice) and windows will surely fix them, but a lot of users reported unrecoverable partitions or data from using Gparted, not blaming gparted, but using Windows with its own FS is easier than hoping ntfs-3g doesn't fuck up, that said though, I'll post a Gparted guide below under `Linux` section, and if you already dealt with Gparted, I think you might know what to do.
+The reason why im not recommending Gparted with NTFS partitions is that it might corrupt the partition easier than when Windows deals with it. I personally didn't have to deal much with corrupt NTFS partitions (I did once or twice) and Windows will surely fix them, but a lot of users reported unrecoverable partitions or data from using Gparted, not blaming Gparted, but using Windows with its own FS is safer than hoping ntfs-3g doesn't fuck up, that being said though, I'll post a Gparted guide below under `Linux` section, and if you already dealt with Gparted, I think you might know what to do.
 
 In this section I'll be using MPW, the other tools are very similar and have very similar menus, you can follow up with them just fine. In this case I will be using an external disk for the partitioning, it does not change anything about internal disk, the same procedure goes for any disk.
 
@@ -400,6 +402,7 @@ We'll be using your favorite tool Gparted, if you're using parted/gpart, you're 
   ![image-20200917020200810](../images/ex-data/mng_flags.png)
 
 - Select `esp`, gparted will select `boot` automatically, keep it that way
+
   ![image-20200917020305683](../images/ex-data/flags.png)
 
 - It will be done instantly, check your flags
@@ -408,4 +411,3 @@ We'll be using your favorite tool Gparted, if you're using parted/gpart, you're 
   - You can also check in `gdisk` for `EF00`
 
 - Once done you can go to **Partitioning for macOS**
-
