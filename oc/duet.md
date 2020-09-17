@@ -17,4 +17,4 @@ For the latter:
 4. Chain-load rEFInd
 5. Select Windows
 
-![](/images/duet-md/blessoverride.png)
+![](../images/duet-md/blessoverride.png)

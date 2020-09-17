@@ -27,34 +27,35 @@ To start we'll need the following:
 To install, it's as simple as grabbing [Brigadier](https://github.com/corpnewt/brigadier) and running either `Brigadier.bat` for Windows or `Brigadier.command` for macOS. If the SMBIOS you're currently using either has BootCamp issues or want to download for another SMBIOS, you can add `--  model{SMBIOS}` to the end:
 
 ```
-path/to/Brigadier --model MacPro7,1
+cd path/to/Brigadier
+brigadier.bat --model MacPro7,1
 ```
 
-* **Note**: Older versions of the BootCamp installer(6.0) do not support APFS, you'll need to either choose a newer SMBIOS that would have it bundled(ie. iMac 19,1) or after installation update your bootcamp software. See below for more details on troubleshooting: [Windows Startup Disk can't see APFS drives](#windows-startup-disk-cant-see-apfs-drives)
+* **Note**: Older versions of the BootCamp installer(6.0) do not support APFS, you'll need to either choose a newer SMBIOS that would have it bundled (ie. iMac 19,1 or MacPro7,1) or after installation update your bootcamp software. See below for more details on troubleshooting: [Windows Startup Disk can't see APFS drives](#windows-startup-disk-cant-see-apfs-drives)
 
-![](/images/bootcamp-md/extension.png)
+![](../images/bootcamp-md/extension.png)
 
 Next you will find our bootcamp drivers under either:
 
 * Windows:
 
 ```
-\Users\{Username}\bootcamp-{filename}\BootCamp
+path\to\Brigadier\BootCamp-{version}
 ```
 
 * macOS:
 
 ```
-/Users/{Username}/BootCamp-{filename}/WindowsSupport.dmg
+path/to/Brigadier/BootCamp-{version}/WindowsSupport.dmg
 ```
 
 macOS users will next need to expand WindowsSupport.dmg and place it somewhere Windows can get.
 
-![](/images/bootcamp-md/done.png)
+![](../images/bootcamp-md/done.png)
 
-Next navigate to the `bootcamp-{filename}\BootCamp` folder and run the Setup.exe:
+Next navigate to the `bootcamp-{version}\BootCamp` folder and run the Setup.exe:
 
-![](/images/bootcamp-md/location.png)
+![](../images/bootcamp-md/location.png)
 
 Once all is finished, you now have BootCamp switching! There should be a little BootCamp icon in you tray now that you can select which drive to boot to.
 
@@ -93,22 +94,25 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 * **Note**: As of OpenCore 0.5.9, this no longer needs to be specified. OpenCore should pick up on this entry automatically
 
-![](/images/win-md/blessoverride.png)
+![](../images/win-md/blessoverride.png)
 
 ## "You can't change the startup disk to the selected disk" error
 
 This is commonly caused by either:
 
-* 3rd Party NTFS Drivers(ie. Paragon)
+* 3rd Party NTFS Drivers (ie. Paragon)
 * Irregular partition setup of the Windows drive, specifically that the EFI is not the first partition.
+* You have BitLocker enabled
 
-To fix the former, either disable or uninstall these tools.
+To fix the first, either disable or uninstall these tools.
 
-To fix the latter, we need to enable this quirk:
+To fix the second, we need to enable this quirk:
 
 * `PlatformInfo -> Generic -> AdviseWindows -> True`
 
-![](/images/bootcamp-md/error.png)
+![](../images/bootcamp-md/error.png)
+
+To fix the third, you will be required to lift Bitlocker encryption.
 
 ## Booting Windows results in BlueScreen or Linux crashes
 
@@ -130,7 +134,7 @@ This is due to OpenCore getting confused when trying to boot Windows and acciden
 
 ## Windows Startup Disk can't see APFS drives
 
-* Outdated BootCamp drivers(generally ver 6.0 will come with brigadier, BootCamp Utility in macOS provides newer version like ver 6.1). You can try to alleviate these issues by either updating to the newest release with Apple's software updater or selecting a newer SMBIOS from brigadier(ie. `--model iMac19,1`) and when running brigadier.
+* Outdated BootCamp drivers(generally ver 6.0 will come with brigadier, BootCamp Utility in macOS provides newer version like ver 6.1). You can try to alleviate these issues by either updating to the newest release with Apple's software updater or selecting a newer SMBIOS from brigadier (ie. `--model iMac19,1`) and when running brigadier.
 
 For the latter, you'll need to run the following(replace `filename.msi` with the BootCamp installation msi):
 

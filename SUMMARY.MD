@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Quick! I know what do, just tell me already](QUICK.md)
+* [Quick! I know what do, just tell me already HOW](QUICK.md) -- For experienced users who already dealth with multibooting.
 
 ## Introduction to multi-booting
 
@@ -10,10 +10,10 @@
 
 ## Multibooting Situations:
 
-* [On empty disks](/empty/README.md)
-  * [One disk - multiple OSes](/empty/samedisk.md)
-  * [Multiple disks - multiple OSes](/empty/diffdisk.md)
-* [On filled disks](/exist/README.md)
+* [New Empty Disk](/empty/README.md) -- Like a new rig/system without an OS (or with macOS just installed)
+  * [One disk - multiple OSes](/empty/samedisk.md) -- Empty or With macOS installed
+  * [Multiple disks - multiple OSes](/empty/diffdisk.md) -- Empty or With macOS installed
+* [Existing Filled Disk](/exist/README.md) -- In a setup with an OS already installed or a secondary data disk
   * [On a filled non-OS related disk (Data disk)](/exist/data.md)
   * [On a filled OS related disk (Windows/Linux)](/exist/os.md)
 

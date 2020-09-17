@@ -24,7 +24,7 @@ These systems rely on another method of loading the bootloader. This piece of so
 * Loads the program into memory
 * Executes the program
 * Bootloader appears
-  * OS Boot.
+  * The OS will boot now.
 
 # Major differences between the systems:
 
@@ -47,10 +47,10 @@ Aside from Legacy hardware support (which are rare anyways nowadays), UEFI is th
 
 ## No OS:
 
-If your computer is:
+If your computer:
 
-- From IvyBridge era (~2012) and later
-- Has a Windows 8 Sticker
+- is from IvyBridge era (~2012) and later
+- has a Windows 8 Sticker
 
 Then it probably has **UEFI system**, that said, it doesnt mean older generation motherboards do not, however with Windows 8 release, Microsoft standardised the UEFI specs for OEMs to get their certification (usually if you go with brand names like ASUS, Lenovo, HP, Dell... you're good to go).
 
@@ -72,9 +72,9 @@ On most linux distributions, you can run
 
 ```ls /sys/firmware/efi```
 
-![](/Users/midi/Library/Application Support/typora-user-images/image-20200428184918316.png)
+![img](../images/linuxefivar.png)
 
-If the folder exists, then you're running in UEFI mode.
+If the folder exists, then you're running in UEFI mode. (screenshot credit: Scooby-Chan#7971)
 
 ### Method 2
 

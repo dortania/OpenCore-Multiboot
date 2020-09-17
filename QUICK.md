@@ -8,11 +8,12 @@ Ok, if you're quite experienced with how partitioning and booting multiple OSes 
   - GPT formatted disk
   - UEFI system (or DUET for legacy systems, comes with OpenCorePkg)
 - OpenCore should preferably be copied to the EFI of the same disk
-  - Make sure you run the `BootInstall.command` if you're on a legacy system
-  - the EFI partition preferably needs to be at the beginning of disk for multibooting with Windows (read OpenCore's configuration.pdf)
+  - Make sure you run the `BootInstall.command` **if you're on a legacy system**
+  - the EFI partition **preferably** needs to be at the **beginning of the disk** for multibooting with Windows (read OpenCore's configuration.pdf)
 - It doesn't matter if you already have anything on that drive:
-  - You can convert it to GPT (if it's MBR) and create an EFI partition with flag hex `EF00` (using gdisk for example or gparted and choosing type `efi`)
-  - Resize the existing EFI to 200MB (windows usually limits it on a new install to 100MB, some linux distros have lower or higher sizes, but usually less than 200MB)
+  - You can convert it to GPT (if it's MBR) and create an EFI partition with flag hex `EF00` (using gdisk for example or gparted and choosing type `efi`<sup>(Will show up once the partition if formatted, if not already.)</sup>)
+  - Resize the existing EFI to **200MB** (windows usually limits it on a new install to 100MB, some linux distros have lower or higher sizes, but usually less than 200MB)
+    - Recommendation: Make sure it's a bit bigger like 210MB or something to count of the difference in byte/bit reading on macOS/Linux/Windows. (multiples of 1024 instead of 1000 and vice-versa)
   - Windows 10 1709 and later have a utility called `mbr2gpt` to convert the Windows boot disk to UEFI
     - Do this to dualboot Windows 10 and macOS on the same drive no matter what the boot mode is
       - In case of legacy system, you'll lose windows access until you install OpenCore and boot windows from it
@@ -32,12 +33,13 @@ Ok, if you're quite experienced with how partitioning and booting multiple OSes 
   - If you're using linux it's the same steps as earlier (just 200MB EFI partition and somewhere to put macOS on)
 - Make sure the disk doesn't have any S.M.A.R.T errors
 - DO NOT have multiple EFIs on the same disk, you **MUST** only have **ONE** EFI partition per disk
-- The OS Install order does not matter at all
+- The OS Install order **does not matter at all**
   - however windows can be a bit of a bitch, so installing it after macOS can be challenging, linux doesn't pose such problems
   - If you happen to stumble on the sad windows crap you can:
     - Boot windows installer
     - Erase the partition where you want windows to be installed on to NTFS (as expected)
     - Follow the rest from this [guide over at TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html#Part2)
       - You do NOT need MSR and Recovery, and you cannot create them when there are things already installed on the disk (blame windows installer)
+        - TODO: some way of creating a separate windows Recovery, I cannot find any guide on how to do that so that Windows would recognize it natively, if you know of a guide or know how to do it, open [a PR](https://github.com/dortania/OpenCore-Multiboot/) or [an issue](https://github.com/dortania/bugtracker) with your ideas. 
 
 Now that you have all these information, good luck with the rest. However if you're not sure, follow then the long way that has more explanations and details on how to properly do it.
