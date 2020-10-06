@@ -99,7 +99,7 @@ module.exports = {
             */
         ],
         sidebar: [{
-            title: 'For experienced users who already dealt with multibooting.',
+            title: 'For experienced users who already dealt with multibooting',
             collapsable: false,
             sidebarDepth: 1,
             children: [
@@ -107,7 +107,56 @@ module.exports = {
             ]
 
         },
-        
+		{
+            title: 'Introduction to multi-booting',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+                ['/Intro/Def', 'What is it?'],
+				['/Intro/Booting-part', 'UEFI? Legacy? CSM? What?'],
+				['/Intro/disc', 'Disclaimer'],
+            ]
+
+        },
+		{
+            title: 'Multibooting Situations',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+                ['/empty/', 'Multibooting Situations'],
+				{
+            	collapsable: false,
+            	sidebarDepth: 1,
+	            children: [
+	                ['/empty/samedisk', 'One disk - multiple OSes'],
+					['/empty/diffdisk', 'Multiple disks - multiple OSes'],
+	            ]
+				},
+				['/exist/', 'Existing Filled Disk'],
+				{
+            	collapsable: false,
+            	sidebarDepth: 1,
+	            children: [
+	                ['/exist/data', 'On a filled non-OS related disk (Data disk)'],
+					['/exist/os', 'On a filled OS related disk (Windows/Linux)'],
+	            ]
+				},
+            ]
+
+        },
+		{
+            title: 'OpenCore configuration',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+                ['/oc/win', 'For Windows booting'],
+				['/oc/linux', 'For Linux booting'],
+				['/oc/duet', 'Installing OpenCore on a legacy system'],
+				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html', 'Using Bootstrap.efi'],
+				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootcamp.html', 'BootCamp installation'],
+            ]
+
+        },
     	],
     },
     /**
