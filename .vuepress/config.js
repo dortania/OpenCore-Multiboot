@@ -3,20 +3,7 @@ const {
 } = require('../package')
 
 module.exports = {
-    /**
-     * Ref：https://v1.vuepress.vuejs.org/config/#title
-     */
     title: 'OpenCore Multiboot',
-    /**
-     * Ref：https://v1.vuepress.vuejs.org/config/#description
-     */
-    description: description,
-
-    /**
-     * Extra tags to be injected to the page HTML `<head>`
-     *
-     * ref：https://v1.vuepress.vuejs.org/config/#head
-     */
     head: [
         ['meta', {
             name: 'theme-color',
@@ -44,12 +31,6 @@ module.exports = {
 			});
 		}
 	},
-
-    /**
-     * Theme configuration, here is the default theme configuration for VuePress.
-     *
-     * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-     */
     theme: 'vuepress-theme-succinct',
     globalUIComponents: [
         'ThemeManager'
@@ -58,10 +39,9 @@ module.exports = {
     themeConfig: {
         lastUpdated: true,
         repo: 'https://github.com/dortania/OpenCore-Multiboot',
-        editLinks: false,
-        docsDir: '',
-        editLinkText: '',
-        logo: '/homepage.png',
+		editLinks: true,
+		editLinkText: 'Help us improve this page!',
+        logo: 'homepage.png',
         nav: [{
             text: 'Dortania Guides',
             ariaLabel: 'Language Menu',
@@ -100,7 +80,7 @@ module.exports = {
         ],
         sidebar: [
 		
-		/*
+		
 			{
 	            title: 'Multiboot with OpenCore',
 	            collapsable: false,
@@ -109,7 +89,7 @@ module.exports = {
 	                ['', 'Multiboot with OpenCore'],
 	            ]
 
-	        },*/
+	        },
 		{
             title: 'For experienced users who already dealt with multibooting',
             collapsable: false,

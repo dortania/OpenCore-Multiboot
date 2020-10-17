@@ -1,22 +1,19 @@
 language: node_js
-node_js: node
+node_js: lts/*
 cache:
-  npm: true
-jobs:
-  include:
-    - name: "Build and Push"
-      script: 
-      - npm run build
-      deploy:
-        local_dir: .vuepress/dist/
-        provider: pages
-        skip_cleanup: true
-        name: Travis Build Bot
-        keep_history: true
-        on:
-          branch: master
-        target_branch: gh-pages
-        # committer_from_gh: true
-        # allow_empty_commit: true
-        token:
-          secure: Z9TZ5CvbtB3Ff+iosMBjlPB0g0CBrQPwpeJl7PmxA6kHt68odFPa50FtcI4XRnw2ib7339q0qnuZLqRmtO27KS4H0cXgJo7cYq5i/3VTqIfjcRHhtFZLL5M3XdQstbLuwv/507auxvOq64W91weWI/pG1qVxf9pEsmlE2w046kQgnuKtIT5wjlTlvwC57LvgrZFFzUh3ELlISEFNrZTPt+LQxJoln3chYPwv4JZrpKGC4b57Du4reYLEulZwF2c13cSGdBPNnHiIBewoB+G+N/tXZxVIyadTjHE4ixnU5BxsIv+gN3hHe6KyjCJ4WBFRHrUHGyTFs5M1Nl3oZBlIhSZ4rTGEPkMvbXFwATG+WVi0ZQU2Y4rexge1V5REecYPxY1N3XVmqXwFoWNIxmV0/IzEsuGGGiUnrA6Hhmy3Y42nepc0AMk4uQ3PJnIyXQBVLJNBz8BtKZqRQJc2t9oeqxNz5X2CR2iviQ8HWPLbuEEbXEYKw1YR8ksiJGh7RavxB7zlZJXBP4sXyC/C3yj6e8eKYIzUOG3r3/gpgT7Eh5Y4hRyZPqMez9EwxoPhyT5CFNueHGt+durJQbQ8D1ISrQR+NSmW/gVfcg7z/aUwqh3TNnlFydui39M6wAZB3f84J20F1kZgySw+HxcG2Uc/QbB85z5v3dmpJFm7y0+W1IU=
+  npm: false
+before_script:
+script:
+- yarn install
+- yarn build
+deploy:
+  local_dir: .vuepress/dist/
+  provider: pages
+  skip_cleanup: true
+  name: Travis Build Bot
+  keep_history: true
+  on:
+    branch: master
+  target_branch: gh-pages
+  github_token:
+    secure: Z9TZ5CvbtB3Ff+iosMBjlPB0g0CBrQPwpeJl7PmxA6kHt68odFPa50FtcI4XRnw2ib7339q0qnuZLqRmtO27KS4H0cXgJo7cYq5i/3VTqIfjcRHhtFZLL5M3XdQstbLuwv/507auxvOq64W91weWI/pG1qVxf9pEsmlE2w046kQgnuKtIT5wjlTlvwC57LvgrZFFzUh3ELlISEFNrZTPt+LQxJoln3chYPwv4JZrpKGC4b57Du4reYLEulZwF2c13cSGdBPNnHiIBewoB+G+N/tXZxVIyadTjHE4ixnU5BxsIv+gN3hHe6KyjCJ4WBFRHrUHGyTFs5M1Nl3oZBlIhSZ4rTGEPkMvbXFwATG+WVi0ZQU2Y4rexge1V5REecYPxY1N3XVmqXwFoWNIxmV0/IzEsuGGGiUnrA6Hhmy3Y42nepc0AMk4uQ3PJnIyXQBVLJNBz8BtKZqRQJc2t9oeqxNz5X2CR2iviQ8HWPLbuEEbXEYKw1YR8ksiJGh7RavxB7zlZJXBP4sXyC/C3yj6e8eKYIzUOG3r3/gpgT7Eh5Y4hRyZPqMez9EwxoPhyT5CFNueHGt+durJQbQ8D1ISrQR+NSmW/gVfcg7z/aUwqh3TNnlFydui39M6wAZB3f84J20F1kZgySw+HxcG2Uc/QbB85z5v3dmpJFm7y0+W1IU=

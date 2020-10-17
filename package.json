@@ -1,5 +1,5 @@
 {
-  "name": "OpenCore-Desktop-Guide",
+  "name": "OpenCore-Multiboot",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "name": "",
     "email": ""
   },
-  "repository": "/OpenCore-Desktop-Guide",
+  "repository": "/OpenCore-Multiboot",
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build"
