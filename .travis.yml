@@ -4,8 +4,8 @@ cache:
   npm: false
 before_script:
 script:
-- yarn install
-- yarn build
+- npm install
+- npm run build
 deploy:
   local_dir: .vuepress/dist/
   provider: pages
