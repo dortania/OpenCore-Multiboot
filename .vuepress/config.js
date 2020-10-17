@@ -83,11 +83,11 @@ module.exports = {
 		
 			{
 	            title: 'Multiboot with OpenCore',
-	            collapsable: false,
-	            sidebarDepth: 0,
-	            children: [
-	                ['', 'Multiboot with OpenCore'],
-	            ]
+                collapsable: false,
+                sidebarDepth: 0,
+                children: [
+                    '',
+                ]
 
 	        },
 		{
