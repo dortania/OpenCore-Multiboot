@@ -86,7 +86,7 @@ module.exports = {
                 collapsable: false,
                 sidebarDepth: 0,
                 children: [
-                    '',
+                    'README',
                 ]
 
 	        },
