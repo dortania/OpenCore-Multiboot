@@ -106,7 +106,7 @@ module.exports = {
 	            collapsable: false,
 	            sidebarDepth: 0,
 	            children: [
-	                ['', 'Multiboot with OpenCore'],
+	                ['/', 'Multiboot with OpenCore'],
 	            ]
 
 	        },
