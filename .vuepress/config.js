@@ -100,16 +100,16 @@ module.exports = {
         ],
         sidebar: [
 		
-		
+		/*
 			{
 	            title: 'Multiboot with OpenCore',
 	            collapsable: false,
 	            sidebarDepth: 0,
 	            children: [
-	                ['/', 'Multiboot with OpenCore'],
+	                ['', 'Multiboot with OpenCore'],
 	            ]
 
-	        },
+	        },*/
 		{
             title: 'For experienced users who already dealt with multibooting',
             collapsable: false,
