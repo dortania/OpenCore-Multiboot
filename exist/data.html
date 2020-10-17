@@ -1,512 +1,140 @@
-
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>On a filled non-OS related disk (Data disk) · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
-
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-medium-zoom/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
-
-    
-
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-
-        
-    
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>On a filled non-OS related disk (Data disk) | OpenCore Multiboot</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="&#39;stylesheet" href="/OpenCore-Multiboot/styles/website.css">
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
     
-    <link rel="next" href="os.html" />
-    
-    
-    <link rel="prev" href="./" />
-    
-
-    <style>
-    @media only screen and (max-width: 640px) {
-        .book-header .hidden-mobile {
-            display: none;
-        }
-    }
-    </style>
-    <script>
-        window["gitbook-plugin-github-buttons"] = {};
-    </script>
-
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    Introduction
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../QUICK.html">
-            
-                <a href="../QUICK.html">
-            
-                    
-                    Quick! I know what do, just tell me already
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">Introduction to multi-booting</li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../Intro/Def.html">
-            
-                <a href="../Intro/Def.html">
-            
-                    
-                    What is it?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="../Intro/Booting-part.html">
-            
-                <a href="../Intro/Booting-part.html">
-            
-                    
-                    UEFI? Legacy? CSM? What?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="../Intro/disc.html">
-            
-                <a href="../Intro/disc.html">
-            
-                    
-                    Disclaimer
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">Multibooting Situations:</li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="../empty/">
-            
-                <a href="../empty/">
-            
-                    
-                    On empty disks
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="../empty/samedisk.html">
-            
-                <a href="../empty/samedisk.html">
-            
-                    
-                    One disk - multiple OSes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="../empty/diffdisk.html">
-            
-                <a href="../empty/diffdisk.html">
-            
-                    
-                    Multiple disks - multiple OSes
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2" data-path="./">
-            
-                <a href="./">
-            
-                    
-                    On filled disks
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter active" data-level="3.2.1" data-path="data.html">
-            
-                <a href="data.html">
-            
-                    
-                    On a filled non-OS related disk (Data disk)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2.2" data-path="os.html">
-            
-                <a href="os.html">
-            
-                    
-                    On a filled OS related disk (Windows/Linux)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="header">OpenCore configuration</li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" >
-            
-                <span>
-            
-                    
-                    Configuring OpenCore
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="../oc/win.html">
-            
-                <a href="../oc/win.html">
-            
-                    
-                    For Windows booting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.2" data-path="../oc/linux.html">
-            
-                <a href="../oc/linux.html">
-            
-                    
-                    For Linux booting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.3" data-path="../oc/duet.html">
-            
-                <a href="../oc/duet.html">
-            
-                    
-                    Installing OpenCore on a legacy system
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.4" data-path="../oc/bootstrap.html">
-            
-                <a href="../oc/bootstrap.html">
-            
-                    
-                    Using Bootstrap.efi
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.5" data-path="../oc/bootcamp.html">
-            
-                <a href="../oc/bootcamp.html">
-            
-                    
-                    BootCamp installation
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
+    <link rel="preload" href="/OpenCore-Multiboot/assets/css/0.styles.6b6f98c2.css" as="style"><link rel="preload" href="/OpenCore-Multiboot/assets/js/app.e6102d70.js" as="script"><link rel="preload" href="/OpenCore-Multiboot/assets/js/2.3aa1c922.js" as="script"><link rel="preload" href="/OpenCore-Multiboot/assets/js/3.d5598509.js" as="script"><link rel="preload" href="/OpenCore-Multiboot/assets/js/15.f709790d.js" as="script"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/10.83c222b1.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/11.4c111782.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/12.88b3e5fc.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/13.0faa8d4a.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/14.f285d641.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/16.ce41eabe.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/17.ed746ea7.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/18.11a1dcef.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/19.ac4f391a.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/20.0993e1ce.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/21.58ea1410.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/22.06d74bfb.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/23.7b79fbcb.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/4.457f29ec.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/5.9fa1f4f0.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/6.0a49b38c.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/7.b691c8c9.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/8.a2ffea20.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/9.5d8b5b8c.js">
+    <link rel="stylesheet" href="/OpenCore-Multiboot/assets/css/0.styles.6b6f98c2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OpenCore-Multiboot/" class="home-link router-link-active"><img src="/OpenCore-Multiboot/homepage.png" alt="OpenCore Multiboot" class="logo"> <span class="site-name can-hide">OpenCore Multiboot</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dortania.github.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home Site
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Install-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Install Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Post-Install/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Post-Install
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Wireless-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Wireless Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/GPU-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GPU Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Anti Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/dortania/OpenCore-Multiboot" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dortania.github.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home Site
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Install-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Install Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Post-Install/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Post-Install
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Wireless-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Wireless Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/GPU-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GPU Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Anti Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/dortania/OpenCore-Multiboot" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>For experienced users who already dealt with multibooting</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/QUICK.html" class="sidebar-link">Quick! I know what do, just tell me already HOW</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Introduction to multi-booting</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/Intro/Def.html" class="sidebar-link">What is it?</a></li><li><a href="/OpenCore-Multiboot/Intro/Booting-part.html" class="sidebar-link">UEFI? Legacy? CSM? What?</a></li><li><a href="/OpenCore-Multiboot/Intro/disc.html" class="sidebar-link">Disclaimer</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Multibooting Situations</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/empty/" class="sidebar-link">Multibooting Situations</a></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/empty/samedisk.html" class="sidebar-link">One disk - multiple OSes</a></li><li><a href="/OpenCore-Multiboot/empty/diffdisk.html" class="sidebar-link">Multiple disks - multiple OSes</a></li></ul></section></li><li><a href="/OpenCore-Multiboot/exist/" aria-current="page" class="sidebar-link">Existing Filled Disk</a></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading open"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/exist/data.html" aria-current="page" class="active sidebar-link">On a filled non-OS related disk (Data disk)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/exist/data.html#precautions" class="sidebar-link">Precautions:</a></li><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/exist/data.html#situation-this-applies-for" class="sidebar-link">Situation this applies for:</a></li><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/exist/data.html#checking-your-disk-partitioning-scheme" class="sidebar-link">Checking your disk partitioning scheme</a></li><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/exist/data.html#converting-mbr-to-gpt" class="sidebar-link">Converting MBR to GPT:</a></li><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/exist/data.html#partitioning-the-disk" class="sidebar-link">Partitioning the Disk</a></li></ul></li><li><a href="/OpenCore-Multiboot/exist/os.html" class="sidebar-link">On a filled OS related disk (Windows/Linux)</a></li></ul></section></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>OpenCore configuration</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/oc/win.html" class="sidebar-link">For Windows booting</a></li><li><a href="/OpenCore-Multiboot/oc/linux.html" class="sidebar-link">For Linux booting</a></li><li><a href="/OpenCore-Multiboot/oc/duet.html" class="sidebar-link">Installing OpenCore on a legacy system</a></li><li><a href="https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html" target="_blank" rel="noopener noreferrer" class="sidebar-link">Using Bootstrap.efi<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li><a href="https://dortania.github.io/OpenCore-Post-Install/multiboot/bootcamp.html" target="_blank" rel="noopener noreferrer" class="sidebar-link">BootCamp installation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-succinct-content content__default"><h1 id="on-a-filled-non-os-related-disk-data-disk"><a href="#on-a-filled-non-os-related-disk-data-disk" class="header-anchor">#</a> On a filled non-OS related disk (Data disk)</h1> <p>This is quite easy, basically we'll just make some space for a EFI (if it doesnt exist already) and some for our macOS system.</p> <h2 id="precautions"><a href="#precautions" class="header-anchor">#</a> Precautions:</h2> <ul><li>BACKUP YOUR DATA</li> <li>If possible, disconnect or disable any other disk/drive in your system, as it may interfere with our process. (keep only the target disk and/or the boot OS disk where we will do the operations from)</li> <li>The drive isn't corrupted or have bad sectors</li> <li>Your system is on pure UEFI setup, no CSM/Legacy OS installed</li> <li>Stable power input</li></ul> <h2 id="situation-this-applies-for"><a href="#situation-this-applies-for" class="header-anchor">#</a> Situation this applies for:</h2> <ul><li>A disk with data that is not related to windows or linux or macOS</li> <li>A disk that used to be for an OS but now it's just data</li></ul> <hr> <p>To start, we need to know what kind of partitioning scheme we're using, most new drives that are &lt;1TB are usually MBR formatted (some 1TB drives still do) while anything bigger in size is GPT partitionned. As we saw before, macOS <strong>requires</strong> GPT and can't do without it.</p> <p>Note: we do not speak of the MBR patch, that's a bad idea and really should not exist anymore since it doesn't make any sense when most 2006+ computers can easily boot a GPT drive without much issues.</p> <h2 id="checking-your-disk-partitioning-scheme"><a href="#checking-your-disk-partitioning-scheme" class="header-anchor">#</a> Checking your disk partitioning scheme</h2> <h4 id="in-windows"><a href="#in-windows" class="header-anchor">#</a> In Windows:</h4> <ul><li>Open Disk Manager</li> <li>Right click on the destination drive &gt; <em>Properties</em> <img src="/OpenCore-Multiboot/assets/img/mbvm.c1db20f6.png" alt="img"></li> <li>Go to <em>Volumes</em> and check <em>Partition Style</em> <ul><li><p><strong>MBR</strong> drives will show:</p> <p><img src="/OpenCore-Multiboot/assets/img/mbr_disk.d4b47e4a.png" alt="image-20200825010342403"></p></li> <li><p><strong>GPT</strong> drives will show:</p> <p><img src="/OpenCore-Multiboot/assets/img/gpt_disk.20f1da7b.png" alt="image-20200825010434237"></p></li></ul></li></ul> <h4 id="in-linux"><a href="#in-linux" class="header-anchor">#</a> In Linux:</h4> <ul><li><p>Download and install <code>gdisk</code> if it's not already installed</p></li> <li><p>Run <code>lsblk</code> to list your disks and partitions and check the identifiers (eg: <code>/dev/sda</code> or <code>/dev/nvme0n1</code>) of your destination disk with data</p></li> <li><p>Run <code>sudo gdisk -l &lt;disk_identifier&gt;</code> (eg: <code>sudo gdisk -l /dev/sda</code>)</p> <ul><li><p><strong>MBR</strong> disks will output:</p> <div class="language- extra-class"><pre class="language-text"><code>Partition table scan:
+  MBR: MBR only
+  BSD: not present
+  APM: not present
+  GPT: not present
+</code></pre></div></li> <li><p><strong>GPT</strong> disks will output:</p> <div class="language- extra-class"><pre class="language-text"><code>Partition table scan:
+  MBR: protective
+  BSD: not present
+  APM: not present
+  GPT: present
+</code></pre></div></li></ul></li></ul> <h4 id="in-macos"><a href="#in-macos" class="header-anchor">#</a> In macOS:</h4> <ul><li><p>Run <code>diskutil list</code></p></li> <li><p>Check the destination drive</p> <ul><li><p><strong>MBR</strong> disks will have:</p> <div class="language- extra-class"><pre class="language-text"><code>   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:     FDisk_partition_scheme                        *SIZE GB   diskX
+</code></pre></div></li> <li><p><strong>GPT</strong> disks will have:</p> <div class="language- extra-class"><pre class="language-text"><code>   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                        *SIZE GB   diskX
+</code></pre></div></li></ul></li></ul> <h2 id="converting-mbr-to-gpt"><a href="#converting-mbr-to-gpt" class="header-anchor">#</a> Converting MBR to GPT:</h2> <p><strong>Note</strong>: if your drive is <strong>already GPT</strong>, then <strong>skip this section</strong>.</p> <h4 id="destructive-conversion"><a href="#destructive-conversion" class="header-anchor">#</a> Destructive Conversion:</h4> <p>This method will destroy all your data in your disk, making you a clean slate to work with. <strong>Only use this if the data in the disk is not important or backed up already! YOUR DATA WILL BE GONE WITH THIS METHOD.</strong></p> <p>You can use any partitioning tool of your choice and destroy the data, OR you can just boot macOS installer that you made with the OpenCore Dortania Guide and select the disk and format it. You can check <a href="/OpenCore-Multiboot/empty/samedisk.html">Dualbooting on the same disk</a> section for more information. You're not required to follow the rest of this section.</p> <h4 id="non-destructive-conversion"><a href="#non-destructive-conversion" class="header-anchor">#</a> Non-Destructive Conversion:</h4> <p>This method have higher chances of keeping your data intact, <strong>however this does NOT mean you can ignore backing up you data. BACKUP YOUR DATA!</strong></p> <p>We will be using <code>gdisk</code> ran on any linux distribution, I strongly NOT recommend using Windows or macOS gdisk to perform this operation as it may break seeing how Windows and macOS disk handling differs from Linux. You can use a USB distribution like <code>gparted</code> (light weight iso/usb image) to do the manipulations or any distribution disk in hand (arch, Ubuntu, Fedora...).</p> <ul><li><p>Download/Install <code>gdisk</code> following you distrubution</p></li> <li><p>Run <code>lsblk</code> to check for the destination drive identifiers</p></li> <li><p>Run <code>sudo gdisk &lt;identifier&gt;</code> (eg: <code>sudo gdisk /dev/sda</code>)</p></li> <li><p>If your disk is MBR, you'll be greeted with:</p> <div class="language- extra-class"><pre class="language-text"><code>Partition table scan:
+  MBR: MBR only
+  BSD: not present
+  APM: not present
+  GPT: not present
 
 
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >On a filled non-OS related disk (Data disk)</a>
-    </h1>
-</div>
+***************************************************************
+Found invalid GPT and valid MBR; converting MBR to GPT format.
+THIS OPERATION IS POTENTIALLY DESTRUCTIVE! Exit by typing 'q' if
+you don't want to convert your MBR partitions to GPT format!
+***************************************************************
 
 
+Command (? for help): 
+</code></pre></div></li> <li><p>Type <code>w</code> and press Enter/Return</p></li> <li><p>Press <code>y</code> to confirm</p></li> <li><p>You're done.</p></li></ul> <p>For those who want to other way around (from GPT to MBR) follow this <a href="https://superuser.com/questions/1250895/converting-between-gpt-and-mbr-hard-drive-without-losing-data" target="_blank" rel="noopener noreferrer">answer<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <h4 id="verification"><a href="#verification" class="header-anchor">#</a> Verification</h4> <p>Once your drive is converted, check again following the instruction above. You may want to reboot your computer before verifying.</p> <h2 id="partitioning-the-disk"><a href="#partitioning-the-disk" class="header-anchor">#</a> Partitioning the Disk</h2> <p>Once you converted (or already formated) your disk in GPT, it is time to repartition it for macOS partition and the EFI partition if there isn't.</p> <h3 id="checking-the-disk-existing-partitions"><a href="#checking-the-disk-existing-partitions" class="header-anchor">#</a> Checking the disk existing partitions:</h3> <p>Just because the disk is now GPT partitioned, it doesn't mean that macOS will accept it, macOS's HFS Plus (Mac OS Journaled File System) or APFS won't accept formatting it and will return an error with <code>MediaKit reports not enough space on device for requested operation</code>, this is because either there is no EFI partition or it's not large enough. Either way, if you're just using a disk with non-OS data, chances are you do not have that partition and we will have to make one.</p> <p>With that said, we still need to determine if it's required or not:</p> <h4 id="in-windows-2"><a href="#in-windows-2" class="header-anchor">#</a> In Windows</h4> <ul><li>Open Disk Manager</li> <li>Check your destination disk
+<ul><li>In case your disk already contains a EFI partition: (usually if your disk was already GPT or formatted before)
+<img src="/OpenCore-Multiboot/assets/img/gpt_efi.7cb34671.png" alt="img"> <ul><li>You'll see a description with <code>(EFI SYSTEM PARTITION)</code></li> <li>The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
+<ul><li>In case the size of it is &lt;200MB, <strong>expand</strong> the partition to 200MB (or a bit more)</li> <li>In case the size of it is &gt;500MB, <strong>shrink</strong> the partition to 500MB (or 200MB) because it's waste of space</li> <li>In case you have multiple partitions with <code>EF00</code>, that means your partitioning is bad, you only really need just 1 EFI partition in the whole system (if not per disk, there is no real need for multiple EFI partitions, makes no sense)</li></ul></li></ul></li> <li>In case your disk doesn't contain a EFI partition:
+<img src="/OpenCore-Multiboot/assets/img/gpt_noefi.a0e9a48f.png" alt="img"></li></ul></li></ul> <h4 id="in-linux-2"><a href="#in-linux-2" class="header-anchor">#</a> In Linux</h4> <ul><li><p>Download/Install <code>gdisk</code> following you distrubution</p></li> <li><p>Run <code>lsblk</code> to check for the destination drive identifiers</p></li> <li><p>Run <code>sudo gdisk &lt;identifier&gt;</code> (eg: <code>sudo gdisk /dev/sda</code>)</p></li> <li><p>When gdisk starts, send <code>p</code></p> <ul><li><p>In case your disk already contains a EFI partition: (usually if your disk was already GPT or formatted before)</p> <div class="language- extra-class"><pre class="language-text"><code>Command (? for help): p
+Disk /dev/&lt;identifier&gt;: NUMBER sectors, SIZE GiB
+Model: SOME NAME     
+Sector size (logical/physical): 512/512 bytes
+Disk identifier (GUID): SOME GUID
+Partition table holds up to 128 entries
+Main partition table begins at sector 2 and ends at sector 33
+First usable sector is 34, last usable sector is 976773134
+Partitions will be aligned on 8-sector boundaries
+Total free space is 10261 sectors (5.0 MiB)
 
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048          800767   390.0 MiB   EF00  EFI          // We're interested in this
+   2          800808       213967975   101.6 GiB   AF0A  
+   ... // Other partitions 
+</code></pre></div><ul><li>You'll find a partition with code <code>EF00</code> meaning it's marked as a EFI System Partition
+<ul><li>The EFI partition does not need to be the first, it can be anywhere in the disk partitioning order, the <code>Code</code> of it is what matters the most</li></ul></li> <li>The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
+<ul><li>In case the size of it is &lt;200MB, <strong>expand</strong> the partition to 200MB (or a bit more)</li> <li>In case the size of it is &gt;500MB, <strong>shrink</strong> the partition to 500MB (or 200MB) because it's waste of space</li> <li>In case you have multiple partitions with <code>EF00</code>, that means your partitioning is bad, you only really need just 1 EFI partition in the whole system (if not per disk, there is no real need for multiple EFI partitions, makes no sense)</li></ul></li></ul></li> <li><p>In case your disk doesn't contain a EFI partition:</p> <div class="language- extra-class"><pre class="language-text"><code>Command (? for help): p
+Disk /dev/&lt;identifier&gt;: NUMBER sectors, SIZE GiB
+Model: SOME NAME     
+Sector size (logical/physical): 512/4096 bytes
+Disk identifier (GUID): SOME GUID
+Partition table holds up to 128 entries
+Main partition table begins at sector 2 and ends at sector 33
+First usable sector is 34, last usable sector is NUMBER
+Partitions will be aligned on 2048-sector boundaries
+Total free space is 2669 sectors (1.3 MiB)
 
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div class="search-plus" id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <blockquote>
-<p><em>Last modified: Tue Jun 16 2020 20:20:44 GMT+0000 (Coordinated Universal Time)</em></p>
-</blockquote>
-<h1 id="on-a-filled-non-os-related-disk-data-disk"><a name="on-a-filled-non-os-related-disk-data-disk" class="plugin-anchor" href="#on-a-filled-non-os-related-disk-data-disk"><i class="fa fa-link" aria-hidden="true"></i></a>On a filled non-OS related disk (Data disk)</h1>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
-                        </div>
-                    </div>
-                
-            </div>
-
-            
-                
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: On filled disks">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="os.html" class="navigation navigation-next " aria-label="Next page: On a filled OS related disk (Windows/Linux)">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
-    </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"On a filled non-OS related disk (Data disk)","level":"3.2.1","depth":2,"next":{"title":"On a filled OS related disk (Windows/Linux)","level":"3.2.2","depth":2,"path":"exist/os.md","ref":"exist/os.md","articles":[]},"previous":{"title":"On filled disks","level":"3.2","depth":1,"path":"exist/README.md","ref":"exist/README.md","articles":[{"title":"On a filled non-OS related disk (Data disk)","level":"3.2.1","depth":2,"path":"exist/data.md","ref":"exist/data.md","articles":[]},{"title":"On a filled OS related disk (Windows/Linux)","level":"3.2.2","depth":2,"path":"exist/os.md","ref":"exist/os.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"last-modified":{},"output":"_book","addcssjs":{"js":[],"css":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"exist/data.md","mtime":"2020-06-16T20:20:44.193Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T20:21:56.377Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
-    
-
-    </body>
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1            2048       250068991   119.2 GiB   0700  peepee       // a partition
+   ... // Other partitions that are not EFIs 
+</code></pre></div><ul><li>There are no <code>EF00</code> partitions meaning we need to make one</li></ul></li></ul></li></ul> <h4 id="in-macos-2"><a href="#in-macos-2" class="header-anchor">#</a> In macOS:</h4> <ul><li><p>Run <code>diskutil list</code></p> <ul><li>Optionally you can add <code>diskX</code> with X as the identifier of the target disk if you don't want a big list of partitions and disks shown up, in most cases the disk numbers change from a system boot to another, so don't rely on it too much.</li></ul></li> <li><p>Check your destination disk listing:</p> <ul><li><p>In case your disk contain an EFI partition:</p> <div class="language- extra-class"><pre class="language-text"><code>/dev/diskX (does not matter):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                         *SIZE*     diskX      // GPT disk
+   1:                        EFI ESP                     209.7 MB   diskXs1    // Look for this
+   2:                    FORMAT1 Part1                   *SIZE*     diskXs2    // a partition
+     ... // Other stuff that aren't TYPE: EFI
+</code></pre></div><ul><li>We see a partition with <code>TYPE</code> as <code>EFI</code>, which means a disk with an EFI partition (and as you can see it's 200MB)</li> <li>The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
+<ul><li>In case the size of it is &lt;200MB, <strong>expand</strong> the partition to 200MB (or a bit more)</li> <li>In case the size of it is &gt;500MB, <strong>shrink</strong> the partition to 500MB (or 200MB) because it's waste of space</li> <li>In case you have multiple partitions with <code>EF00</code>, that means your partitioning is bad, you only really need just 1 EFI partition in the whole system (if not per disk, there is no real need for multiple EFI partitions, makes no sense)</li></ul></li></ul></li> <li><p>In case your disk doesn't contain an EFI partition:</p> <div class="language- extra-class"><pre class="language-text"><code>/dev/diskX (does not matter):
+   #:                       TYPE NAME                    SIZE       IDENTIFIER
+   0:      GUID_partition_scheme                         *SIZE*     diskX      // GPT disk
+   1:       Microsoft Basic Data poopoo                  128.0 GB   diskXs1    // a partition
+     ... // Other stuff that aren't TYPE: EFI
+</code></pre></div><ul><li>There are no partitions with <code>TYPE</code> as <code>EFI</code>, although the disk is GPT, meaning we need to make one.</li></ul></li></ul></li></ul> <h3 id="in-case-you-have-an-efi-partition"><a href="#in-case-you-have-an-efi-partition" class="header-anchor">#</a> In case you have an EFI partition:</h3> <p>Congratulations, you can go ahead and partition your disk for macOS and be on your merry way, check the <strong>Partitioning for macOS</strong> section.</p> <h3 id="in-case-you-do-not-have-an-efi-partition"><a href="#in-case-you-do-not-have-an-efi-partition" class="header-anchor">#</a> In case you do not have an EFI partition:</h3> <p>We'll have to make one, and the OSes that we will use will be either Windows or Linux (macOS is kind of pain in the ass, not going to bother with it).</p> <h4 id="in-windows-3"><a href="#in-windows-3" class="header-anchor">#</a> In Windows:</h4> <p>We'll be using a disk managing software named <code>Minitool Partition Wizard</code>, ngl, it does look shady af and kind of like a malware (and wont be surprised if it is). There are other alternatives like <code>Easeus Partition Master</code> (that suspiciously look like MPW 🤔) and <code>AOMEI Partition Assistant</code> (that also looks like the other two <em><strong>🤔 intensifies</strong></em>), and many more but these are the most popular windows disk managers.</p> <h5 id="but-where-is-muh-gparted"><a href="#but-where-is-muh-gparted" class="header-anchor">#</a> But where is muh GpArTeD?</h5> <p>The reason why im not recommending Gparted with NTFS partitions is that it might corrupt the partition easier than when Windows deals with it. I personally didn't have to deal much with corrupt NTFS partitions (I did once or twice) and Windows will surely fix them, but a lot of users reported unrecoverable partitions or data from using Gparted, not blaming Gparted, but using Windows with its own FS is safer than hoping ntfs-3g doesn't fuck up, that being said though, I'll post a Gparted guide below under <code>Linux</code> section, and if you already dealt with Gparted, I think you might know what to do.</p> <p>In this section I'll be using MPW, the other tools are very similar and have very similar menus, you can follow up with them just fine. In this case I will be using an external disk for the partitioning, it does not change anything about internal disk, the same procedure goes for any disk.</p> <ul><li><p>Download the <s>malware</s> partition manager of your choice (MPW here)</p></li> <li><p>Install the <s>malware</s> partition manager and <strong>keep an eye on the adware and extra &quot;apps&quot; that they install, Chrome, Opera, some shady AV and so on</strong></p></li> <li><p>Run the application as Administrator</p></li> <li><p>Right Click on the target disk first partition and shrink it by 200MB (and bit more)
+<img src="/OpenCore-Multiboot/assets/img/mv-rsz.ea38689a.png" alt="Screenshot 2020-09-15 235910"> <img src="/OpenCore-Multiboot/assets/img/resizing.1197df2c.png" alt="Screenshot 2020-09-16 000113"></p> <ul><li>Note: because of the trashy software, here is how to do it properly:
+<ul><li>change the size view from <strong>GB</strong> to <strong>MB</strong></li> <li>select the partition size and <strong>press down arrow key</strong> on your keyboard to lower its value</li> <li>usually the Space After will be filled</li> <li>once you hit your mark (say 220MB) select the Unallocated Space After section and <strong>press down arrow key</strong></li> <li>you'll see the Unallocated Space Before being filled</li></ul></li> <li>Note2: Moving the big slider will just create weird numbers and it's trash, so deal with it</li> <li>Note3: I don't know if other partitioning software are this trash</li></ul></li> <li><p>Once done, press apply on wherever the software shows you (in this version it's under the Operation Pending list, older releases had a dedicated button at the top of it, so check carefully the UI as it changes over time)</p> <p><img src="data:image/png;base64,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" alt="Screenshot 2020-09-16 002725"></p></li> <li><p><strong>THIS PROCESS WILL TAKE TIME DEPENDING ON THE DATA ON YOUR DRIVE AND IF IT'S AN SSD OR A SPINNING RUST (HDD), DO NOT CANCEL IT UNDER ANY CIRCUMSTANCES OTHERWISE YOU'LL KILL YOUR DATA BYE BYE. YOU'VE BEEN WARNED!</strong></p></li> <li><p>You now have <strong>empty space before the first partition</strong>, this space will be used to create an EFI partition</p> <ul><li>Due to MPW managers being assholes, creating a EFI partition is now a paid feature</li> <li>If you have like an old version (9 or older) you can do that for free</li></ul></li> <li><p>Once the operations are done:</p> <ul><li><p>Open CMD/PowerShell with Administrator rights</p></li> <li><p>Run <code>diskpart</code></p></li> <li><p>Run the following commands:</p> <ul><li><p><code>list disk</code></p> <ul><li>Will show your disks, check the destination disk carefully</li> <li>You can check Disk Manager as the disk numbering is the same</li></ul></li> <li><p><code>sel disk X</code></p> <ul><li>Where X is your destination disk number</li></ul></li> <li><p><code>list part</code></p> <ul><li>Will list partitions on that selected disk</li> <li>Check the partitions as it may help you check for the destination</li> <li>If it's not the desired disk, use <code>sel disk X</code> again and choose another one and check again</li></ul></li> <li><p><code>create partition efi</code></p> <ul><li>Will create a new partition of EFI type</li> <li>This will make it hidden on the system and can only be explored with administrator privileges</li> <li>It will take up the whole free space we made earlier</li></ul></li> <li><p><code>list part</code></p> <ul><li>You'll see a new partition with Type <code>System</code></li> <li>The size should roughly match the one we left earlier</li></ul></li> <li><p><code>format fs=fat32 label=&quot;EFI&quot;</code></p> <ul><li>this will format that partition as FAT32 and give it the label &quot;EFI&quot;</li> <li>Note: <strong>in some cases</strong> windows will return an error that <code>The device is not ready</code>, I'm not sure what could that be but we can fix it</li> <li>Fix of Note:
+<ul><li>Go back to MPW</li> <li>Right click on the EFI partition (should be also detected as <code>EFI System Partition</code>) and select <strong>Format</strong></li> <li><img src="/OpenCore-Multiboot/assets/img/FormatEFI.a045be28.png" alt="Screenshot 2020-09-16 002834"></li> <li>Press OK and be done with it.</li></ul></li></ul></li> <li><p>Example of the output:</p> <p><img src="/OpenCore-Multiboot/assets/img/diskpart_output.ce702cbc.png" alt="Screenshot 2020-09-16 002720"></p></li></ul></li></ul></li> <li><p>Once done you can go to <strong>Partitioning for macOS</strong></p></li></ul> <h4 id="in-linux-my-favourite"><a href="#in-linux-my-favourite" class="header-anchor">#</a> In Linux (my favourite)</h4> <p>We'll be using your favorite tool Gparted, if you're using parted/gpart, you're looking for a sad day. Let's get going.</p> <ul><li><p>Install <code>gparted</code> following your distribution instructions (or use GParted ISO)</p></li> <li><p>Run <code>gparted</code></p></li> <li><p>Select the destination disk from the list on the right</p> <p><img src="data:image/png;base64,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" alt="image-20200917014041409"></p></li> <li><p>Right click on the first partition then select <strong>Resize/Move</strong></p> <p><img src="data:image/png;base64,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" alt="image-20200917014201474"></p></li> <li><p>Select the Free space preceding text zone and press <strong>up arrow key</strong> until you get to the desired size then hit Resize/Move</p> <p><img src="/OpenCore-Multiboot/assets/img/resize_menu_gp.e873444f.png" alt="image-20200917014513781"></p> <ul><li>Note that if you went over the desired size then subtracted the extra amount, it <strong>will be moved to the free space following</strong> the partition, in this case just press <code>+</code> on the New size area until the space following zeros out, going for even more will decrease the free space preceding (logic, right? just dont mess up too much, thanks)</li></ul></li> <li><p>You'll get this error, press OK, this matters if you have multiple partitions but usually most modern OSes (on UEFI) are quite resilient to this issue (by using UUIDs instead of partition numbering)</p> <p><img src="/OpenCore-Multiboot/assets/img/gp_warning.a4511225.png" alt="image-20200917014846172"></p></li> <li><p>Right click on the unallocated partition and select New
+<img src="/OpenCore-Multiboot/assets/img/new_part_gp.b2d0541f.png" alt="image-20200917015144211"></p></li> <li><p>In the <em>Create new Partition</em> box, set the following then press Add</p> <ul><li>Partition name (could be named EFI, it doesn't matter)</li> <li>Label (could be named EFI, it doesn't matter)</li> <li>File system: <strong>FAT32</strong></li> <li><img src="/OpenCore-Multiboot/assets/img/new_part_efi_gp.cb8b72d9.png" alt="image-20200917015338264"></li></ul></li> <li><p>Press the green check mark on the toolbar to Apply Changes and confirm them
+<img src="/OpenCore-Multiboot/assets/img/apply_changes_gp.2b7820ff.png" alt="Screen Shot 2020-09-17 at 01.54.56"> <img src="/OpenCore-Multiboot/assets/img/confirm_apply.72e7ff75.png" alt="image-20200917015813671"></p></li> <li><p><strong>THIS PROCESS WILL TAKE TIME DEPENDING ON THE DATA ON YOUR DRIVE AND IF IT'S AN SSD OR A SPINNING RUST (HDD), DO NOT CANCEL IT UNDER ANY CIRCUMSTANCES OTHERWISE YOU'LL KILL YOUR DATA BYE BYE. YOU'VE BEEN WARNED!</strong> <img src="/OpenCore-Multiboot/assets/img/gp_progress.89ec4adb.png" alt="image-20200917020004696"></p></li> <li><p>Once done, right click on your newly created EFI partition and select &quot;Manage Flags&quot;
+<img src="/OpenCore-Multiboot/assets/img/mng_flags.4ef04da4.png" alt="image-20200917020200810"></p></li> <li><p>Select <code>esp</code>, gparted will select <code>boot</code> automatically, keep it that way</p> <p><img src="/OpenCore-Multiboot/assets/img/flags.a3110b30.png" alt="image-20200917020305683"></p></li> <li><p>It will be done instantly, check your flags
+<img src="/OpenCore-Multiboot/assets/img/flags_check.70b5fadc.png" alt="image-20200917020438739"></p> <ul><li>You can also check in <code>gdisk</code> for <code>EF00</code></li></ul></li> <li><p>Once done you can go to <strong>Partitioning for macOS</strong></p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">9/17/2020, 1:14:57 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ⟵
+      <a href="/OpenCore-Multiboot/exist/" class="prev router-link-active">
+        Existing Filled Disk
+      </a></span> <span class="next"><a href="/OpenCore-Multiboot/exist/os.html">
+        On a filled OS related disk (Windows/Linux)
+      </a>
+      ⟶
+    </span></p></div> </main></div><div class="global-ui"><div style="visibility:hidden;display:none;"></div><!----></div></div>
+    <script src="/OpenCore-Multiboot/assets/js/app.e6102d70.js" defer></script><script src="/OpenCore-Multiboot/assets/js/2.3aa1c922.js" defer></script><script src="/OpenCore-Multiboot/assets/js/3.d5598509.js" defer></script><script src="/OpenCore-Multiboot/assets/js/15.f709790d.js" defer></script>
+  </body>
 </html>
-

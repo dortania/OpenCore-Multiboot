@@ -1,521 +1,107 @@
-
-<!DOCTYPE HTML>
-<html lang="" >
-    <head>
-        <meta charset="UTF-8">
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>For Linux booting · GitBook</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
-        
-        
-        
-    
-    
-    <link rel="stylesheet" href="../gitbook/style.css">
-
-    
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-medium-zoom/plugin.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
-                
-            
-                
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
-                
-            
-        
-
-    
-
-    
-        
-        <link rel="stylesheet" href="../styles/website.css">
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-
-    
-
-        
-    
-    
-    
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dualbooting with Linux | OpenCore Multiboot</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="&#39;stylesheet" href="/OpenCore-Multiboot/styles/website.css">
+    <meta name="description" content="">
+    <meta name="theme-color" content="#3eaf7c">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
-
     
-    <link rel="next" href="duet.html" />
-    
-    
-    <link rel="prev" href="win.html" />
-    
-
-    <style>
-    @media only screen and (max-width: 640px) {
-        .book-header .hidden-mobile {
-            display: none;
-        }
-    }
-    </style>
-    <script>
-        window["gitbook-plugin-github-buttons"] = {};
-    </script>
-
-    </head>
-    <body>
-        
-<div class="book">
-    <div class="book-summary">
-        
-            
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
-            
-                <nav role="navigation">
-                
-
-
-<ul class="summary">
-    
-    
-
-    
-
-    
-        
-        
-    
-        <li class="chapter " data-level="1.1" data-path="../">
-            
-                <a href="../">
-            
-                    
-                    Introduction
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2" data-path="../QUICK.html">
-            
-                <a href="../QUICK.html">
-            
-                    
-                    Quick! I know what do, just tell me already
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">Introduction to multi-booting</li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../Intro/Def.html">
-            
-                <a href="../Intro/Def.html">
-            
-                    
-                    What is it?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.2" data-path="../Intro/Booting-part.html">
-            
-                <a href="../Intro/Booting-part.html">
-            
-                    
-                    UEFI? Legacy? CSM? What?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.3" data-path="../Intro/disc.html">
-            
-                <a href="../Intro/disc.html">
-            
-                    
-                    Disclaimer
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">Multibooting Situations:</li>
-        
-        
-    
-        <li class="chapter " data-level="3.1" data-path="../empty/">
-            
-                <a href="../empty/">
-            
-                    
-                    On empty disks
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.1.1" data-path="../empty/samedisk.html">
-            
-                <a href="../empty/samedisk.html">
-            
-                    
-                    One disk - multiple OSes
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.1.2" data-path="../empty/diffdisk.html">
-            
-                <a href="../empty/diffdisk.html">
-            
-                    
-                    Multiple disks - multiple OSes
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2" data-path="../exist/">
-            
-                <a href="../exist/">
-            
-                    
-                    On filled disks
-            
-                </a>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="3.2.1" data-path="../exist/data.html">
-            
-                <a href="../exist/data.html">
-            
-                    
-                    On a filled non-OS related disk (Data disk)
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.2.2" data-path="../exist/os.html">
-            
-                <a href="../exist/os.html">
-            
-                    
-                    On a filled OS related disk (Windows/Linux)
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-        
-        <li class="header">OpenCore configuration</li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" >
-            
-                <span>
-            
-                    
-                    Configuring OpenCore
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="4.1.1" data-path="win.html">
-            
-                <a href="win.html">
-            
-                    
-                    For Windows booting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="4.1.2" data-path="linux.html">
-            
-                <a href="linux.html">
-            
-                    
-                    For Linux booting
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.3" data-path="duet.html">
-            
-                <a href="duet.html">
-            
-                    
-                    Installing OpenCore on a legacy system
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.4" data-path="bootstrap.html">
-            
-                <a href="bootstrap.html">
-            
-                    
-                    Using Bootstrap.efi
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.1.5" data-path="bootcamp.html">
-            
-                <a href="bootcamp.html">
-            
-                    
-                    BootCamp installation
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-
-    
-
-    <li class="divider"></li>
-
-    <li>
-        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
-        </a>
-    </li>
-</ul>
-
-
-                </nav>
-            
-        
-    </div>
-
-    <div class="book-body">
-        
-            <div class="body-inner">
-                
-                    
-
-<div class="book-header" role="navigation">
-    
-
-    <!-- Title -->
-    <h1>
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >For Linux booting</a>
-    </h1>
-</div>
-
-
-
-
-                    <div class="page-wrapper" tabindex="-1" role="main">
-                        <div class="page-inner">
-                            
-<div class="search-plus" id="book-search-results">
-    <div class="search-noresults">
-    
-                                <section class="normal markdown-section">
-                                
-                                <blockquote>
-<p><em>Last modified: Tue Jun 16 2020 20:20:44 GMT+0000 (Coordinated Universal Time)</em></p>
-</blockquote>
-<h1 id="dualbooting-with-linux"><a name="dualbooting-with-linux" class="plugin-anchor" href="#dualbooting-with-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Dualbooting with Linux</h1>
-<p><strong>WORK IN PROGRESS</strong></p>
-<p>If Linux is not picked up automagically, add the following to your config.plist:</p>
-<pre><code>Misc -&gt; BlessOverride -&gt; \EFI\arch\grubx64.efi
-</code></pre><p>Other common Linux bootloader paths:</p>
-<ul>
-<li><code>\EFI\arch\grubx64.efi</code></li>
-<li><code>\EFI\ubuntu\grubx64.efi</code></li>
-</ul>
-<p><img src="../images/linux-md/blessoverride.png" alt=""></p>
-
-                                
-                                </section>
-                            
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
-                        </div>
-                    </div>
-                
-            </div>
-
-            
-                
-                <a href="win.html" class="navigation navigation-prev " aria-label="Previous page: For Windows booting">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                
-                
-                <a href="duet.html" class="navigation navigation-next " aria-label="Next page: Installing OpenCore on a legacy system">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-                
-            
-        
-    </div>
-
-    <script>
-        var gitbook = gitbook || [];
-        gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"For Linux booting","level":"4.1.2","depth":2,"next":{"title":"Installing OpenCore on a legacy system","level":"4.1.3","depth":2,"path":"oc/duet.md","ref":"oc/duet.md","articles":[]},"previous":{"title":"For Windows booting","level":"4.1.1","depth":2,"path":"oc/win.md","ref":"oc/win.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","-lunr","-search","search-plus","addcssjs","favicon-plus","anchors","github-buttons","last-modified","medium-zoom"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"last-modified":{},"output":"_book","addcssjs":{"js":[],"css":[]},"medium-zoom":{},"fontsettings":{"theme":"night","family":"sans","size":2},"favicon-plus":{"appleTouchIconPrecomposed152":"","favicon":"","output":"_book"},"highlight":{},"favicon":"/icons/favicon.ico","appleTouchIconPrecomposed152":"/icons/appleTouchIconPrecomposed152.png","github-buttons":{},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"search-plus":{}},"theme":"default","medium-zoom":{"margin":24,"background":"#363b40","scrollOffset":0},"pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"google":false,"facebook":false,"twitter":false,"weibo":false,"all":false}},"gitbook":"*"},"file":{"path":"oc/linux.md","mtime":"2020-06-16T20:20:44.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-16T20:21:56.377Z"},"basePath":"..","book":{"language":""}});
-        });
-    </script>
-</div>
-
-        
-    
-    <script src="../gitbook/gitbook.js"></script>
-    <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-medium-zoom/medium-zoom.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-medium-zoom/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-        
-    
-
-    
-
-    </body>
+    <link rel="preload" href="/OpenCore-Multiboot/assets/css/0.styles.6b6f98c2.css" as="style"><link rel="preload" href="/OpenCore-Multiboot/assets/js/app.e6102d70.js" as="script"><link rel="preload" href="/OpenCore-Multiboot/assets/js/2.3aa1c922.js" as="script"><link rel="preload" href="/OpenCore-Multiboot/assets/js/13.0faa8d4a.js" as="script"><link rel="preload" href="/OpenCore-Multiboot/assets/js/15.f709790d.js" as="script"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/10.83c222b1.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/11.4c111782.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/12.88b3e5fc.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/14.f285d641.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/16.ce41eabe.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/17.ed746ea7.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/18.11a1dcef.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/19.ac4f391a.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/20.0993e1ce.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/21.58ea1410.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/22.06d74bfb.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/23.7b79fbcb.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/3.d5598509.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/4.457f29ec.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/5.9fa1f4f0.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/6.0a49b38c.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/7.b691c8c9.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/8.a2ffea20.js"><link rel="prefetch" href="/OpenCore-Multiboot/assets/js/9.5d8b5b8c.js">
+    <link rel="stylesheet" href="/OpenCore-Multiboot/assets/css/0.styles.6b6f98c2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OpenCore-Multiboot/" class="home-link router-link-active"><img src="/OpenCore-Multiboot/homepage.png" alt="OpenCore Multiboot" class="logo"> <span class="site-name can-hide">OpenCore Multiboot</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dortania.github.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home Site
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Install-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Install Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Post-Install/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Post-Install
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Wireless-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Wireless Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/GPU-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GPU Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Anti Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/dortania/OpenCore-Multiboot" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Language Menu" class="dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow down"></span></button> <button type="button" aria-label="Language Menu" class="mobile-dropdown-title"><span class="title">Dortania Guides</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://dortania.github.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Home Site
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Install-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Install Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/OpenCore-Post-Install/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  OpenCore Post-Install
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Wireless-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Wireless Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/GPU-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GPU Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Anti Buyers Guide
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div> <div class="nav-item"><a role="button" aria-label="Switch to light mode" class="nav-link"><span>Switch theme</span></a></div> <a href="https://github.com/dortania/OpenCore-Multiboot" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>For experienced users who already dealt with multibooting</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/QUICK.html" class="sidebar-link">Quick! I know what do, just tell me already HOW</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Introduction to multi-booting</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/Intro/Def.html" class="sidebar-link">What is it?</a></li><li><a href="/OpenCore-Multiboot/Intro/Booting-part.html" class="sidebar-link">UEFI? Legacy? CSM? What?</a></li><li><a href="/OpenCore-Multiboot/Intro/disc.html" class="sidebar-link">Disclaimer</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Multibooting Situations</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/empty/" class="sidebar-link">Multibooting Situations</a></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/empty/samedisk.html" class="sidebar-link">One disk - multiple OSes</a></li><li><a href="/OpenCore-Multiboot/empty/diffdisk.html" class="sidebar-link">Multiple disks - multiple OSes</a></li></ul></section></li><li><a href="/OpenCore-Multiboot/exist/" class="sidebar-link">Existing Filled Disk</a></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span></span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/exist/data.html" class="sidebar-link">On a filled non-OS related disk (Data disk)</a></li><li><a href="/OpenCore-Multiboot/exist/os.html" class="sidebar-link">On a filled OS related disk (Windows/Linux)</a></li></ul></section></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>OpenCore configuration</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OpenCore-Multiboot/oc/win.html" class="sidebar-link">For Windows booting</a></li><li><a href="/OpenCore-Multiboot/oc/linux.html" aria-current="page" class="active sidebar-link">For Linux booting</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/oc/linux.html#chainloading-a-efi-bootloader-grub2-systems-boot" class="sidebar-link">Chainloading a EFI Bootloader (GRUB2, Systems-Boot)</a></li><li class="sidebar-sub-header"><a href="/OpenCore-Multiboot/oc/linux.html#chainloading-the-kernel-must-support-efistub" class="sidebar-link">Chainloading the kernel (must support EFISTUB)</a></li></ul></li><li><a href="/OpenCore-Multiboot/oc/duet.html" class="sidebar-link">Installing OpenCore on a legacy system</a></li><li><a href="https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html" target="_blank" rel="noopener noreferrer" class="sidebar-link">Using Bootstrap.efi<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li><a href="https://dortania.github.io/OpenCore-Post-Install/multiboot/bootcamp.html" target="_blank" rel="noopener noreferrer" class="sidebar-link">BootCamp installation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-succinct-content content__default"><h1 id="dualbooting-with-linux"><a href="#dualbooting-with-linux" class="header-anchor">#</a> Dualbooting with Linux</h1> <p><strong>WORK IN PROGRESS</strong></p> <h2 id="chainloading-a-efi-bootloader-grub2-systems-boot"><a href="#chainloading-a-efi-bootloader-grub2-systems-boot" class="header-anchor">#</a> Chainloading a EFI Bootloader (GRUB2, Systems-Boot)</h2> <p>If Linux is not picked up automagically, add the following to your config.plist:</p> <div class="language- extra-class"><pre class="language-text"><code>Misc -&gt; BlessOverride -&gt; \EFI\arch\grubx64.efi
+</code></pre></div><p>Some common Linux bootloader paths:</p> <ul><li><code>\EFI\arch\grubx64.efi</code></li> <li><code>\EFI\ubuntu\grubx64.efi</code></li> <li><code>\EFI\systemd\systemd\systemd-bootx64.efi</code></li> <li>Check your distribution ¯\_(ツ)_/¯</li></ul> <p><img src="/OpenCore-Multiboot/assets/img/blessoverride.4c95ffdb.png" alt=""></p> <h2 id="chainloading-the-kernel-must-support-efistub"><a href="#chainloading-the-kernel-must-support-efistub" class="header-anchor">#</a> Chainloading the kernel (must support EFISTUB)</h2> <p>Some linux kernels are built with EFISTUB enabled in their configuration, which makes them loadable by the UEFI firmware like a regular UEFI application (neat, right?), we can use this feature with OpenCore and let it load the kernel as an EFI application while also passing boot arguments and other information.</p> <h3 id="_1-identifying-your-root-partition"><a href="#_1-identifying-your-root-partition" class="header-anchor">#</a> 1. Identifying your root partition</h3> <p>We first need to determine your root partition and its UUID/PARTUUID, this information will help us point to the proper partition for the kernel/system root.</p> <h4 id="_1-your-kernel-and-system-root-are-in-the-same-partition-using-arch-in-this-example"><a href="#_1-your-kernel-and-system-root-are-in-the-same-partition-using-arch-in-this-example" class="header-anchor">#</a> 1. Your kernel and system root are in the same partition: (using Arch in this example)</h4> <ul><li><p>In a terminal window on your linux install, run <code>lsblk</code> (available in most distributions)</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ lsblk
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+<span class="token punctuation">..</span>. 
+sda            <span class="token number">8</span>:0    <span class="token number">0</span> <span class="token number">223</span>.6G  <span class="token number">0</span> disk 
+├─sda1         <span class="token number">8</span>:1    <span class="token number">0</span>   200M  <span class="token number">0</span> part /boot/efi
+├─sda2         <span class="token number">8</span>:2    <span class="token number">0</span> <span class="token number">116</span>.3G  <span class="token number">0</span> part 
+└─sda3         <span class="token number">8</span>:3    <span class="token number">0</span>   107G  <span class="token number">0</span> part /
+<span class="token punctuation">..</span>.
+</code></pre></div><ul><li>Check for the mount point section to get your system root <code>/</code> partition (here <code>sda3</code>)</li> <li><code>/boot/efi</code> has my EFI partition mounted in it</li> <li>the kernel and initramfs are stored in <code>/boot</code> which is part of my main system root partition</li></ul></li> <li><p>Now we need to know which UUID/PARTUUID, run <code>blkid | grep -i &lt;system_root_partition&gt;</code> , eg: <code>blkid | grep -i sda3</code> (must be root user)</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># blkid | grep -i sda3</span>
+/dev/sda3: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;3d4768d7-d33e-4f9f-a821-e80eba22ca62&quot;</span> <span class="token assign-left variable">BLOCK_SIZE</span><span class="token operator">=</span><span class="token string">&quot;4096&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;ext4&quot;</span> <span class="token assign-left variable">PARTUUID</span><span class="token operator">=</span><span class="token string">&quot;a1073e53-c768-4ce5-89ad-b558669bdb89&quot;</span>
+</code></pre></div><ul><li>You'll get both your UUID/PARTUUID, save these somewhere.</li></ul></li> <li><p>Explore <code>/boot</code> and list your files, you should find your kernel and initramfs</p> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token builtin class-name">cd</span> /boot
+$ <span class="token function">ls</span> -l
+total <span class="token number">51698</span>
+drwxr-xr-x <span class="token number">7</span> root root    <span class="token number">34304</span> Jan  <span class="token number">1</span>  <span class="token number">1970</span> efi
+drwxr-xr-x <span class="token number">6</span> root root     <span class="token number">4096</span> Sep <span class="token number">18</span> <span class="token number">19</span>:42 grub
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">10144696</span> Sep <span class="token number">22</span> <span class="token number">23</span>:31 initramfs-linux.img
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">32047033</span> Sep <span class="token number">22</span> <span class="token number">23</span>:32 initramfs-linux-fallback.img
+-rw-r--r-- <span class="token number">1</span> root root  <span class="token number">3161088</span> Jun <span class="token number">16</span> <span class="token number">17</span>:50 intel-ucode.img
+-rw-r--r-- <span class="token number">1</span> root root  <span class="token number">7541344</span> Sep <span class="token number">22</span> <span class="token number">23</span>:31 vmlinuz-linux
+</code></pre></div><ul><li>You see my kernel is named <code>vmlinuz-linux</code> with <code>initramfs-linux.img</code> as its initramfs, with a fallback img, but also <code>intel-ucode.img</code> for the trash intel mitigation
+<ul><li>In case you're using AMD, you might also find <code>amd-ucode.img</code></li> <li>Some other distributions may have these images stored somewhere else, check your distribution and how it handles CPU ucode firmware</li></ul></li></ul></li> <li><p>Reboot to OpenCore, and press Space, it should show more options, one of them should be OpenShell.efi. In case you do not have it, download the OpenCore zip, and take it from OC/Tools, and add it to your config.plist, ProperTree can do that with OC Snapshot.</p></li></ul> <h4 id="_2-your-kernel-is-in-your-efi-partition"><a href="#_2-your-kernel-is-in-your-efi-partition" class="header-anchor">#</a> 2. Your kernel is in your EFI partition:</h4> <p>In case you're using systemd-boot, make sure you install the kernel in your EFI partition where systemd UEFI bootloader can detect and load your kernel: basically make sure it's in a FAT32 partition <em>which you EFI partition should already be</em>.</p> <h3 id="_2-identifying-your-uefi-paths-and-devices"><a href="#_2-identifying-your-uefi-paths-and-devices" class="header-anchor">#</a> 2. Identifying your UEFI paths and devices:</h3> <ul><li><p>In the shell</p> <ul><li><p>run <code>map -r -b</code> to list all your devices (-b to break the scroll)</p> <ul><li><p><code>BLKX:</code> are all the partitions/disks scanned</p></li> <li><p><code>FSX:</code> are all the <strong>explorable</strong> filesystems</p></li> <li><p><code>PciRoot(0x0)/Pci(AxB,CxD)/Sata</code> or <code>Nvme</code> are your drives types (nvme or ahci)</p></li> <li><p><code>HD(X,GPT,&lt;PARTUUID&gt;,...)</code> or <code>HD(X,MBR)</code> are your drive partitions where <code>X</code> is a number, GPT/MBR the disk partition scheme then followed with PARTUUID</p></li> <li><p>Example:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Mapping table
+      FS0: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a1:<span class="token punctuation">;</span>BLK1:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">1</span>,GPT,4C86153F-3A91-4328-878A-807A8FA944A1,0x28,0x64000<span class="token punctuation">)</span>
+      FS1: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a2:<span class="token punctuation">;</span>BLK3:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>/VenMedia<span class="token punctuation">(</span>BE74FCF7-0B7C-49F3-9147-01F4042E6842,1D89CBABD1BB094B87762CDCDC3168F6<span class="token punctuation">)</span>
+      FS2: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a2:<span class="token punctuation">;</span>BLK4:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>/VenMedia<span class="token punctuation">(</span>BE74FCF7-0B7C-49F3-9147-01F4042E6842,43B537EA89133A48A9640D5A373D2982<span class="token punctuation">)</span>
+      FS4: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a2:<span class="token punctuation">;</span>BLK6:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>/VenMedia<span class="token punctuation">(</span>BE74FCF7-0B7C-49F3-9147-01F4042E6842,9FEEB42E4604B44BB4CB39A9D6F41DB8<span class="token punctuation">)</span>
+      FS5: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a2:<span class="token punctuation">;</span>BLK7:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>/VenMedia<span class="token punctuation">(</span>BE74FCF7-0B7C-49F3-9147-01F4042E6842,EDB22B3A8A95AC4B9A66E4E287559689<span class="token punctuation">)</span>
+      FS6: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a2:<span class="token punctuation">;</span>BLK8:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>/VenMedia<span class="token punctuation">(</span>BE74FCF7-0B7C-49F3-9147-01F4042E6842,FA8B4C241BA35347B093F2E560B563EA<span class="token punctuation">)</span>
+      FS3: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:HD0a0a2:<span class="token punctuation">;</span>BLK5:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>/VenMedia<span class="token punctuation">(</span>BE74FCF7-0B7C-49F3-9147-01F4042E6842,93DFEA9BE3D44D4CBE5A8A4F978348D2<span class="token punctuation">)</span>
+     BLK0: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>
+     BLK2: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">2</span>,GPT,B186A074-AE41-495C-BAF3-04AD655A73FB,0x64028,0xE8B0C90<span class="token punctuation">)</span>
+     BLK9: Alias<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:
+          PciRoot<span class="token punctuation">(</span>0x0<span class="token punctuation">)</span>/Pci<span class="token punctuation">(</span>0x1F,0x2<span class="token punctuation">)</span>/Sata<span class="token punctuation">(</span>0x0,0x0,0x0<span class="token punctuation">)</span>/HD<span class="token punctuation">(</span><span class="token number">3</span>,GPT,A1073E53-C768-4CE5-89AD-B558669BDB89,0xE914CB8,0xE8B0C90<span class="token punctuation">)</span>
+</code></pre></div><ul><li><code>BLK0</code> seems to be the disk BLK as its path does not show any partition numbering or UUID
+<ul><li>This is logical as the first thing your firmware will look for is the disk, not its partitions</li></ul></li> <li>I have BLK1/BLK2/BLK9 which are my 3 main partitions
+<ul><li>Because I have APFS driver loaded from OpenCore, there are new BLK devices shown because of that and thus added more partitions, which are actually just APFS container partitions, those can be ignored</li> <li>The reason why they can be ignored is because you can see that they have the same PARTUUID, also we're not here for those partitions</li></ul></li> <li>FS0 seems to be BLK1, which is my EFI partition which is also FAT32 formatted, where OC lives
+<ul><li>In a multi-disk setup, FS0: can be whatever the UEFI firmware detects first, it does not mean that OC is always in FS0, in these cases FS0: could point to a USB device or SATA device. Usually most firmware will follow this setup to read/find partitions: USB &gt; SATA &gt; NVME, this is not a norm as some other firmware could do something else (it can also depend on the boot order setting).</li> <li>Check if your linux kernel is there (in case of systemdboot)
+<ul><li><code>cd FSX:</code></li> <li><code>ls</code></li> <li>Use your eyes and a brain cell</li></ul></li> <li>Just make sure you're properly reading the partition location before doing any actions</li></ul></li> <li>FS0/BLK2/BLK9 all live in a Sata drive (which is my main boot drive for this example device)
+<ul><li>This matches linux reading the device as <code>sdX</code> and not <code>nvmeXnX</code></li> <li>In case of an nvme drive, you would be seeing <code>Nvme</code> instead of <code>Sata</code></li></ul></li> <li>BLK9's PARTUUID matches my root filesystem <code>a1073e53-c768-4ce5-89ad-b558669bdb89</code> <ul><li>But remember that it's in capital letters!</li></ul></li> <li>BLK1 and BLK2 have their explorable <code>FSX</code>, which means the UEFI firmware can explore and read files from them, however BLK9 which is an ext4 partition isn't, this means the UEFI requires a suitable driver to load its contents.</li></ul></li></ul></li> <li><p>Identify your EFI partition (in this example it's FS0:)</p> <ul><li>run <code>map -r &gt; FSX:\drives_map.txt</code> <ul><li>This will run <code>map</code> and save the output to FSX: in a file named <code>drives_map.txt</code></li> <li>Note that UEFI Firmware use Windows-style path slash <code>\</code> not <code>/</code></li></ul></li></ul></li></ul></li> <li><p>Reboot to macOS/Linux distribution with ProperTree in it</p></li></ul> <h3 id="_3-adding-the-boot-entry-to-opencore-s-configuration-file"><a href="#_3-adding-the-boot-entry-to-opencore-s-configuration-file" class="header-anchor">#</a> 3. Adding the boot entry to OpenCore's configuration file</h3> <ul><li><p>In case:</p> <ul><li>Your kernel is in the system partition:
+<ul><li>Download a suitable UEFI driver for your filesystem in use:
+<ul><li>Download <a href="https://sourceforge.net/projects/refind/" target="_blank" rel="noopener noreferrer">rEFInd<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <ul><li>Extract the zip</li> <li>Explore the extracted zip &gt; refind &gt; drivers_x64</li> <li>You'll find these drivers:
+<ul><li>ext4</li> <li>ext2</li> <li>btrfs</li></ul></li> <li>Pick the UEFI driver that you want and copy it to OC &gt; Drivers</li> <li>Add it to your config.plist (you can use ProperTree &gt; File &gt; OC Snapshot)</li></ul></li></ul></li></ul></li> <li>Your kernel is in your EFI partition (systemdboot), you don't need to set up any fs drivers</li></ul></li> <li><p>(Optional) In case you're using GRUB2, make sure you get a copy of <code>grub.cfg</code> to get your kernel arguments</p></li> <li><p>Open config.plist in your plist editor (recommend ProperTree), under Misc &gt; Entries, make a new child with type <code>Dictionary</code>:</p> <table><thead><tr><th>Key</th> <th>Type</th> <th>Value</th> <th>Notes</th></tr></thead> <tbody><tr><td>Comment</td> <td>String</td> <td>Whatever you want to write here, it's just a comment I guess lol</td> <td>-</td></tr> <tr><td>Enabled</td> <td>Boolean</td> <td><code>True</code>/<code>ON</code>/<code>1</code></td> <td>-</td></tr> <tr><td>Name</td> <td>String</td> <td>Name of the OS you want</td> <td>Can be anything you want</td></tr> <tr><td>Path</td> <td>String</td> <td><strong>Template:</strong><br>PciRoot(<strong>your_ids</strong>)/Pci(<strong>your_ids</strong>)/.../<strong>Type</strong>(<strong>your_ids</strong>)/HD(<strong>X</strong>,<strong>SCH</strong>,<strong>PARTUUID</strong>,<strong>stuff,from_map</strong>)/\<em>path</em>\<em>to</em>\<em>kernel</em><br><strong>Example:</strong><br>PciRoot(<strong>0x0</strong>)/Pci(<strong>0x1D,0x0</strong>)/Pci(<strong>0x0,0x0</strong>)/<strong>NVMe</strong>(<strong>0x1,9B-64-50-F1-5C-38-25-00</strong>)/HD(<strong>6</strong>,<strong>GPT</strong>,<strong>608DA4F8-DA9E-4792-829F-A4CF4E5B8B82</strong>,<strong>0x2C431800</strong>,<strong>0x3B10800</strong>)/<em>\boot\vmlinuz-linux</em></td> <td><em>check below</em></td></tr> <tr><td>Arguments</td> <td>String</td> <td><strong>Template:</strong><br>initrd=\path\to\rd.img\if\used <em>other_kernel_arguments</em><br><strong>Example:</strong><br>initrd=\boot\intel_ucode.img initrd=\boot\initramfs-linux.img root=PARTUUID=608da4f8-da9e-4792-829f-a4cf4e5b8b82 ro quiet intel_iommu=on iommu=pt</td> <td><em>check below</em></td></tr> <tr><td>Auxiliary</td> <td>Boolean</td> <td><code>False</code>/<code>NO</code>/<code>0</code></td> <td>- False: Always shown<br>- True: Hidden until you press space<br>- Requires Misc\Boot\HideAuxiliary=True if this is set to True</td></tr></tbody></table> <ul><li><strong>Path Notes:</strong> <ul><li><strong>your_ids</strong>: from the map text file</li> <li><strong>Type</strong>: NVMe/SATA</li> <li><strong>X</strong>: partition number</li> <li><strong>SCH</strong>: disk scheme (GPT/MBR)</li> <li><strong>PARTUUID</strong></li> <li><strong>stuff,from_map</strong>: get them from the map</li> <li><em>\path\to\kernel</em>: it's the path to the kernel binary</li> <li><strong>TL;DR: Copy the path of the partition from the map text file.</strong> <ul><li>Note1: use backslash <code>\</code> for <em>kernel path</em>, that's how UEFI firmware handles file paths</li> <li>Note2: use regular slash <code>/</code> for the <em>PciRoot path</em>, like shown in the example and template</li></ul></li></ul></li> <li><strong>Arguments Notes:</strong> <ul><li>You can add as much <code>initrd=</code> as you want (if you're using linux, you should know why and how)</li> <li>Your other arguments are the same as in any other bootloader, you can add/remove/modify in the config directly</li></ul></li></ul></li> <li><p>Notes</p> <ul><li>You can use the same scheme as above to add other efi files or uefi-loadable files (like systemdboot efi, Windows bootmgfw.efi...)</li> <li><strong>You will NOT be able to set it as the default boot option with Ctrl+Enter</strong>, so you'll have to select it each time you want to boot it</li></ul></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/4/2020, 12:28:12 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ⟵
+      <a href="/OpenCore-Multiboot/oc/win.html" class="prev">
+        For Windows booting
+      </a></span> <span class="next"><a href="/OpenCore-Multiboot/oc/duet.html">
+        Installing OpenCore on a legacy system
+      </a>
+      ⟶
+    </span></p></div> </main></div><div class="global-ui"><div style="visibility:hidden;display:none;"></div><!----></div></div>
+    <script src="/OpenCore-Multiboot/assets/js/app.e6102d70.js" defer></script><script src="/OpenCore-Multiboot/assets/js/2.3aa1c922.js" defer></script><script src="/OpenCore-Multiboot/assets/js/13.0faa8d4a.js" defer></script><script src="/OpenCore-Multiboot/assets/js/15.f709790d.js" defer></script>
+  </body>
 </html>
-
