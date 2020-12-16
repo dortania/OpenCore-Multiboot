@@ -2,7 +2,9 @@
 
 **WORK IN PROGRESS**
 
-## Chainloading a EFI Bootloader (GRUB2, Systems-Boot)
+## Method A: Chainloading a EFI Bootloader (GRUB2, Systemd-boot)
+
+#### Method 1: Using BlessOverride
 
 If Linux is not picked up automagically, add the following to your config.plist:
 
@@ -19,7 +21,71 @@ Some common Linux bootloader paths:
 
 ![](../images/linux-md/blessoverride.png)
 
-## Chainloading the kernel (must support EFISTUB)
+#### Method 2: Using `efibootmgr` (recommended)
+
+`efibootmgr` is a program that manipulates the EFI Boot Manager in your UEFI Firmware (ex-BIOS). With it, you can create new entries and add your linux boot manager (GRUB2, systemd-boot,...) in a way that will make it appear on OpenCore and can be selected and set as default too by OC (using Ctrl + Enter when you highlight it). To do that:
+
+1. Know which bootloader/manager you're using (GRUB2 or systemd-boot or anything else)
+
+2. **Boot to linux through OpenCore, you may want to use UEFI Shell to execute the EFI Application for your bootloader/manager**
+
+3. Find out your bootloader/manager's path, usually it's in the EFI (if you properly set it up)
+
+   1. In a terminal window on your linux install, run `lsblk` (available in most distributions)
+
+      ```shell
+      $ lsblk
+      NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+      ... 
+      sda            8:0    0 223.6G  0 disk 
+      ├─sda1         8:1    0   200M  0 part /boot/efi
+      ├─sda2         8:2    0 116.3G  0 part 
+      └─sda3         8:3    0   107G  0 part /
+      ...
+      ```
+
+      - Check for the mount point section to get your system root `/` partition (here `sda3`)
+      - `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
+      - the bootloader/manager is in `/boot/efi`
+      - `/boot/efi` partition number is `1` in this case (it could be `sda1` or `nvme0nXp1` or anything else), if you have your efi in another partition please remember which number it is
+
+   2. Change the directory to where your EFI partition is mounted by running `cd /path/to/efi` (for example `cd /boot/efi`)
+
+   3. Once you're in, you'll usually find a folder named `EFI` which contains `BOOT` and other folders, one of these folders *may* contain your bootloader/manager EFI Application binary, commonly found in
+
+      - `EFI/arch/grubx64.efi` - for Arch with grub2
+      - `EFI/ubuntu/grubx64.efi` - for Ubuntu with grub2
+      - `EFI/systemd/systemd-bootx64.efi` - for systemd-boot (path used with Arch)
+      - `EFI/fedora/grubx64.efi` - for Fedora with grub2
+      - or run `find . -iname "grubx64.efi"` or `find . -iname "systemd-bootx64.efi"` in your EFI folder (you can change the file name to whatever you're using)
+
+   4. Keep note of:
+
+      - the binary path
+      - the binary's partition number
+      - the binary's disk path (`/dev/sda` or `/dev/nvme0nX`)
+
+4. Install `efibootmgr` in your linux system (usually it comes built-in in ubuntu, but requires install on arch for example)
+
+5. Once installed, run as **sudoer/superuser** (or use sudo)
+
+   ```
+   efibootmgr -c -L "Linux" -l "\EFI\pathto\filex64.efi" -d "/dev/sda" -p 1
+   ```
+
+   - `-c`: Create
+   - `-L "Linux"`: Label the boot entry (you can change it to whatever you want)
+   - `-l "\EFI\pathto\filex64.efi"`: loader file path, must be in a format the UEFI Firmware can use, which means `\` for pathing instead of `/` you find in unix
+   - `-d "/dev/sda"`: disk path so that `efibootmgr` know which disk the UEFI firmware should read the file from, it can be `/dev/nvme0nX` (with X as a number) if you're using nvme
+   - `-p 1`: point the partition number we found earlier, in case your EFI partition is the first one, this can be omitted
+
+6. Reboot and check OpenCore, **you will find a new entry named `EFI`**, there can me many as it can also point to other boot entries, that's by design by OpenCore, not a bug.
+
+**Note:**
+
+This can be used for **any EFI application** you want to add to the UEFI Boot Manager.
+
+## Method B: Chainloading the kernel (must support EFISTUB)
 
 Some linux kernels are built with EFISTUB enabled in their configuration, which makes them loadable by the UEFI firmware like a regular UEFI application (neat, right?), we can use this feature with OpenCore and let it load the kernel as an EFI application while also passing boot arguments and other information.
 
@@ -43,7 +109,7 @@ We first need to determine your root partition and its UUID/PARTUUID, this infor
   ```
 
   - Check for the mount point section to get your system root `/` partition (here `sda3`)
-  - `/boot/efi` has my EFI partition mounted in it
+  - `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
   - the kernel and initramfs are stored in `/boot` which is part of my main system root partition
 
 - Now we need to know which UUID/PARTUUID, run `blkid | grep -i <system_root_partition>` , eg: `blkid | grep -i sda3` (must be root user)
