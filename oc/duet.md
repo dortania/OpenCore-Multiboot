@@ -1,7 +1,5 @@
 # Installing OpenCore on a legacy system
 
-**WORK IN PROGRESS**
-
 At the moment there is no official support for MBR/Legacy based Windows installs, there are plans though unlikely to see anything anytime soon: [Add MBR loading tool to OpenCore](https://github.com/acidanthera/bugtracker/issues/912)
 
 Currently there are 2 work arounds:

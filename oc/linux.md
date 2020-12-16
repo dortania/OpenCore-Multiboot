@@ -217,16 +217,16 @@ In case you're using systemd-boot, make sure you install the kernel in your EFI 
 - In case:
 
   - Your kernel is in the system partition:
-  - Download a suitable UEFI driver for your filesystem in use:
-    - Download [rEFInd](https://sourceforge.net/projects/refind/)
-      - Extract the zip
-      - Explore the extracted zip > refind > drivers_x64
-      - You'll find these drivers:
-        - ext4
-        - ext2
-        - btrfs
-      - Pick the UEFI driver that you want and copy it to OC > Drivers
-      - Add it to your config.plist (you can use ProperTree > File > OC Snapshot)
+    - Download a suitable UEFI driver for your filesystem in use:
+      - Download [rEFInd](https://sourceforge.net/projects/refind/)
+        - Extract the zip
+        - Explore the extracted zip > refind > drivers_x64
+        - You'll find these drivers:
+          - ext4
+          - ext2
+          - btrfs
+        - Pick the UEFI driver that you want and copy it to OC > Drivers
+        - Add it to your config.plist (you can use ProperTree > File > OC Snapshot)
   - Your kernel is in your EFI partition (systemdboot), you don't need to set up any fs drivers
 
 - (Optional) In case you're using GRUB2, make sure you get a copy of `grub.cfg` to get your kernel arguments

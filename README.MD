@@ -4,7 +4,7 @@ Hello there! Looks like you're trying to get macOS and `$(OtherOS)` installed on
 
 ## Firmware Types:
 
-Multibooting is greately affected by the type of firmware you're running. This guide will cover the known 2 types which are:
+Multibooting is greatly affected by the type of firmware you're running. This guide will cover the known 2 types which are:
 
 - UEFI
 - Legacy/CSM/BIOS
@@ -21,8 +21,6 @@ The differences are minimal once you're using OpenCore but also it might be a bi
    2. Different disks for different OSes
 5. Troubleshooting
 6. Tips and Tricks
-
----
 
 ### Disclaimer
 
