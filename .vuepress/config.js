@@ -80,13 +80,13 @@ module.exports = {
         ],
         sidebar: [
 		
-		
+			
 			{
 	            title: 'Multiboot with OpenCore',
                 collapsable: false,
                 sidebarDepth: 0,
                 children: [
-                    'README',
+                    '',
                 ]
 
 	        },
