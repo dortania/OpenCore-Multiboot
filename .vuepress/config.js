@@ -68,7 +68,7 @@ module.exports = {
             {
                 text: 'Anti Buyers Guide',
                 link: 'https://dortania.github.io/Anti-Hackintosh-Buyers-Guide/'
-            },
+            }
             ]
         },
             /*
@@ -78,17 +78,13 @@ module.exports = {
               }
             */
         ],
-        sidebar: [
-		
-			
-			{
+        sidebar: [{
 	            title: 'Multiboot with OpenCore',
                 collapsable: false,
                 sidebarDepth: 0,
                 children: [
                     '',
                 ]
-
 	        },
 		{
             title: 'For experienced users who already dealt with multibooting',
