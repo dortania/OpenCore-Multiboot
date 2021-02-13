@@ -1,7 +1,7 @@
 {
-   "name": "OpenCore-Install-Guide",
-   "version": "0.6.2",
-   "description": "Guide to put macOS on unsupported devices",
+   "name": "OpenCore-Multiboot",
+   "version": "0.6.3",
+   "description": "OpenCore Multiboot guide",
    "main": "",
    "author": {
       "name": "Dortania",
@@ -9,7 +9,7 @@
    },
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/dortania/OpenCore-Install-Guide.git"
+      "url": "git+https://github.com/dortania/OpenCore-Multiboot.git"
    },
    "scripts": {
       "dev": "vuepress dev",
@@ -47,5 +47,5 @@
       "vuepress-theme-succinct": "^1.5.3",
       "vuepress-theme-yuu": "^2.3.0"
    },
-   "homepage": "https://dortania.github.io/OpenCore-Install-Guide/"
+   "homepage": "https://dortania.github.io/OpenCore-Multiboot/"
 }
