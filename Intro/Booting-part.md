@@ -32,9 +32,9 @@ We'll put them in a table to show the main differences:
 
 |                                                            | **UEFI**                                                     | **Legacy**                                                   |
 | ---------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| FastBoot                                                   | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
+| Fast Boot                                                  | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
 | Bootloader Chooser through the boot menu                   | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
-| SecureBoot                                                 | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
+| Secure Boot                                                | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
 | Add a bootloader without overwriting the others            | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
 | Supporting 2TB+ boot disks                                 | ✅ (hardware dependent)                                       | ❌ (requires GPT, which is supported on some Legacy systems, 2006+) |
 | Legacy Hardware Support                                    | ⚠️ (depends on which hardware, CSM switch should be possible) | ✅ (hardware dependent)                                       |
@@ -64,11 +64,11 @@ Open Run (Win + R) and type `msinfo32`, you will be greeted with this window:
 
 Check **BIOS Mode**, it will either say **UEFI** or **Legacy**. Note that this is for Windows 8/10, if you're using Windows 7 or older, you're probably running it in Legacy mode.
 
-## On linux:
+## On Linux:
 
 ### Method 1
 
-On most linux distributions, you can run 
+On most Linux distributions, you can run 
 
 ```ls /sys/firmware/efi```
 
