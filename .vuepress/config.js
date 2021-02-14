@@ -140,7 +140,7 @@ module.exports = {
                 ['/oc/win', 'For Windows booting'],
 				['/oc/linux', 'For Linux booting'],
 				['/oc/duet', 'Installing OpenCore on a legacy system'],
-				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html', 'Using Bootstrap.efi'],
+				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html', 'Using LauncherOption'],
 				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootcamp.html', 'BootCamp installation'],
             ]
 
