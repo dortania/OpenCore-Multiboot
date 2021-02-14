@@ -1,8 +1,8 @@
 # UEFI Systems
 
-Ever since UEFI, the disk default partition map format is GPT (GUID Partition Table), which added support for more than 2TB of disk size and more than 4 partitions that was the limit of MBR while still keeping a backward compatibility with MBR for legacy systems. If your computer (prebuilt) came with Windows 8 (2012 and later), then your disk is probably partitionned as GPT.
+Ever since UEFI, the disk default partition map format is GPT (GUID Partition Table), which added support for more than 2TB of disk size and more than 4 partitions that was the limit of MBR while still keeping a backward compatibility with MBR for legacy systems. If your computer (prebuilt) came with Windows 8 (2012 and later), then your disk is probably partitioned as GPT.
 
-Usually 2012+ computers that came with Windows 8 would have a UEFI firmware (some OEMs released Windows 7 releases alongside those, so make sure yours has UEFI), and this is a newly spread firmware type (that was in developement since the 2000s) and was already deployed on Apple computers ever since the intel switch (but their own heavily modified firmware, it's called EFI and not UEFI for the lack of Universiality). This new firmware has some new features like SecureBoot, help with faster booting, hardware passthrough, graphical interface with mouse support (and more). To know more about UEFI and SecureBoot check this writeup by Osy86 [here](https://osy.gitbook.io/hac-mini-guide/details/secure-boot). Basically a UEFI boot goes something like this:
+Usually, 2012+ computers that came with Windows 8 would have a UEFI firmware (some OEMs released Windows 7 releases alongside those, so make sure yours has UEFI), and this is a newly spread firmware type (that was in development since the 2000s) and was already deployed on Apple computers ever since the intel switch (but their own heavily modified firmware, it's called EFI and not UEFI for the lack of universality). This new firmware has some new features like Secure Boot, help with faster booting, hardware passthrough, graphical interface with mouse support (and more). To know more about UEFI and Secure Boot check this writeup by Osy86 [here](https://osy.gitbook.io/hac-mini-guide/details/secure-boot). Basically, a UEFI boot goes something like this:
 
 - UEFI Firmware loads up
 - Loads its integrated drivers and services
@@ -11,11 +11,11 @@ Usually 2012+ computers that came with Windows 8 would have a UEFI firmware (som
 - Loads the bootloader 
   - OS is loaded after that.
 
-Usually the said "bootloader" is contained somewhere in the disk, and that somewhere is called a **EFI Partition**. You can find this named different things like ESP (EFI System Partition), SYSTEM, EFI, BOOT and so on. This partition is **FAT32** formatted and flagged as **EF00** in MBR or **C12A7328-F81F-11D2-BA4B-00A0C93EC93B** GUID in GPT. This partition contains usually the EFI applications (like an OS bootloader) in it that are loaded at boot by the UEFI firmware (remember this as it is important for later for recovery).
+Usually, the said "bootloader" is contained somewhere in the disk, and that somewhere is called a **EFI Partition**. You can find this named different things like ESP (EFI System Partition), SYSTEM, EFI, BOOT and so on. This partition is **FAT32** formatted and flagged as **EF00** in MBR or **C12A7328-F81F-11D2-BA4B-00A0C93EC93B** GUID in GPT. This partition contains usually the EFI applications (like an OS bootloader) in it that are loaded at boot by the UEFI firmware (remember this as it is important for later for recovery).
 
 # Legacy/CSM Systems
 
-Contrary to UEFI, Legacy systems are a older and much more mature (dating back to the first IBM PCs). They're certainly a lot more limited and slower than UEFI on the same system but hold better compatibility with a lot of OSes (even macOS in some rare cases). Computer pre-2012 usually have this type of firmware (some exceptions like servers and some professional laptops and so on that can also have UEFI, they're not reliable thought in that mode). The computer would usually come with a version of Windows that is older than Windows 8 with a hard drive that is less than 2TB. Some desktop users at this time would also install OSes in Legacy mode even if their motherboard support the newer UEFI standard. This could create issues with multibooting later on.
+Contrary to UEFI, Legacy systems are older and much more mature (dating back to the first IBM PCs). They're certainly a lot more limited and slower than UEFI on the same system but hold better compatibility with a lot of OSes (even macOS in some rare cases). Computer pre-2012 usually have this type of firmware (some exceptions like servers and some professional laptops and so on that can also have UEFI, they're not reliable thought in that mode). The computer would usually come with a version of Windows that is older than Windows 8 with a hard drive that is less than 2TB. Some desktop users at this time would also install OSes in Legacy mode even if their motherboard supports the newer UEFI standard. This could create issues with multibooting later on.
 
 These systems rely on another method of loading the bootloader. This piece of software is usually written in the first sectors of the disk (formatted as MBR) called **boot sector**, this sector is usually 512 or 4096 bytes big, the BIOS would then read the code, copy it to memory and then execute it, at that point an OS or Bootloader menu (like GRUB2) will show up:
 
@@ -41,7 +41,7 @@ We'll put them in a table to show the main differences:
 | Easier maintenance (managing bootloaders and boot entries) | ✅ (on most)                                                  | ❌ (only some do, not a standard)                             |
 | OS Support                                                 | ✅                                                            | ✅                                                            |
 
-Aside from Legacy hardware support (which are rare anyways nowadays), UEFI is the firmware to use when dual booting on newer hardware (2012+). But for legacy users, there is also a way to get some UEFI features but only through DUET (will be later discussed).
+Aside from Legacy hardware support (which is rare anyways nowadays), UEFI is the firmware to use when dual booting on newer hardware (2012+). But for legacy users, there is also a way to get some UEFI features but only through DUET (will be later discussed).
 
 # Detecting which firmware you're using
 
@@ -49,10 +49,10 @@ Aside from Legacy hardware support (which are rare anyways nowadays), UEFI is th
 
 If your computer:
 
-- is from IvyBridge era (~2012) and later
+- is from Ivy Bridge era (~2012) and later
 - has a Windows 8 Sticker
 
-Then it probably has **UEFI system**, that said, it doesnt mean older generation motherboards do not, however with Windows 8 release, Microsoft standardised the UEFI specs for OEMs to get their certification (usually if you go with brand names like ASUS, Lenovo, HP, Dell... you're good to go).
+Then it probably has **UEFI system**, that said, it doesn't mean older generation motherboards do not, however with Windows 8 release, Microsoft standardized the UEFI specs for OEMs to get their certification (usually if you go with brand names like ASUS, Lenovo, HP, Dell... you're good to go).
 
 Any older than the above and the chances of having a proper UEFI implementation diminishes and you're better off with a Legacy booting.
 

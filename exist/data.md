@@ -1,6 +1,6 @@
 # On a filled non-OS related disk (Data disk)
 
-This is quite easy, basically we'll just make some space for a EFI (if it doesnt exist already) and some for our macOS system.
+This is quite easy, basically we'll just make some space for an EFI (if it doesn't exist already) and some for our macOS system.
 
 ## Precautions
 
@@ -17,7 +17,7 @@ This is quite easy, basically we'll just make some space for a EFI (if it doesnt
 
 ---
 
-To start, we need to know what kind of partitioning scheme we're using, most new drives that are <1TB are usually MBR formatted (some 1TB drives still do) while anything bigger in size is GPT partitionned. As we saw before, macOS **requires** GPT and can't do without it.
+To start, we need to know what kind of partitioning scheme we're using, most new drives that are <1TB are usually MBR formatted (some 1TB drives still do) while anything bigger in size is GPT partitioned. As we saw before, macOS **requires** GPT and can't do without it.
 
 Note: we do not speak of the MBR patch, that's a bad idea and really should not exist anymore since it doesn't make any sense when most 2006+ computers can easily boot a GPT drive without much issues.
 
@@ -90,17 +90,17 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
 
 #### Destructive Conversion
 
-This method will destroy all your data in your disk, making you a clean slate to work with. **Only use this if the data in the disk is not important or backed up already! YOUR DATA WILL BE GONE WITH THIS METHOD.** 
+This method will destroy all your data on your disk, making you a clean slate to work with. **Only use this if the data in the disk is not important or backed up already! YOUR DATA WILL BE GONE WITH THIS METHOD.** 
 
 You can use any partitioning tool of your choice and destroy the data, OR you can just boot macOS installer that you made with the OpenCore Dortania Guide and select the disk and format it. You can check [Dualbooting on the same disk](../empty/samedisk.md) section for more information. You're not required to follow the rest of this section.
 
 #### Non-Destructive Conversion
 
-This method have higher chances of keeping your data intact, **however this does NOT mean you can ignore backing up you data. BACKUP YOUR DATA!**
+This method has higher chances of keeping your data intact, **however this does NOT mean you can ignore backing up your data. BACKUP YOUR DATA!**
 
-We will be using `gdisk` ran on any linux distribution, I strongly NOT recommend using Windows or macOS gdisk to perform this operation as it may break seeing how Windows and macOS disk handling differs from Linux. You can use a USB distribution like `gparted` (light weight iso/usb image) to do the manipulations or any distribution disk in hand (arch, Ubuntu, Fedora...).
+We will be using `gdisk` ran on any linux distribution, I strongly NOT recommend using Windows or macOS gdisk to perform this operation as it may break seeing how Windows and macOS disk handling differs from Linux. You can use a USB distribution like `gparted` (lightweight iso/usb image) to do the manipulations or any distribution disk in hand (arch, Ubuntu, Fedora...).
 
-- Download/Install `gdisk` following you distrubution 
+- Download/Install `gdisk` following you distribution 
 
 - Run `lsblk` to check for the destination drive identifiers
 
@@ -140,7 +140,7 @@ Once your drive is converted, check again following the instruction above. You m
 
 ## Partitioning the Disk
 
-Once you converted (or already formated) your disk in GPT, it is time to repartition it for macOS partition and the EFI partition if there isn't. 
+Once you converted (or already formated) your disk is GPT, it is time to repartition it for macOS partition and the EFI partition if there isn't. 
 
 ### Checking the disk existing partitions:
 
@@ -152,14 +152,14 @@ With that said, we still need to determine if it's required or not:
 
 - Open Disk Manager
 - Check your destination disk
-  - In case your disk already contains a EFI partition: (usually if your disk was already GPT or formatted before)
+  - In case your disk already contains an EFI partition: (usually if your disk was already GPT or formatted before)
     ![img](../images/ex-data/gpt_efi.png)
     - You'll see a description with `(EFI SYSTEM PARTITION)` 
     - The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
       - In case the size of it is <200MB, **expand** the partition to 200MB (or a bit more)
-      - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's waste of space
+      - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's a waste of space
       - In case you have multiple partitions with `EF00`, that means your partitioning is bad, you only really need just 1 EFI partition in the whole system (if not per disk, there is no real need for multiple EFI partitions, makes no sense)
-  - In case your disk doesn't contain a EFI partition:
+  - In case your disk doesn't contain an EFI partition:
     ![img](../images/ex-data/gpt_noefi.png)
 
 #### In Linux
@@ -172,7 +172,7 @@ With that said, we still need to determine if it's required or not:
 
 - When gdisk starts, send `p`
 
-  - In case your disk already contains a EFI partition: (usually if your disk was already GPT or formatted before)
+  - In case your disk already contains an EFI partition: (usually if your disk was already GPT or formatted before)
 
     ```
     Command (? for help): p
@@ -192,14 +192,14 @@ With that said, we still need to determine if it's required or not:
        ... // Other partitions 
     ```
 
-    - You'll find a partition with code `EF00` meaning it's marked as a EFI System Partition
+    - You'll find a partition with code `EF00` meaning it's marked as an EFI System Partition
       - The EFI partition does not need to be the first, it can be anywhere in the disk partitioning order, the `Code` of it is what matters the most
     - The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
       - In case the size of it is <200MB, **expand** the partition to 200MB (or a bit more)
-      - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's waste of space
+      - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's a waste of space
       - In case you have multiple partitions with `EF00`, that means your partitioning is bad, you only really need just 1 EFI partition in the whole system (if not per disk, there is no real need for multiple EFI partitions, makes no sense)
 
-  - In case your disk doesn't contain a EFI partition:
+  - In case your disk doesn't contain an EFI partition:
 
     ```
     Command (? for help): p
@@ -242,7 +242,7 @@ With that said, we still need to determine if it's required or not:
     - We see a partition with `TYPE` as `EFI`, which means a disk with an EFI partition (and as you can see it's 200MB)
     - The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
       - In case the size of it is <200MB, **expand** the partition to 200MB (or a bit more)
-      - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's waste of space
+      - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's a waste of space
       - In case you have multiple partitions with `EF00`, that means your partitioning is bad, you only really need just 1 EFI partition in the whole system (if not per disk, there is no real need for multiple EFI partitions, makes no sense)
 
   - In case your disk doesn't contain an EFI partition:
@@ -263,17 +263,17 @@ Congratulations, you can go ahead and partition your disk for macOS and be on yo
 
 ### In case you do not have an EFI partition
 
-We'll have to make one, and the OSes that we will use will be either Windows or Linux (macOS is kind of pain in the ass, not going to bother with it).
+We'll have to make one, and the OSes that we will use will be either Windows or Linux (macOS is kind of a pain in the ass, not going to bother with it).
 
 #### In Windows
 
-We'll be using a disk managing software named `Minitool Partition Wizard`, ngl, it does look shady af and kind of like a malware (and wont be surprised if it is). There are other alternatives like `Easeus Partition Master` (that suspiciously look like MPW 🤔) and `AOMEI Partition Assistant` (that also looks like the other two ***🤔 intensifies***), and many more but these are the most popular windows disk managers.
+We'll be using a disk managing software named `Minitool Partition Wizard`, ngl, it does look shady af and kind of like malware (and won't be surprised if it is). There are other alternatives like `Easeus Partition Master` (that suspiciously look like MPW 🤔) and `AOMEI Partition Assistant` (that also looks like the other two ***🤔 intensifies***), and many more but these are the most popular windows disk managers.
 
 ##### But where is muh GpArTeD?
 
-The reason why im not recommending Gparted with NTFS partitions is that it might corrupt the partition easier than when Windows deals with it. I personally didn't have to deal much with corrupt NTFS partitions (I did once or twice) and Windows will surely fix them, but a lot of users reported unrecoverable partitions or data from using Gparted, not blaming Gparted, but using Windows with its own FS is safer than hoping ntfs-3g doesn't fuck up, that being said though, I'll post a Gparted guide below under `Linux` section, and if you already dealt with Gparted, I think you might know what to do.
+The reason why I'm not recommending Gparted with NTFS partitions is that it might corrupt the partition easier than when Windows deals with it. I personally didn't have to deal much with corrupt NTFS partitions (I did once or twice) and Windows will surely fix them, but a lot of users reported unrecoverable partitions or data from using Gparted, not blaming Gparted, but using Windows with its own FS is safer than hoping ntfs-3g doesn't fuck up, that being said though, I'll post a Gparted guide below under `Linux` section, and if you already dealt with Gparted, I think you might know what to do.
 
-In this section I'll be using MPW, the other tools are very similar and have very similar menus, you can follow up with them just fine. In this case I will be using an external disk for the partitioning, it does not change anything about internal disk, the same procedure goes for any disk.
+In this section I'll be using MPW, the other tools are very similar and have very similar menus, you can follow up with them just fine. In this case, I will be using an external disk for the partitioning, it does not change anything about the internal disk, the same procedure goes for any disk.
 
 - Download the ~~malware~~ partition manager of your choice (MPW here)
 
@@ -302,8 +302,8 @@ In this section I'll be using MPW, the other tools are very similar and have ver
 
 - You now have **empty space before the first partition**, this space will be used to create an EFI partition
 
-  - Due to MPW managers being assholes, creating a EFI partition is now a paid feature
-  - If you have like an old version (9 or older) you can do that for free
+  - Due to MPW managers being assholes, creating an EFI partition is now a paid feature
+  - If you have an old version (9 or older) you can do that for free
 
 - Once the operations are done:
 
@@ -375,7 +375,7 @@ We'll be using your favorite tool Gparted, if you're using parted/gpart, you're 
 
   ![image-20200917014513781](../images/ex-data/resize_menu_gp.png)
 
-  - Note that if you went over the desired size then subtracted the extra amount, it **will be moved to the free space following** the partition, in this case just press `+` on the New size area until the space following zeros out, going for even more will decrease the free space preceding (logic, right? just dont mess up too much, thanks)
+  - Note that if you went over the desired size then subtracted the extra amount, it **will be moved to the free space following** the partition, in this case just press `+` on the New size area until the space following zeros out, going for even more will decrease the free space preceding (logic, right? just don't mess up too much, thanks)
 
 - You'll get this error, press OK, this matters if you have multiple partitions but usually most modern OSes (on UEFI) are quite resilient to this issue (by using UUIDs instead of partition numbering)
 

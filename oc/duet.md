@@ -2,7 +2,7 @@
 
 At the moment there is no official support for MBR/Legacy based Windows installs, there are plans though unlikely to see anything anytime soon: [Add MBR loading tool to OpenCore](https://github.com/acidanthera/bugtracker/issues/912)
 
-Currently there are 2 work arounds:
+Currently, there are 2 workarounds:
 
 * Convert Windows into a GPT based drive(this means you will have to boot with OpenCore each time)
 * Chainload rEFInd which does have support

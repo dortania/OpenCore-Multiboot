@@ -37,7 +37,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
     - if you're in doubt
       - send `list disk`
       - identify your windows disk
-      - send `sel disk X` where X is the disk where windows is installed on
+      - send `sel disk X` where X is the disk where Windows is installed on
       - send `list part`
       - check the partitions, usually the EFI should have 100-200MB (some OEM installs make it bigger as much as 500MB)
       - send `sel part X` where X is the EFI partition number
@@ -50,5 +50,5 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
     - `/s S:` is the destination disk that will receive the bootloader, in our case, it's the EFI partition
     - `/f UEFI` to specify the type the bootloader should be (UEFI Bootloader)
     - This will copy a new bootmgfw.efi file as well as add a new NVRAM Boot entry which hopefully will now appear on OpenCore boot menu.
-- if everything is ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
+- if everything ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
 - reboot and check if Windows boot entry has been added

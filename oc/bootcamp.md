@@ -2,7 +2,7 @@
 
 <extoc></extoc>
 
-So a neat feature of OpenCore is the ability to avoid the BIOS entirely and use Startup disk solely for multiboot. Problem comes in when we try to boot windows and have no way of setting the boot option back to macOS. That's where the BootCamp utilities come in.
+So a neat feature of OpenCore is the ability to avoid the BIOS entirely and use the Startup disk solely for multiboot. The problem comes in when we try to boot windows and have no way of setting the boot option back to macOS. That's where the BootCamp utilities come in.
 
 * Note: This guide will not cover the creation of the Windows installer, only the installation of BootCamp drivers.
   * Example of Windows installer creation: [Build a Bootable Windows ISO](https://www.freecodecamp.org/news/how-make-a-windows-10-usb-using-your-mac-build-a-bootable-iso-from-your-macs-terminal/)
@@ -35,7 +35,7 @@ brigadier.bat --model MacPro7,1
 
 ![](../images/bootcamp-md/extension.png)
 
-Next you will find our bootcamp drivers under either:
+Next, you will find our bootcamp drivers under either:
 
 * Windows:
 
@@ -57,7 +57,7 @@ Next navigate to the `bootcamp-{version}\BootCamp` folder and run the Setup.exe:
 
 ![](../images/bootcamp-md/location.png)
 
-Once all is finished, you now have BootCamp switching! There should be a little BootCamp icon in you tray now that you can select which drive to boot to.
+Once all is finished, you now have BootCamp switching! There should be a little BootCamp icon in your tray now that you can select which drive to boot to.
 
 * Note: For those no needing the extra drivers BootCamp provides, you can delete the following:
   * `$WinPEDriver$`: **DO NOT** delete the folder itself, just the drivers inside
@@ -130,7 +130,7 @@ Common Windows error code:
 
 ## Booting Windows error: `OCB: StartImage failed - Already started`
 
-This is due to OpenCore getting confused when trying to boot Windows and accidentally thinking it's booting OpenCore. This can be avoided by either move Windows to it's own drive *or* adding a custom drive path under BlessOverride. See [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) and [Can't find Windows/BootCamp drive in picker](#cant-find-windowsbootcamp-drive-in-picker) entry for more details.
+This is due to OpenCore getting confused when trying to boot Windows and accidentally thinking it's booting OpenCore. This can be avoided by either move Windows to its own drive *or* adding a custom drive path under BlessOverride. See [Configuration.pdf](https://github.com/acidanthera/OpenCorePkg/blob/master/Docs/Configuration.pdf) and [Can't find Windows/BootCamp drive in picker](#cant-find-windowsbootcamp-drive-in-picker) entry for more details.
 
 ## Windows Startup Disk can't see APFS drives
 
