@@ -2,7 +2,7 @@
 
 * MBR based Windows installs **ARE NOT SUPPORTED** by OpenCore at this time, you will need to convert it to GPT.
 
-#### Solution 1: If Windows is not picked up automagically, add the following to your config.plist:
+#### Solution 1: If Windows is not picked up automagically, add the following to your config.plist
 
 ```
 Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
@@ -12,7 +12,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 ![](../images/win-md/blessoverride.png)
 
-#### Solution 2: To make Windows get picked up, boot to recovery mode from within Windows:
+#### Solution 2: To make Windows get picked up, boot to recovery mode from within Windows
 
 - **make sure you boot windows from OpenCore**
   - after loading OpenCore, press space > OpenShell (make sure you have it in Tools and in the config)

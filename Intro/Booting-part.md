@@ -26,7 +26,7 @@ These systems rely on another method of loading the bootloader. This piece of so
 * Bootloader appears
   * The OS will boot now.
 
-# Major differences between the systems:
+# Major differences between the systems
 
 We'll put them in a table to show the main differences:
 
@@ -45,7 +45,7 @@ Aside from Legacy hardware support (which are rare anyways nowadays), UEFI is th
 
 # Detecting which firmware you're using
 
-## No OS:
+## No OS
 
 If your computer:
 
@@ -56,7 +56,7 @@ Then it probably has **UEFI system**, that said, it doesnt mean older generation
 
 Any older than the above and the chances of having a proper UEFI implementation diminishes and you're better off with a Legacy booting.
 
-## On Windows:
+## On Windows
 
 Open Run (Win + R) and type `msinfo32`, you will be greeted with this window:
 
@@ -64,7 +64,7 @@ Open Run (Win + R) and type `msinfo32`, you will be greeted with this window:
 
 Check **BIOS Mode**, it will either say **UEFI** or **Legacy**. Note that this is for Windows 8/10, if you're using Windows 7 or older, you're probably running it in Legacy mode.
 
-## On Linux:
+## On Linux
 
 ### Method 1
 
