@@ -2,7 +2,7 @@
 
 This is quite easy, basically we'll just make some space for a EFI (if it doesnt exist already) and some for our macOS system.
 
-## Precautions:
+## Precautions
 
 - BACKUP YOUR DATA
 - If possible, disconnect or disable any other disk/drive in your system, as it may interfere with our process. (keep only the target disk and/or the boot OS disk where we will do the operations from)
@@ -10,7 +10,7 @@ This is quite easy, basically we'll just make some space for a EFI (if it doesnt
 - Your system is on pure UEFI setup, no CSM/Legacy OS installed
 - Stable power input
 
-## Situation this applies for:
+## Situation this applies for
 
 - A disk with data that is not related to windows or linux or macOS
 - A disk that used to be for an OS but now it's just data
@@ -23,7 +23,7 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
 
 ## Checking your disk partitioning scheme
 
-#### In Windows:
+#### In Windows
 
 - Open Disk Manager
 - Right click on the destination drive > *Properties*
@@ -36,7 +36,7 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
     
     ![image-20200825010434237](../images/ex-data/gpt_disk.png)
 
-#### In Linux:
+#### In Linux
 
 - Download and install `gdisk` if it's not already installed
 
@@ -64,7 +64,7 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
       GPT: present
     ```
 
-#### In macOS:
+#### In macOS
 
 - Run `diskutil list`
 
@@ -84,17 +84,17 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
        0:      GUID_partition_scheme                        *SIZE GB   diskX
     ```
 
-## Converting MBR to GPT:
+## Converting MBR to GPT
 
 **Note**: if your drive is **already GPT**, then **skip this section**.
 
-#### Destructive Conversion:
+#### Destructive Conversion
 
 This method will destroy all your data in your disk, making you a clean slate to work with. **Only use this if the data in the disk is not important or backed up already! YOUR DATA WILL BE GONE WITH THIS METHOD.** 
 
 You can use any partitioning tool of your choice and destroy the data, OR you can just boot macOS installer that you made with the OpenCore Dortania Guide and select the disk and format it. You can check [Dualbooting on the same disk](../empty/samedisk.md) section for more information. You're not required to follow the rest of this section.
 
-#### Non-Destructive Conversion:
+#### Non-Destructive Conversion
 
 This method have higher chances of keeping your data intact, **however this does NOT mean you can ignore backing up you data. BACKUP YOUR DATA!**
 
@@ -220,7 +220,7 @@ With that said, we still need to determine if it's required or not:
 
     - There are no `EF00` partitions meaning we need to make one
 
-#### In macOS:
+#### In macOS
 
 - Run `diskutil list`
 
@@ -257,15 +257,15 @@ With that said, we still need to determine if it's required or not:
 
     - There are no partitions with `TYPE` as `EFI`, although the disk is GPT, meaning we need to make one.
 
-### In case you have an EFI partition:
+### In case you have an EFI partition
 
 Congratulations, you can go ahead and partition your disk for macOS and be on your merry way, check the **Partitioning for macOS** section.
 
-### In case you do not have an EFI partition:
+### In case you do not have an EFI partition
 
 We'll have to make one, and the OSes that we will use will be either Windows or Linux (macOS is kind of pain in the ass, not going to bother with it).
 
-#### In Windows:
+#### In Windows
 
 We'll be using a disk managing software named `Minitool Partition Wizard`, ngl, it does look shady af and kind of like a malware (and wont be surprised if it is). There are other alternatives like `Easeus Partition Master` (that suspiciously look like MPW 🤔) and `AOMEI Partition Assistant` (that also looks like the other two ***🤔 intensifies***), and many more but these are the most popular windows disk managers.
 

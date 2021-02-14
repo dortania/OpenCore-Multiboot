@@ -2,7 +2,7 @@
 
 Hello there! Looks like you're trying to get macOS and `$(OtherOS)` installed on your system, but you also do not want to mess `$(OtherOS)` or macOS in the process. You will be guided here through a multitude of steps to achieve just that while keeping the OS setups as unaffected as possible.
 
-## Firmware Types:
+## Firmware Types
 
 Multibooting is greatly affected by the type of firmware you're running. This guide will cover the known 2 types which are:
 

@@ -141,11 +141,11 @@ We first need to determine your root partition and its UUID/PARTUUID, this infor
 
 - Reboot to OpenCore, and press Space, it should show more options, one of them should be OpenShell.efi. In case you do not have it, download the OpenCore zip, and take it from OC/Tools, and add it to your config.plist, ProperTree can do that with OC Snapshot.
 
-#### 2. Your kernel is in your EFI partition:
+#### 2. Your kernel is in your EFI partition
 
 In case you're using systemd-boot, make sure you install the kernel in your EFI partition where systemd UEFI bootloader can detect and load your kernel: basically make sure it's in a FAT32 partition *which you EFI partition should already be*.
 
-### 2. Identifying your UEFI paths and devices:
+### 2. Identifying your UEFI paths and devices
 
 - In the shell
 
