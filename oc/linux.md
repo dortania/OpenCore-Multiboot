@@ -47,7 +47,7 @@ Some common Linux bootloader paths:
       - Check for the mount point section to get your system root `/` partition (here `sda3`)
       - `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
       - the bootloader/manager is in `/boot/efi`
-      - `/boot/efi` partition number is `1` in this case (it could be `sda1` or `nvme0nXp1` or anything else), if you have your efi in another partition please remember which number it is
+      - `/boot/efi` partition number is `1` in this case (it could be `sda1` or `nvme0nXp1` or anything else), if you have your EFI in another partition please remember which number it is
 
    2. Change the directory to where your EFI partition is mounted by running `cd /path/to/efi` (for example `cd /boot/efi`)
 
@@ -76,10 +76,10 @@ Some common Linux bootloader paths:
    - `-c`: Create
    - `-L "Linux"`: Label the boot entry (you can change it to whatever you want)
    - `-l "\EFI\pathto\filex64.efi"`: loader file path, must be in a format the UEFI Firmware can use, which means `\` for pathing instead of `/` you find in unix
-   - `-d "/dev/sda"`: disk path so that `efibootmgr` know which disk the UEFI firmware should read the file from, it can be `/dev/nvme0nX` (with X as a number) if you're using nvme
+   - `-d "/dev/sda"`: disk path so that `efibootmgr` know which disk the UEFI firmware should read the file from, it can be `/dev/nvme0nX` (with X as a number) if you're using NVMe
    - `-p 1`: point the partition number we found earlier, in case your EFI partition is the first one, this can be omitted
 
-6. Reboot and check OpenCore, **you will find a new entry named `EFI`**, there can me many as it can also point to other boot entries, that's by design by OpenCore, not a bug.
+6. Reboot and check OpenCore, **you will find a new entry named `EFI`**, there can be many as it can also point to other boot entries, that's by design by OpenCore, not a bug.
 
 **Note:**
 
@@ -143,7 +143,7 @@ We first need to determine your root partition and its UUID/PARTUUID, this infor
 
 #### 2. Your kernel is in your EFI partition
 
-In case you're using systemd-boot, make sure you install the kernel in your EFI partition where systemd UEFI bootloader can detect and load your kernel: basically make sure it's in a FAT32 partition *which you EFI partition should already be*.
+In case you're using systemd-boot, make sure you install the kernel in your EFI partition where systemd UEFI bootloader can detect and load your kernel: basically make sure it's in a FAT32 partition *which your EFI partition should already be*.
 
 ### 2. Identifying your UEFI paths and devices
 
@@ -191,15 +191,15 @@ In case you're using systemd-boot, make sure you install the kernel in your EFI 
         - Because I have APFS driver loaded from OpenCore, there are new BLK devices shown because of that and thus added more partitions, which are actually just APFS container partitions, those can be ignored
         - The reason why they can be ignored is because you can see that they have the same PARTUUID, also we're not here for those partitions
       - FS0 seems to be BLK1, which is my EFI partition which is also FAT32 formatted, where OC lives
-        - In a multi-disk setup, FS0: can be whatever the UEFI firmware detects first, it does not mean that OC is always in FS0, in these cases FS0: could point to a USB device or SATA device. Usually most firmware will follow this setup to read/find partitions: USB > SATA > NVME, this is not a norm as some other firmware could do something else (it can also depend on the boot order setting).
+        - In a multi-disk setup, FS0: can be whatever the UEFI firmware detects first, it does not mean that OC is always in FS0, in these cases FS0: could point to a USB device or SATA device. Usually, most firmware will follow this setup to read/find partitions: USB > SATA > NVME, this is not a norm as some other firmware could do something else (it can also depend on the boot order setting).
         - Check if your linux kernel is there (in case of systemdboot)
           - `cd FSX:`
           - `ls`
           - Use your eyes and a brain cell
         - Just make sure you're properly reading the partition location before doing any actions
-      - FS0/BLK2/BLK9 all live in a Sata drive (which is my main boot drive for this example device)
+      - FS0/BLK2/BLK9 all live in a SATA drive (which is my main boot drive for this example device)
         - This matches linux reading the device as `sdX` and not `nvmeXnX`
-        - In case of an nvme drive, you would be seeing `Nvme` instead of `Sata`
+        - In the case of a NVMe drive, you would be seeing `Nvme` instead of `Sata`
       - BLK9's PARTUUID matches my root filesystem `a1073e53-c768-4ce5-89ad-b558669bdb89`
         - But remember that it's in capital letters!
       - BLK1 and BLK2 have their explorable `FSX`, which means the UEFI firmware can explore and read files from them, however BLK9 which is an ext4 partition isn't, this means the UEFI requires a suitable driver to load its contents.

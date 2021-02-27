@@ -1,6 +1,6 @@
 # Dualbooting on the same disk
 
-Basically you only have one empty disk and you want to install multiple OSes to it, it *does not matter if there are other disks*, as this section will only take care of one disk.
+Basically, you only have one empty disk and you want to install multiple OSes to it, it *does not matter if there are other disks*, as this section will only take care of one disk.
 
 ## Precautions
 
@@ -16,7 +16,7 @@ Basically you only have one empty disk and you want to install multiple OSes to 
 
 ---
 
-To start, it is recommended to install the OSes on an empty drive with this order (although it will be noted later that it doesnt matter):
+To start, it is recommended to install the OSes on an empty drive with this order (although it will be noted later that it doesn't matter):
 
 1. macOS
 2. Any other OS
@@ -54,4 +54,4 @@ In case Windows has any issues while installing, boot back to the installer, rem
 
 #### Linux
 
-Linux can be straightforward unlike windows. Popular linux distros allow custom disk partitioning, just format the blank partition to EXT4 (or whatever other FS you prefer) and make sure you choose the EFI partition to point to where the bootloader will be installer (this should NOT "delete" OpenCore in any shape or form) and install. Other distros (like Arch) would do that manually anyway, just follow the standard procedure from the beginner guide (without formatting the EFI, because it's already formatted to FAT32) and follow through. Personally I would recommend not to install other bootloaders (like systemd-boot or grub) for the likes of arch because OpenCore can boot linux kernels that have EFISTUB support, if you do however like using a separate bootloader, you can have it your way, it doesn't change anything.
+Linux can be straightforward, unlike windows. Popular linux distros allow custom disk partitioning, just format the blank partition to EXT4 (or whatever other FS you prefer) and make sure you choose the EFI partition to point to where the bootloader will be installer (this should NOT "delete" OpenCore in any shape or form) and install. Other distros (like Arch) would do that manually anyway, just follow the standard procedure from the beginner guide (without formatting the EFI, because it's already formatted to FAT32) and follow through. Personally, I would recommend not to install other bootloaders (like systemd-boot or grub) for the likes of arch because OpenCore can boot linux kernels that have EFISTUB support, if you do however like using a separate bootloader, you can have it your way, it doesn't change anything.

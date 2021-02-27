@@ -23,7 +23,7 @@ So to start we're gonna need the following:
   
 ## Booting
 
-So once you've got the prerequisites out of the way, we're ready to boot! So what the first boot with these settings enabled is create a new boot option in our BIOS(Boot9696) and every boot after this will update the entry making sure it's correct. This now allows us to either remove BOOTx64.efi or not worry about it when other OSes overwrite this file.
+So once you've got the prerequisites out of the way, we're ready to boot! So what the first boot with these settings enabled is to create a new boot option in our BIOS(Boot9696) and every boot after this will update the entry making sure it's correct. This now allows us to either remove BOOTx64.efi or not worry about it when other OSes overwrite this file.
 
 If no new boot option is created, you can go down and follow the troubleshooting steps on manually adding it. But triple check the above settings are correct on your system.
   
