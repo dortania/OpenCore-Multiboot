@@ -13,5 +13,6 @@ Things to keep in mind:
 - If the above happens, disable/disconnect all the other disks and install windows as you would normally do
   - For laptops this can be a pain, you can install windows manually by following [this guide from TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html)
   - Make sure you choose the proper disk
+- Install Windows and install macOS, it works *quite* well
 - You can still refer to other situations if you want to dualboot more than one OS on one of the disks.
 - Make sure that OpenCore is on the same disk of macOS for easier troubleshooting and cleaner setup
