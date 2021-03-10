@@ -1,7 +1,7 @@
 # Troubleshooting
 Multiboot troubleshooting. **Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
-## Opencore doesn't see my Windows 8/10 installation!
+## Opencore does not see my Windows 8/10 installation!
 You are using an old version of OpenCore.
 ### Solution 1: [Update Opencore](https://dortania.github.io/OpenCore-Post-Install/universal/update.html)
 ### Solution 2: If Windows is not picked up automagically, add the following to your config.plist
@@ -57,4 +57,4 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 ## Windows causes problems in multiboot configuration
 
 Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
-If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you can install windows manually by following [this guide from TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html)
+If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you can install windows manually by following [this guide from TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html). You cannot create MSR and Recovery when there are things already installed on the disk (like this guide), but you don't need them. (TODO: some way of creating a separate windows Recovery, I cannot find any guide on how to do that so that Windows would recognize it natively, if you know of a guide or know how to do it, open [a PR](https://github.com/dortania/OpenCore-Multiboot/) or [an issue](https://github.com/dortania/bugtracker) with your ideas.)
