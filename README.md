@@ -25,8 +25,4 @@ The differences are minimal once you're using OpenCore but also it might be a bi
    2. For Linux booting
    3. For Legacy/CSM/BIOS booting
 
-### Disclaimer
-
-We are not responsible for bricked devices, dead hard drives, thermonuclear war, or you getting fired because you got a kernel panic and didn't save your work. You are responsible for reading everything carefully before you do anything. Do your research and ask for support if you have any questions or issues before trying random things on the internet because "it's the internet". If you do, YOU are choosing to follow random things on the internet, and if YOU point the finger at us for messing up your device, WE will laugh at you. 
-
-Now that we got that out of our way let's get going, and good luck.
+### [Disclaimer](Intro/disc)
