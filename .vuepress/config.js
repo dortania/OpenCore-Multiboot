@@ -154,19 +154,11 @@ module.exports = {
 
         },
 		{
-            title: 'Windows 8.1/10 Manual Installation',
+            title: 'Windows 10 manual and automatic Installation',
             collapsable: false,
             sidebarDepth: 1,
             children: [
-				['/manualWin/', 'Windows 8.1/10 Manual Installation'],
-				{
-            	collapsable: false,
-            	sidebarDepth: 1,
-	            children: [
-	                ['/manualWin/UEFI', 'UEFI installation'],
-					['/manualWin/legacy', 'Legacy installation'],
-	            ]
-				},
+				['Win', 'Windows 10 manual and automatic Installation'],
             ]
 
         },
