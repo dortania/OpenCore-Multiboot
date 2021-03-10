@@ -111,7 +111,7 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-                ['/empty/', 'Multibooting Situations'],
+                ['/empty/', 'Empty Disk(s)'],
 				{
             	collapsable: false,
             	sidebarDepth: 1,
@@ -120,7 +120,7 @@ module.exports = {
 					['/empty/diffdisk', 'Multiple disks - multiple OSes'],
 	            ]
 				},
-				['/exist/', 'Existing Filled Disk'],
+				['/exist/', 'Existing Filled Disk(s)'],
 				{
             	collapsable: false,
             	sidebarDepth: 1,
@@ -129,6 +129,15 @@ module.exports = {
 					['/exist/os', 'On a filled OS related disk (Windows/Linux)'],
 	            ]
 				},
+            ]
+
+        },
+        {
+            title: 'Troubleshooting',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+                ['troubleshooting', 'Troubleshooting'],
             ]
 
         },

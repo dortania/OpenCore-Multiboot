@@ -1,6 +1,6 @@
 # Multiboot with OpenCore
 
-Hello there! Looks like you're trying to get macOS and `$(OtherOS)` installed on your system, but you also do not want to mess `$(OtherOS)` or macOS in the process. You will be guided here through a multitude of steps to achieve just that while keeping the OS setups as unaffected as possible.
+Hello there! Looks like you're trying to get macOS and `[OtherOS]` installed on your system, but you also do not want to mess `[OtherOS]` or macOS in the process. You will be guided here through a multitude of steps to achieve just that while keeping the OS setups as unaffected as possible.
 
 ## Firmware Types
 
@@ -13,14 +13,17 @@ The differences are minimal once you're using OpenCore but also it might be a bi
 
 1. What is multibooting and how does it work?
 2. Partitioning vs Disk separating
-2. UEFI
-   1. One disk for all OSes
-   2. Different disks for different OSes
-3. Legacy
-   1. One disk for all OSes
-   2. Different disks for different OSes
-5. Troubleshooting
-6. Tips and Tricks
+3. UEFI
+   1. Multibooting on empty drives
+      1. One disk for all OSes
+      2. Different disks for different OSes
+   2. Multibooting on filled drives
+      1. One disk for all OSes
+      2. Different disks for different OSes
+4. Opencore Configuration
+   1. For Windows booting
+   2. For Linux booting
+   3. For Legacy/CSM/BIOS booting
 
 ### Disclaimer
 

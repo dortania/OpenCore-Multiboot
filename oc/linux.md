@@ -1,6 +1,6 @@
 # Dualbooting with Linux
 
-**WORK IN PROGRESS**
+**Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
 ## Method A: Chainloading a EFI Bootloader (GRUB2, Systemd-boot)
 

@@ -48,9 +48,7 @@ Here is how it goes:
 
 #### Windows
 
-Windows can be a bit of a bitch when it comes to installing it as a second OS (like some kind of insult or just Microsoft doesn't realize that there are other OSes than Windows /s). Create your windows installer (on another computer with the windows creation disk utility or [Rufus](https://rufus.ie))
-
-In case Windows has any issues while installing, boot back to the installer, remove the MSR/Recovery/Windows partitions that the installer made (there may be more, make sure you do not delete macOS or other OSes partitions), and follow [this guide over at TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html) on how to install windows manually using the `dism` tool. 
+Create your windows installer (on another computer with the windows creation disk utility or [Rufus](https://rufus.ie))
 
 #### Linux
 

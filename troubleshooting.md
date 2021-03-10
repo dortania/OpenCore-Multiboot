@@ -1,8 +1,10 @@
-# Dualbooting with Windows
+# Troubleshooting
+Multiboot troubleshooting. **Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
-* MBR based Windows installs **ARE NOT SUPPORTED** by OpenCore at this time, you will need to convert it to GPT.
-
-#### Solution 1: If Windows is not picked up automagically, add the following to your config.plist
+## Opencore doesn't see my Windows 8/10 installation!
+You are using an old version of OpenCore.
+### Solution 1: [Update Opencore](https://dortania.github.io/OpenCore-Post-Install/universal/update.html)
+### Solution 2: If Windows is not picked up automagically, add the following to your config.plist
 
 ```
 Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
@@ -10,9 +12,9 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 * **Note**: As of OpenCore 0.5.9, this no longer needs to be specified. OpenCore should pick up on this entry automatically
 
-![](../images/win-md/blessoverride.png)
+![](../images/blessoverride.png)
 
-#### Solution 2: To make Windows get picked up, boot to recovery mode from within Windows
+### Solution 3: To make Windows get picked up, boot to recovery mode from within Windows
 
 - **make sure you boot windows from OpenCore**
   - after loading OpenCore, press space > OpenShell (make sure you have it in Tools and in the config)
@@ -52,3 +54,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
     - This will copy a new bootmgfw.efi file as well as add a new NVRAM Boot entry which hopefully will now appear on OpenCore boot menu.
 - if everything ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
 - reboot and check if Windows boot entry has been added
+## Windows causes problems in multiboot configuration
+
+Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
+If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you can install windows manually by following [this guide from TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html)
