@@ -146,7 +146,6 @@ module.exports = {
             collapsable: false,
             sidebarDepth: 1,
             children: [
-                ['/oc/win', 'For Windows booting'],
 				['/oc/linux', 'For Linux booting'],
 				['/oc/duet', 'Installing OpenCore on a legacy system'],
 				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html', 'Using LauncherOption'],
