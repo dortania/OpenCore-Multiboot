@@ -15,7 +15,8 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 ![](/images/blessoverride.png)
 
 ### Solution 3: To make Windows get picked up, boot to recovery mode from within Windows
-
+<details>
+  <summary>This is long, so i create a spoiler</summary>
 - **make sure you boot windows from OpenCore**
   - after loading OpenCore, press space > OpenShell (make sure you have it in Tools and in the config)
   - run `map -r -b`
@@ -54,7 +55,8 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
     - This will copy a new bootmgfw.efi file as well as add a new NVRAM Boot entry which hopefully will now appear on OpenCore boot menu.
 - if everything ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
 - reboot and check if Windows boot entry has been added
-## Windows causes problems in multiboot configuration
+</details>
+## Windows installation problems
 
 Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
-If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you can install windows manually by following [this guide from TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html). You cannot create MSR and Recovery when there are things already installed on the disk (like this guide), but you don't need them. (TODO: some way of creating a separate windows Recovery, I cannot find any guide on how to do that so that Windows would recognize it natively, if you know of a guide or know how to do it, open [a PR](https://github.com/dortania/OpenCore-Multiboot/) or [an issue](https://github.com/dortania/bugtracker) with your ideas.)
+If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](../manualWin)

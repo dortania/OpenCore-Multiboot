@@ -25,4 +25,4 @@ The differences are minimal once you're using OpenCore but also it might be a bi
    2. For Linux booting
    3. For Legacy/CSM/BIOS booting
 
-### [Disclaimer](dortania.github.io/OpenCore-Multiboot/Intro/disc.html)
+### [Disclaimer](../Intro/disc.md)
