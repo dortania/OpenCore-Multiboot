@@ -2,9 +2,10 @@
 Multiboot troubleshooting. **Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
 ## Opencore does not see my Windows 8/10 installation!
-You are using an old version of OpenCore.
+MBR based Windows installs **ARE NOT SUPPORTED** by OpenCore at this time, you will need to convert it to GPT.
+Otherwise, if you have been on GPT yet, I think you are using an old version of OpenCore.
 ### Solution 1: [Update Opencore](https://dortania.github.io/OpenCore-Post-Install/universal/update.html)
-### Solution 2: If Windows is not picked up automagically, add the following to your config.plist
+### Solution 2: Add the following to your config.plist
 
 ```
 Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
@@ -14,7 +15,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 ![](/images/blessoverride.png)
 
-### Solution 3: To make Windows get picked up, boot to recovery mode from within Windows
+### Solution 3: Boot to recovery mode from within Windows
 <details>
   <summary>This is long, so i create a spoiler</summary>
 - **make sure you boot windows from OpenCore**
