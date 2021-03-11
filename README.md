@@ -11,7 +11,10 @@ Multibooting is greatly affected by the type of firmware you're running. This gu
 
 The differences are minimal once you're using OpenCore but also it might be a bit difficult for the latter. Other than that, this guide will cover these elements:
 
-1. What is multibooting and how does it work?
+1. Introduction to multi-booting
+   1. What is it?
+   2. UEFI? Legacy? CSM? What?
+   3. Disclaimer
 2. Partitioning vs Disk separating
 3. UEFI
    1. Multibooting on empty drives
@@ -21,8 +24,9 @@ The differences are minimal once you're using OpenCore but also it might be a bi
       1. One disk for all OSes
       2. Different disks for different OSes
 4. Opencore Configuration
-   1. For Windows booting
    2. For Linux booting
    3. For Legacy/CSM/BIOS booting
+5. Troubleshooting
+6. Windows installation
 
 ### [Disclaimer](../Intro/disc.md)

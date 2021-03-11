@@ -107,7 +107,7 @@ module.exports = {
 
         },
 		{
-            title: 'Multibooting Situations',
+            title: 'UEFI Multibooting',
             collapsable: false,
             sidebarDepth: 1,
             children: [
