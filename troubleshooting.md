@@ -5,7 +5,7 @@ Multiboot troubleshooting. **Work in Progess**, you can help contibute via [PRs]
 MBR based Windows installs **ARE NOT SUPPORTED** by OpenCore at this time, you will need to convert it to GPT.
 Otherwise, if you have been on GPT yet, I think you are using an old version of OpenCore.
 ### Solution 1: [Update Opencore](https://dortania.github.io/OpenCore-Post-Install/universal/update.html)
-### Solution 2: BlessOverride solution
+### Solution 2: BlessOverride solution (add the following lines to your config.plist)
 
 ```
 Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
