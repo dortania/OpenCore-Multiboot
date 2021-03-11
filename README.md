@@ -29,4 +29,4 @@ The differences are minimal once you're using OpenCore but also it might be a bi
 5. Troubleshooting
 6. Windows installation
 
-### [Disclaimer](../Intro/disc.md)
+### [Disclaimer](./Intro/disc.md)

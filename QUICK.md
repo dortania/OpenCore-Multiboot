@@ -35,6 +35,6 @@ Ok, if you're quite experienced with how partitioning and booting multiple OSes 
 - DO NOT have multiple EFIs on the same disk, you **MUST** only have **ONE** EFI partition per disk
 - The OS Install order **does not matter at all**
   - however windows can be a bit of a bitch, so installing it after macOS can be challenging, linux doesn't pose such problems
-  - [If you happen to stumble on the sad windows crap](../troubleshooting.md#Opencore-does-not-see-my-Windows-8/10-installation!)
+  - [If you happen to stumble on the sad windows crap](./troubleshooting.md#Opencore-does-not-see-my-Windows-8/10-installation!)
 
 Now that you have all these information, good luck with the rest. However if you're not sure, follow then the long way that has more explanations and details on how to properly do it.

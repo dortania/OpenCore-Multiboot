@@ -59,4 +59,4 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 ## Windows installation problems
 
 Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
-If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](../Win.md#Manually)
+If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually)
