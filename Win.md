@@ -9,18 +9,21 @@ You can download Windows in different ways. In this guide we talk about Windows 
 Requirement:
 - [Windows 10 ISO file](https://www.microsoft.com/software-download/windows10)
 - [Balena Etcher](https://www.balena.io/etcher/)
+
 Download the appropriate ISO for your Country
 Open Balena Etcher, select an USB device and the ISO file, then click flash
 Wait until it finishes of flashing, then boot on the USB.
 
 ### Windows
 Requirement:
-  - [MediaCreationTool](https://www.microsoft.com/software-download/windows10)
-  - [Rufus](https://rufus.ie)
+- [MediaCreationTool](https://www.microsoft.com/software-download/windows10)
+- [Rufus](https://rufus.ie)
+
 Open MediaCreationTool and download the ISO file for your system.
 Use the appropriate settings for your system:
-UEFI: [PHOTO]
-BIOS/legacy/CSM: [PHOTO]
+- UEFI: [PHOTO]
+- BIOS/legacy/CSM: [PHOTO]
+
 Wait until it finishes of flashing, then boot on the USB.
 
 ## Installing Windows 10
