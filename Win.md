@@ -38,8 +38,16 @@ Type `sel disk 0` or the other number you have
     - UEFI USERS: Type `create part efi size=200` to create the EFI partition, then type `format quick fs=fat32` to format it. `create part msr size=128` to create the MSR partition (used by some strange Windows things). `create part primary size=N` in which N=allYourSpace-1GB, then type `format quick fs=NTFS` to format it and `assign letter C` to our drive. After that type `create part primary`, `remove`, `set id=de94bba4-06d1-4d40-a16a-bfd50179d6ac`,`gpt attributes=0x8000000000000001` to setting up the recovery enviroment (OPTIONAL).
     - Legacy Users: TODO: you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
-Then use again `list vol` and recognize the usb letter (X for example) and the efi letter (Q for example), if he hasn't assign it.
-Type `dism /Get-WimInfo /WimFile:X:\Sources\install.esd` if it doesn't work type `dism /Get-WimInfo /WimFile:X:\Sources\install.wim`; remember the number of your edition.
-Type `dism /Apply-Image /ImageFile:X:\Sources\install.esd /index:1 /ApplyDir:C:\`; IF THE COMMAND BEFORE DIDN'T WORK `dism /Apply-Image /ImageFile:X:\Sources\install.wim /index:1 /ApplyDir:C:\`
-Type `bcdboot C:\Windows /s C:` to create the boot files
+Then use again `list vol` and recognize the usb letter (A for example) and the efi letter (Q for example), if he hasn't assign it.
+Type `dism /Get-WimInfo /WimFile:A:\Sources\install.esd` if it doesn't work type `dism /Get-WimInfo /WimFile:A:\Sources\install.wim`; remember the number of your edition (called X in the example).
+Type `dism /Apply-Image /ImageFile:A:\Sources\install.esd /index:X /ApplyDir:C:\`; IF THE COMMAND BEFORE DIDN'T WORK `dism /Apply-Image /ImageFile:A:\Sources\install.wim /index:X /ApplyDir:C:\`
+Type `bcdboot C:\Windows /s C:` to create the boot files on the EFI disk.
+Reboot
+#### Fixing WinRE
+Copy install.esd/install.wim from your usb in your pc.
+Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as your edition number. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
+Then apply the two command below to active WinRE.
+`reagentc /setreimage /path C:\windows\system32\recovery`
+`reagentc /enable`
+To see the WinRE status then type `reagentc /info`
 Reboot
