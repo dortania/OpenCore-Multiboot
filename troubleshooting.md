@@ -18,6 +18,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 ### Solution 3: Boot to recovery mode from within Windows
 <details>
   <summary>This is long, so i create a spoiler</summary>
+
 - **make sure you boot windows from OpenCore**
   - after loading OpenCore, press space > OpenShell (make sure you have it in Tools and in the config)
   - run `map -r -b`
@@ -57,6 +58,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 - if everything ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
 - reboot and check if Windows boot entry has been added
 </details>
+
 ## Windows installation problems
 
 Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
