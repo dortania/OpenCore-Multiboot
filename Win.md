@@ -46,9 +46,9 @@ Type `dism /get-wiminfo /wimfile:<path>`; remember the number of your edition (c
 Type `dism /apply-image /imagefile:<path> /index:X /applydir:C:\` to flash the WIM/ESD image to your disk.
 Type `bcdboot c:\windows /s q:` to create the boot files on the EFI disk.
 Reboot
-#### Fixing WinRE
+#### Fixing WinRE (use only when WinRE doesn't work)
 Copy install.esd/install.wim from your usb in your pc.
-Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as your edition number. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
+Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as the edition number selected before. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
 Then apply the two command below to active WinRE.
 `reagentc /setreimage /path C:\windows\system32\recovery`
 `reagentc /enable`
