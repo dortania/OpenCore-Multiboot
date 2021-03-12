@@ -39,12 +39,12 @@ Press SHIFT+F10: it appears a command prompt window
 Type `diskpart`
 Type `list disk` and remember the disk number where you want to install windows
 Type `sel disk 0` or the other number you have
-- UEFI USERS: Type `convert gpt` to convert the disk to GPT (risk of loss data!!!) Type `create part efi size=200` to create the EFI partition, then type `format quick fs=fat32` to format it. `create part msr size=128` to create the MSR partition (used by some strange Windows things). `create part primary size=N` in which N=allYourSpace-1GB expressed in MB, then type `format quick fs=NTFS` to format it and `assign letter C` to our drive. After that type `create part primary`, `set id=de94bba4-06d1-4d40-a16a-bfd50179d6ac`,`gpt attributes=0x8000000000000001`,`format quick fs=ntfs` to setting up the recovery enviroment (OPTIONAL).
+- UEFI USERS: Type `convert gpt` to convert the disk to GPT (risk of loss data!!!) Type `create part efi size=200` to create the EFI partition, then type `format quick fs=fat32` to format it and `assign letter=q` to assign the letter. `create part msr size=128` to create the MSR partition (used by some strange Windows things). `create part primary size=N` in which N=allYourSpace-1GB expressed in MB, then type `format quick fs=ntfs` to format it and `assign letter c` to our drive. After that type `create part primary`, `set id=de94bba4-06d1-4d40-a16a-bfd50179d6ac`,`gpt attributes=0x8000000000000001`,`format quick fs=ntfs` to setting up the recovery enviroment (OPTIONAL).
 - Legacy Users: TODO: you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
-Type `dism /Get-WimInfo /WimFile:<path>`; remember the number of your edition (called X in the example).
-Type `dism /Apply-Image /ImageFile:<path> /index:X /ApplyDir:C:\` to flash the WIM/ESD image to your disk.
-Type `bcdboot C:\Windows /s C:` to create the boot files on the EFI disk.
+Type `dism /get-wiminfo /wimfile:<path>`; remember the number of your edition (called X in the example).
+Type `dism /apply-image /imagefile:<path> /index:X /applydir:C:\` to flash the WIM/ESD image to your disk.
+Type `bcdboot c:\windows /s q:` to create the boot files on the EFI disk.
 Reboot
 #### Fixing WinRE
 Copy install.esd/install.wim from your usb in your pc.
