@@ -62,4 +62,17 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 ## Windows installation problems
 
 Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
-If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually)
+If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually).
+
+### Unsupported Disk Layout for UEFI Firmware
+You should add a msr partition (TODO)
+
+### WinRE doesn't work
+I suppose you have created the recovery partition. If you don't, you can still create it.
+Copy install.esd/install.wim from your usb in your pc.
+Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as the edition number selected before. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
+Then apply the two command below to active WinRE.
+`reagentc /setreimage /path C:\windows\system32\recovery`
+`reagentc /enable`
+To see the WinRE status then type `reagentc /info`
+Reboot
