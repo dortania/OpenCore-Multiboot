@@ -14,7 +14,6 @@ The differences are minimal once you're using OpenCore but also it might be a bi
 1. Introduction to multi-booting
    1. What is it?
    2. UEFI? Legacy? CSM? What?
-   3. Disclaimer
 2. UEFI
    1. Multibooting on empty drives
       1. One disk for all OSes
