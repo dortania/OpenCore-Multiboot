@@ -102,7 +102,6 @@ module.exports = {
             children: [
                 ['/Intro/Def', 'What is it?'],
 				['/Intro/Booting-part', 'UEFI? Legacy? CSM? What?'],
-				['/Intro/disc', 'Disclaimer'],
             ]
 
         },
