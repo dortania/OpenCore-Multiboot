@@ -67,7 +67,7 @@ Windows can be a bitch when it comes to multidisk setups (it freaks out when it 
 If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually).
 
 ### Unsupported Disk Layout for UEFI Firmware
-You should add a msr partition [TODO](https://www.tomshardware.com/news/how-to-fix-windows-10-unsupported-disk-layout-uefi-error,35960.html)
+You should add a msr partition [(to transcribe)](https://www.tomshardware.com/news/how-to-fix-windows-10-unsupported-disk-layout-uefi-error,35960.html)
 
 ### WinRE doesn't work
 I suppose you have created the recovery partition. If you don't, you can still create it.
