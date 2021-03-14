@@ -48,7 +48,7 @@ Here is how it goes:
 
 #### Windows
 
-Create your windows installer (on another computer with the windows creation disk utility or [Rufus](https://rufus.ie))
+Create your windows installer (on another computer with the windows creation disk utility or [Rufus](https://rufus.ie)). If you have issues, please see the [troubleshooting section](../troubleshooting.md)
 
 #### Linux
 
