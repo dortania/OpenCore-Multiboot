@@ -31,8 +31,8 @@ Wait until it finishes of flashing, then boot on the USB.
 
 ## Installing Windows 10
 When the usb booted, you can chose what to do:
-- [Install Windows 10 automatically](#automatically)
-- [Install Windows 10 manually](#manually) (only when there are problems or when you want to control the procedure)
+- [Install Windows 10 automatically](#Automatically)
+- [Install Windows 10 manually](#Manually) (only when there are problems or when you want to control the procedure)
 ### Automatically
 Follow the procedure and let Windows make the party!
 ### Manually
