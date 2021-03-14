@@ -24,8 +24,8 @@ The differences are minimal once you're using OpenCore but also it might be a bi
       1. One disk for all OSes
       2. Different disks for different OSes
 4. Opencore Configuration
-   2. For Linux booting
-   3. For Legacy/CSM/BIOS booting
+   1. For Linux booting
+   2. For Legacy/CSM/BIOS booting
 5. Troubleshooting
 6. Windows installation
 
