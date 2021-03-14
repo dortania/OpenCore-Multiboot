@@ -1,12 +1,38 @@
 # Troubleshooting
 Multiboot troubleshooting. **Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
-## Opencore does not see my Windows 8/10 installation!
+## Windows problems
+
+Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
+
+If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually).
+
+### Unsupported Disk Layout for UEFI Firmware
+You should add a msr partition [TODO](https://www.tomshardware.com/news/how-to-fix-windows-10-unsupported-disk-layout-uefi-error,35960.html)
+
+### WinRE doesn't work
+I suppose you have created the recovery partition. If you don't, you can still create it.
+
+Copy install.esd/install.wim from your usb in your pc.
+
+Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as the edition number selected before. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
+
+Then apply the two command below to active WinRE.
+
+`reagentc /setreimage /path C:\windows\system32\recovery`
+
+`reagentc /enable`
+
+To see the WinRE status then type `reagentc /info`
+
+Reboot
+
+### Opencore does not see my Windows 8/10 installation!
 MBR based Windows installs **ARE NOT SUPPORTED** by OpenCore at this time, you will need to convert it to GPT.
 
 Otherwise, if you have been on GPT yet, I think you are using an old version of OpenCore.
-### Solution 1: [Update Opencore](https://dortania.github.io/OpenCore-Post-Install/universal/update.html)
-### Solution 2: BlessOverride solution (add the following lines to your config.plist)
+#### Solution 1: [Update Opencore](https://dortania.github.io/OpenCore-Post-Install/universal/update.html)
+#### Solution 2: BlessOverride solution (add the following lines to your config.plist)
 
 ```
 Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
@@ -16,7 +42,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 ![](/images/blessoverride.png)
 
-### Solution 3: Boot to recovery mode from within Windows
+#### Solution 3: Boot to recovery mode from within Windows
 <details>
   <summary>This is long, so i create a spoiler</summary>
 
@@ -59,29 +85,3 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 - if everything ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
 - reboot and check if Windows boot entry has been added
 </details>
-
-## Windows installation problems
-
-Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
-
-If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually).
-
-### Unsupported Disk Layout for UEFI Firmware
-You should add a msr partition [TODO](https://www.tomshardware.com/news/how-to-fix-windows-10-unsupported-disk-layout-uefi-error,35960.html)
-
-### WinRE doesn't work
-I suppose you have created the recovery partition. If you don't, you can still create it.
-
-Copy install.esd/install.wim from your usb in your pc.
-
-Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as the edition number selected before. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
-
-Then apply the two command below to active WinRE.
-
-`reagentc /setreimage /path C:\windows\system32\recovery`
-
-`reagentc /enable`
-
-To see the WinRE status then type `reagentc /info`
-
-Reboot
