@@ -24,10 +24,13 @@ Requirement:
 Open MediaCreationTool and download the ISO file for your system.
 
 Use the appropriate settings for your system:
-- ![UEFI](./images/win-md/rufus.png)
-  UEFI
-- ![BIOS/legacy/CSM](./images/win-md/rufusL.png)
-  BIOS/legacy/CSM
+#### UEFI
+
+![UEFI](./images/win-md/rufus.png)
+
+#### BIOS/legacy/CSM
+
+![BIOS/legacy/CSM](./images/win-md/rufusL.png)
 
 Wait until it finishes of flashing, then boot on the USB.
 
@@ -57,7 +60,9 @@ Follow the procedure since appears this section:
 Select "Custom", remove all partitions and finally click on "Create". Windows will ask you a confirm, then you did it!
 
 ##### Manually partitions
+
 ![UEFI partitions](./images/win-md/part.png)
+
 You can customize the commands (SHIFT+F10 to open Command Prompt) to your disk layout. If you felt more confortful, you could create all your partition (specify the size) on the diskmanagement screen (see [automatically](#Automatically-partitions)) and then installing manually (only blank disks).
 
 Type `diskpart`
@@ -96,6 +101,7 @@ Reboot and hope everything work.
 <summary>Legacy Users (NOTE: at the moment I don't find a how to create the mbr bootloader...)</summary>
 
 ![UEFI partitions](./images/win-md/partL.png)
+
 #### Manually MBR partitions
 
 Type `diskpart`
