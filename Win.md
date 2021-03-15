@@ -67,13 +67,13 @@ Type `clean` to format the whole disk (optional)
 
 Type `convert gpt` to convert the disk to GPT (it would give an error if it was already converted, no problem) (risk of lose your data!!!)
 
-Type `create part efi size 200` to create the EFI partition (default size 200 MB), then type `format quick fs fat32` to format it and `assign letter q` to assign our EFI partition.
+Type `create part efi size 200` to create the EFI partition (default size 200 MB), then type `format quick fs fat32` to format it and `assign letter q` to assign correctly our EFI partition.
 
 Type `create part msr size 128` to create the MSR partition (default size 128 MB, shouldn't be changed; used by some strange Windows things).
 
-Type `create part primary size 128000` to create the main partition (default size [totalspace]-1 GB. I remember that the size value should be in MB), then type `format quick fs ntfs` to format it and `assign letter c` to assign our drive.
+Type `create part primary size 128000` to create the main partition (default size [totalspace]-778 MB. I remember that the size value should be in MB), then type `format` to format it and `assign letter c` to assign correctly our drive.
 
-After that we set up the recovery enviroment: type `create part primary` (default size: the rest of the disk), `set id de94bba4-06d1-4d40-a16a-bfd50179d6ac` to change the type of partition (primary-->WINRE, more infos [here](https://en.wikipedia.org/wiki/GUID_Partition_Table#Partition_type_GUIDs)),`gpt attributes 0x8000000000000001` to hide it,`format quick fs ntfs` to format it.
+After that we set up the recovery enviroment: type `create part primary` (default size 450, the remaining part of the disk), `set id de94bba4-06d1-4d40-a16a-bfd50179d6ac` to change the type of partition (primary-->WINRE, more infos [here](https://en.wikipedia.org/wiki/GUID_Partition_Table#Partition_type_GUIDs)),`gpt attributes 0x8000000000000001` to hide it,`format` to format it in NTFS.
 
 Type `exit` to quit diskpart.
 
@@ -92,7 +92,7 @@ Reboot and hope everything work.
 <details>
 <summary>Legacy Users (NOTE: at the moment I don't find a how to create the mbr bootloader...)</summary>
 
-#### Manually Partition Creation
+#### Manually MBR partitions
 
 Type `diskpart`
 
@@ -102,9 +102,11 @@ Type `sel disk W` where W is the number of your disk
 
 Type `clean` to clear the whole disk
 
-Type `create part primary size 128000` to create the main partition (default size [totalspace]-1 GB. I remember that the size value should be in MB), then type `format quick fs ntfs` to format it and `assign letter c` to assign our drive.
+We set up the System Reserved Partition: type `create part primary size 100` to create the MSR partition (default size 100) `remove` to remove its letter.
 
-After that we set up the recovery enviroment: type `create part primary`, `set id 27` to change the type of the partition (primary-->WINRE),`format quick fs ntfs` to format it.
+Type `create part primary size ` (default size [totalspace]-550 MB. I remember that the size value should be in MB) to create the main partition, then type `format` to format it and `assign letter c` to assign correctly our drive.
+
+Finally we set up the recovery enviroment: type `create part primary` (default size 450, the remaining part of the disk), `set id 27` to change the type of partition (primary-->WINRE),`format` to format it in NTFS and `remove` to remove its letter.
 
 #### Legacy Installation
 
