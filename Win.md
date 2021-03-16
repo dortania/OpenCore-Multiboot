@@ -35,11 +35,17 @@ Use the appropriate settings for your system:
 Wait until it finishes of flashing, then boot on the USB.
 
 ## Installing Windows 10
+
+![The usb booted up](./images/win-md/esd-iso.png)
+
 When the usb booted, you can chose what to do:
 - [Install Windows 10 automatically](#Automatically)
 - [Install Windows 10 manually](#Manually) (only when there are problems or when you want to control the procedure)
 ### Automatically
-Follow the procedure and let Windows make the party!
+Follow the procedure and let Windows making disasters!
+
+![Installation image](./images/win-md/installation.png)
+
 ### Manually
 This guide it's planned for a full installation. If you want to do a dualboot you can create the partition as you want. To open a terminal window use the key combo SHIFT-F10
 
@@ -55,7 +61,7 @@ NOTE: This process can be followed only on blank disks.
 
 Follow the procedure since appears this section:
 
-[photo]
+[Custom installation](./images/win-md/custom.png)
 
 Select "Custom", remove all partitions and finally click on "Create". Windows will ask you a confirm, then you did it!
 
@@ -98,7 +104,7 @@ Reboot and hope everything work.
 ### Legacy Windows Installation (broken)
 
 <details>
-<summary>Legacy Users (NOTE: at the moment I don't find a how to create the mbr bootloader...)</summary>
+<summary>Legacy Users (NOTE: at the moment I didn't find a how to create the mbr bootloader...)</summary>
 
 #### Manually MBR partitions
 
