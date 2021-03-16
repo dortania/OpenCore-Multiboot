@@ -26,17 +26,17 @@ Open MediaCreationTool and download the ISO file for your system.
 Use the appropriate settings for your system:
 #### UEFI
 
-![](/images/win-md/rufus.png)
+![UEFI](/images/win-md/rufus.png)
 
 #### BIOS/legacy/CSM
 
-![](/images/win-md/rufusL.png)
+![BIOS/legacy/CSM](/images/win-md/rufusL.png)
 
 Wait until it finishes of flashing, then boot on the USB.
 
 ## Installing Windows 10
 
-![](/images/win-md/esd-iso.png)
+![The usb booted up](/images/win-md/esd-iso.png)
 
 When the usb booted, you can chose what to do:
 - [Install Windows 10 automatically](#Automatically)
@@ -61,13 +61,13 @@ NOTE: This process can be followed only on blank disks.
 
 Follow the procedure since appears this section:
 
-![](/images/win-md/custom.png)
+![Custom installation](/images/win-md/custom.png)
 
 Select "Custom", remove all partitions and finally click on "Create". Windows will ask you a confirm, then you did it!
 
 ##### Manually partitions
 
-![](/images/win-md/part.png)
+![Windows UEFI partitions](/images/win-md/part.png)
 
 You can customize the commands (SHIFT+F10 to open Command Prompt) to your disk layout. If you felt more confortful, you could create all your partition (specify the size) on the diskmanagement screen (see [automatically](#Automatically-partitions)) and then installing manually (only blank disks).
 
@@ -108,7 +108,7 @@ Reboot and hope everything work.
 
 #### Manually MBR partitions
 
-![](/images/win-md/partL.png)
+![Legacy Partitions](/images/win-md/partL.png)
 
 Type `diskpart`
 
