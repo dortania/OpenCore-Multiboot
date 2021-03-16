@@ -100,9 +100,9 @@ Reboot and hope everything work.
 <details>
 <summary>Legacy Users (NOTE: at the moment I don't find a how to create the mbr bootloader...)</summary>
 
-![UEFI partitions](./images/win-md/partL.png)
-
 #### Manually MBR partitions
+
+![UEFI partitions](./images/win-md/partL.png)
 
 Type `diskpart`
 
