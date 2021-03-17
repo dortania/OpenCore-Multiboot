@@ -25,6 +25,8 @@ Then apply the two command below to active WinRE.
 
 To see the WinRE status then type `reagentc /info`
 
+To try WinRE, type `reagentc /boottore`
+
 Reboot
 
 ### Opencore does not see my Windows 8/10 installation!
