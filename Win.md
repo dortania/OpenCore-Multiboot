@@ -5,21 +5,28 @@ You can download Windows in different ways. In this guide we talk about Windows 
 - [Downloading from MacOS/Linux](#MacOS/Linux)
 - [Downloading from Windows](#Windows)
 
-### Macos/Linux
+### Macos
 Requirement:
 - [Windows 10 ISO file](https://www.microsoft.com/software-download/windows10)
-- [Balena Etcher](https://www.balena.io/etcher/)
+- An USB device
 
 Download the appropriate ISO for your Country
 
-Open Balena Etcher, select an USB device and the ISO file, then click flash
+Open Boot Camp Assistant and click on "Create a windows 10 device"
 
-Wait until it finishes of flashing, then boot on the USB.
+Wait until it finishes flashing, then boot on the USB.
+
+### Linux
+Requirement:
+- [Windows 10 ISO file](https://www.microsoft.com/software-download/windows10)
+- An USB device
+(TODO, at the moment use https://github.com/WoeUSB/WoeUSB/tree/master)
 
 ### Windows
 Requirement:
 - [MediaCreationTool](https://www.microsoft.com/software-download/windows10)
 - [Rufus](https://rufus.ie)
+- An USB device
 
 Open MediaCreationTool and download the ISO file for your system.
 
@@ -32,7 +39,7 @@ Use the appropriate settings for your system:
 
 ![BIOS/legacy/CSM](/images/win-md/rufusL.png)
 
-Wait until it finishes of flashing, then boot on the USB.
+Wait until it finishes flashing, then boot on the USB.
 
 ## Installing Windows 10
 
