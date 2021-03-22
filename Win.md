@@ -25,12 +25,14 @@ Requirement:
 ### Windows
 Requirement:
 - [MediaCreationTool](https://www.microsoft.com/software-download/windows10)
+  ![Media Creation Tool Download page](./images/win-md/dlMediaCreationTool.png)
 - [Rufus](https://rufus.ie)
 - An USB device
 
-Open MediaCreationTool and download the ISO file for your system.
+Open MediaCreationTool and download the ISO file for your system (32 or 64 bits).
 
-Use the appropriate settings for your system:
+Open rufus, connect the usb and setup rufus with the appropriate settings for your system. Wait until it finishes of flashing, then boot on the USB.
+
 #### UEFI
 
 ![UEFI](/images/win-md/rufus.png)
