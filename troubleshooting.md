@@ -3,14 +3,23 @@ Multiboot troubleshooting. **Work in Progess**, you can help contibute via [PRs]
 
 ## Windows
 
+![Bsod](./images/troubleshooting/Bsod.png)
+
 Windows can be a bitch when it comes to multidisk setups (it freaks out when it sees a lot of EFI partitions on a lot of disks).
 
 If it happens, disable/disconnect all the other disks and install windows as you would normally do, selecting the correct disk. If it doesn't work you [can install windows manually](./Win.md#Manually).
 
 ### Unsupported Disk Layout for UEFI Firmware
+
+![Msr error](./images/troubleshooting/msr.png)
+
 You should [add a msr partition](https://www.tomshardware.com/news/how-to-fix-windows-10-unsupported-disk-layout-uefi-error,35960.html)
 
 ### WinRE doesn't work
+
+![WinRE doesn't work when appears this image](./images/troubleshooting/winre.png)
+WinRE doesn't work when appears this image.
+
 I suppose you have created the recovery partition. If you don't, you can still create it.
 
 Copy install.esd/install.wim from your usb in your pc.
@@ -42,7 +51,7 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 * **Note**: As of OpenCore 0.5.9, this no longer needs to be specified. OpenCore should pick up on this entry automatically
 
-![](/images/blessoverride.png)
+![](/images/troubleshooting/blessoverride.png)
 
 #### Solution 3: Boot to recovery mode from within Windows
 <details>

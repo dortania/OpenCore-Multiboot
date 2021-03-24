@@ -20,7 +20,7 @@ Wait until it finishes flashing, then boot on the USB.
 Requirement:
 - [Windows 10 ISO file](https://www.microsoft.com/software-download/windows10)
 - An USB device
-(TODO, at the moment use https://github.com/WoeUSB/WoeUSB/tree/master)
+At the moment use https://github.com/WoeUSB/WoeUSB/tree/master
 
 ### Windows
 Requirement:
@@ -51,7 +51,7 @@ When the usb booted, you can chose what to do:
 - [Install Windows 10 automatically](#Automatically)
 - [Install Windows 10 manually](#Manually) (only when there are problems or when you want to control the procedure)
 ### Automatically
-Follow the procedure and let Windows making disasters!
+Follow the procedure printed on screen!
 
 ![Installation image](/images/win-md/installation.png)
 
