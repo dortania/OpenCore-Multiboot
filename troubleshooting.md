@@ -24,7 +24,9 @@ I suppose you have created the recovery partition. If you don't, you can still c
 
 Copy install.esd/install.wim from your usb in your pc.
 
-Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open the folder X as the edition number selected before. Go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
+Use [7zip](https://www.7-zip.org) or WinRar to open the WIM/ESD image. Open any of the numbered folder (it's the same).
+
+Then go to `\Windows\System32\Recovery`. Extract the two files and copy them to path `C:\Windows\System32\Recovery`.
 
 Then apply the two command below to active WinRE.
 
