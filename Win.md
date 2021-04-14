@@ -112,8 +112,7 @@ Reboot and hope everything work.
 
 ### Legacy Windows Installation (broken)
 
-<details>
-<summary>Legacy Users (NOTE: at the moment I didn't find a how to create the mbr bootloader...)</summary>
+::: details Legacy Users (NOTE: at the moment I didn't find a how to create the mbr bootloader...)
 
 #### Manually MBR partitions
 
@@ -141,4 +140,4 @@ Type `dism /apply-image /imagefile:<path> /index:4 /applydir:c:\` to flash the W
 
 **TODO**: I have no idea how to create the boot files in the MBR... If you know this, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls).
 
-</details>
+:::
