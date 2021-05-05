@@ -106,7 +106,7 @@ Type `dism /get-wiminfo /wimfile:<path>` to get the number of your edition.
 
 Type `dism /apply-image /imagefile:<path> /index:4 /applydir:c:\` to flash the WIM/ESD image to your disk where 4 is changed as you edition number.
 
-Type `bcdboot c:\windows` to create the boot files on the EFI disk (Caution! if OpenCore was present, Windows cannot inject your EFI).
+Type `bcdboot c:\windows /s q:\` to create the boot files on the EFI disk (Caution! if OpenCore was present, Windows cannot inject your EFI).
 
 Reboot and hope everything work.
 
