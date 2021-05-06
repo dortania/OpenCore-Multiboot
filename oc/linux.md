@@ -1,6 +1,6 @@
 # Dualbooting with Linux
 
-**WORK IN PROGRESS**
+**Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
 
 ## Method A: Chainloading a EFI Bootloader (GRUB2, Systemd-boot)
 
@@ -44,26 +44,26 @@ Some common Linux bootloader paths:
       ...
       ```
 
-      - Check for the mount point section to get your system root `/` partition (here `sda3`)
-      - `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
-      - the bootloader/manager is in `/boot/efi`
-      - `/boot/efi` partition number is `1` in this case (it could be `sda1` or `nvme0nXp1` or anything else), if you have your EFI in another partition please remember which number it is
+      * Check for the mount point section to get your system root `/` partition (here `sda3`)
+      * `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
+      * the bootloader/manager is in `/boot/efi`
+      * `/boot/efi` partition number is `1` in this case (it could be `sda1` or `nvme0nXp1` or anything else), if you have your EFI in another partition please remember which number it is
 
    2. Change the directory to where your EFI partition is mounted by running `cd /path/to/efi` (for example `cd /boot/efi`)
 
    3. Once you're in, you'll usually find a folder named `EFI` which contains `BOOT` and other folders, one of these folders *may* contain your bootloader/manager EFI Application binary, commonly found in
 
-      - `EFI/arch/grubx64.efi` - for Arch with grub2
-      - `EFI/ubuntu/grubx64.efi` - for Ubuntu with grub2
-      - `EFI/systemd/systemd-bootx64.efi` - for systemd-boot (path used with Arch)
-      - `EFI/fedora/grubx64.efi` - for Fedora with grub2
-      - or run `find . -iname "grubx64.efi"` or `find . -iname "systemd-bootx64.efi"` in your EFI folder (you can change the file name to whatever you're using)
+      * `EFI/arch/grubx64.efi` - for Arch with grub2
+      * `EFI/ubuntu/grubx64.efi` - for Ubuntu with grub2
+      * `EFI/systemd/systemd-bootx64.efi` - for systemd-boot (path used with Arch)
+      * `EFI/fedora/grubx64.efi` - for Fedora with grub2
+      * or run `find . -iname "grubx64.efi"` or `find . -iname "systemd-bootx64.efi"` in your EFI folder (you can change the file name to whatever you're using)
 
    4. Keep note of:
 
-      - the binary path
-      - the binary's partition number
-      - the binary's disk path (`/dev/sda` or `/dev/nvme0nX`)
+      * the binary path
+      * the binary's partition number
+      * the binary's disk path (`/dev/sda` or `/dev/nvme0nX`)
 
 4. Install `efibootmgr` in your linux system (usually it comes built-in in ubuntu, but requires install on arch for example)
 
@@ -73,11 +73,11 @@ Some common Linux bootloader paths:
    efibootmgr -c -L "Linux" -l "\EFI\pathto\filex64.efi" -d "/dev/sda" -p 1
    ```
 
-   - `-c`: Create
-   - `-L "Linux"`: Label the boot entry (you can change it to whatever you want)
-   - `-l "\EFI\pathto\filex64.efi"`: loader file path, must be in a format the UEFI Firmware can use, which means `\` for pathing instead of `/` you find in unix
-   - `-d "/dev/sda"`: disk path so that `efibootmgr` know which disk the UEFI firmware should read the file from, it can be `/dev/nvme0nX` (with X as a number) if you're using NVMe
-   - `-p 1`: point the partition number we found earlier, in case your EFI partition is the first one, this can be omitted
+   * `-c`: Create
+   * `-L "Linux"`: Label the boot entry (you can change it to whatever you want)
+   * `-l "\EFI\pathto\filex64.efi"`: loader file path, must be in a format the UEFI Firmware can use, which means `\` for pathing instead of `/` you find in unix
+   * `-d "/dev/sda"`: disk path so that `efibootmgr` know which disk the UEFI firmware should read the file from, it can be `/dev/nvme0nX` (with X as a number) if you're using NVMe
+   * `-p 1`: point the partition number we found earlier, in case your EFI partition is the first one, this can be omitted
 
 6. Reboot and check OpenCore, **you will find a new entry named `EFI`**, there can be many as it can also point to other boot entries, that's by design by OpenCore, not a bug.
 
@@ -95,7 +95,7 @@ We first need to determine your root partition and its UUID/PARTUUID, this infor
 
 #### 1. Your kernel and system root are in the same partition: (using Arch in this example)
 
-- In a terminal window on your linux install, run `lsblk` (available in most distributions)
+* In a terminal window on your linux install, run `lsblk` (available in most distributions)
 
   ```shell
   $ lsblk
@@ -108,20 +108,20 @@ We first need to determine your root partition and its UUID/PARTUUID, this infor
   ...
   ```
 
-  - Check for the mount point section to get your system root `/` partition (here `sda3`)
-  - `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
-  - the kernel and initramfs are stored in `/boot` which is part of my main system root partition
+  * Check for the mount point section to get your system root `/` partition (here `sda3`)
+  * `/boot/efi` has my EFI partition mounted in it (if you properly added it in fstab, which you should)
+  * the kernel and initramfs are stored in `/boot` which is part of my main system root partition
 
-- Now we need to know which UUID/PARTUUID, run `blkid | grep -i <system_root_partition>` , eg: `blkid | grep -i sda3` (must be root user)
+* Now we need to know which UUID/PARTUUID, run `blkid | grep -i <system_root_partition>` , eg: `blkid | grep -i sda3` (must be root user)
 
   ```shell
   # blkid | grep -i sda3
   /dev/sda3: UUID="3d4768d7-d33e-4f9f-a821-e80eba22ca62" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="a1073e53-c768-4ce5-89ad-b558669bdb89"
   ```
 
-  - You'll get both your UUID/PARTUUID, save these somewhere.
+  * You'll get both your UUID/PARTUUID, save these somewhere.
 
-- Explore `/boot` and list your files, you should find your kernel and initramfs
+* Explore `/boot` and list your files, you should find your kernel and initramfs
 
   ```shell
   $ cd /boot
@@ -135,11 +135,11 @@ We first need to determine your root partition and its UUID/PARTUUID, this infor
   -rw-r--r-- 1 root root  7541344 Sep 22 23:31 vmlinuz-linux
   ```
 
-  - You see my kernel is named `vmlinuz-linux` with `initramfs-linux.img` as its initramfs, with a fallback img, but also `intel-ucode.img` for the trash intel mitigation
-    - In case you're using AMD, you might also find `amd-ucode.img`
-    - Some other distributions may have these images stored somewhere else, check your distribution and how it handles CPU ucode firmware
+  * You see my kernel is named `vmlinuz-linux` with `initramfs-linux.img` as its initramfs, with a fallback img, but also `intel-ucode.img` for the trash intel mitigation
+    * In case you're using AMD, you might also find `amd-ucode.img`
+    * Some other distributions may have these images stored somewhere else, check your distribution and how it handles CPU ucode firmware
 
-- Reboot to OpenCore, and press Space, it should show more options, one of them should be OpenShell.efi. In case you do not have it, download the OpenCore zip, and take it from OC/Tools, and add it to your config.plist, ProperTree can do that with OC Snapshot.
+* Reboot to OpenCore, and press Space, it should show more options, one of them should be OpenShell.efi. In case you do not have it, download the OpenCore zip, and take it from OC/Tools, and add it to your config.plist, ProperTree can do that with OC Snapshot.
 
 #### 2. Your kernel is in your EFI partition
 
@@ -147,19 +147,19 @@ In case you're using systemd-boot, make sure you install the kernel in your EFI 
 
 ### 2. Identifying your UEFI paths and devices
 
-- In the shell
+* In the shell
 
-  - run `map -r -b` to list all your devices (-b to break the scroll)
+  * run `map -r -b` to list all your devices (-b to break the scroll)
 
-    - `BLKX:` are all the partitions/disks scanned
+    * `BLKX:` are all the partitions/disks scanned
 
-    - `FSX:` are all the **explorable** filesystems
+    * `FSX:` are all the **explorable** filesystems
 
-    - `PciRoot(0x0)/Pci(AxB,CxD)/Sata` or `Nvme` are your drives types (nvme or ahci)
+    * `PciRoot(0x0)/Pci(AxB,CxD)/Sata` or `Nvme` are your drives types (nvme or ahci)
 
-    - `HD(X,GPT,<PARTUUID>,...)` or `HD(X,MBR)` are your drive partitions where `X` is a number, GPT/MBR the disk partition scheme then followed with PARTUUID
+    * `HD(X,GPT,<PARTUUID>,...)` or `HD(X,MBR)` are your drive partitions where `X` is a number, GPT/MBR the disk partition scheme then followed with PARTUUID
 
-    - Example:
+    * Example:
 
       ```shell
       Mapping table
@@ -185,53 +185,53 @@ In case you're using systemd-boot, make sure you install the kernel in your EFI 
                 PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x0,0x0,0x0)/HD(3,GPT,A1073E53-C768-4CE5-89AD-B558669BDB89,0xE914CB8,0xE8B0C90)
       ```
 
-      - `BLK0` seems to be the disk BLK as its path does not show any partition numbering or UUID
-        - This is logical as the first thing your firmware will look for is the disk, not its partitions
-      - I have BLK1/BLK2/BLK9 which are my 3 main partitions
-        - Because I have APFS driver loaded from OpenCore, there are new BLK devices shown because of that and thus added more partitions, which are actually just APFS container partitions, those can be ignored
-        - The reason why they can be ignored is because you can see that they have the same PARTUUID, also we're not here for those partitions
-      - FS0 seems to be BLK1, which is my EFI partition which is also FAT32 formatted, where OC lives
-        - In a multi-disk setup, FS0: can be whatever the UEFI firmware detects first, it does not mean that OC is always in FS0, in these cases FS0: could point to a USB device or SATA device. Usually, most firmware will follow this setup to read/find partitions: USB > SATA > NVME, this is not a norm as some other firmware could do something else (it can also depend on the boot order setting).
-        - Check if your linux kernel is there (in case of systemdboot)
-          - `cd FSX:`
-          - `ls`
-          - Use your eyes and a brain cell
-        - Just make sure you're properly reading the partition location before doing any actions
-      - FS0/BLK2/BLK9 all live in a SATA drive (which is my main boot drive for this example device)
-        - This matches linux reading the device as `sdX` and not `nvmeXnX`
-        - In the case of a NVMe drive, you would be seeing `Nvme` instead of `Sata`
-      - BLK9's PARTUUID matches my root filesystem `a1073e53-c768-4ce5-89ad-b558669bdb89`
-        - But remember that it's in capital letters!
-      - BLK1 and BLK2 have their explorable `FSX`, which means the UEFI firmware can explore and read files from them, however BLK9 which is an ext4 partition isn't, this means the UEFI requires a suitable driver to load its contents.
+      * `BLK0` seems to be the disk BLK as its path does not show any partition numbering or UUID
+        * This is logical as the first thing your firmware will look for is the disk, not its partitions
+      * I have BLK1/BLK2/BLK9 which are my 3 main partitions
+        * Because I have APFS driver loaded from OpenCore, there are new BLK devices shown because of that and thus added more partitions, which are actually just APFS container partitions, those can be ignored
+        * The reason why they can be ignored is because you can see that they have the same PARTUUID, also we're not here for those partitions
+      * FS0 seems to be BLK1, which is my EFI partition which is also FAT32 formatted, where OC lives
+        * In a multi-disk setup, FS0: can be whatever the UEFI firmware detects first, it does not mean that OC is always in FS0, in these cases FS0: could point to a USB device or SATA device. Usually, most firmware will follow this setup to read/find partitions: USB > SATA > NVME, this is not a norm as some other firmware could do something else (it can also depend on the boot order setting).
+        * Check if your linux kernel is there (in case of systemdboot)
+          * `cd FSX:`
+          * `ls`
+          * Use your eyes and a brain cell
+        * Just make sure you're properly reading the partition location before doing any actions
+      * FS0/BLK2/BLK9 all live in a SATA drive (which is my main boot drive for this example device)
+        * This matches linux reading the device as `sdX` and not `nvmeXnX`
+        * In the case of a NVMe drive, you would be seeing `Nvme` instead of `Sata`
+      * BLK9's PARTUUID matches my root filesystem `a1073e53-c768-4ce5-89ad-b558669bdb89`
+        * But remember that it's in capital letters!
+      * BLK1 and BLK2 have their explorable `FSX`, which means the UEFI firmware can explore and read files from them, however BLK9 which is an ext4 partition isn't, this means the UEFI requires a suitable driver to load its contents.
 
-  - Identify your EFI partition (in this example it's FS0:)
+  * Identify your EFI partition (in this example it's FS0:)
 
-    - run `map -r > FSX:\drives_map.txt`
-      - This will run `map` and save the output to FSX: in a file named `drives_map.txt`
-      - Note that UEFI Firmware use Windows-style path slash `\` not `/`
+    * run `map -r > FSX:\drives_map.txt`
+      * This will run `map` and save the output to FSX: in a file named `drives_map.txt`
+      * Note that UEFI Firmware use Windows-style path slash `\` not `/`
 
-- Reboot to macOS/Linux distribution with ProperTree in it
+* Reboot to macOS/Linux distribution with ProperTree in it
 
 ### 3. Adding the boot entry to OpenCore's configuration file
 
-- In case:
+* In case:
 
-  - Your kernel is in the system partition:
-    - Download a suitable UEFI driver for your filesystem in use:
-      - Download [rEFInd](https://sourceforge.net/projects/refind/)
-        - Extract the zip
-        - Explore the extracted zip > refind > drivers_x64
-        - You'll find these drivers:
-          - ext4
-          - ext2
-          - btrfs
-        - Pick the UEFI driver that you want and copy it to OC > Drivers
-        - Add it to your config.plist (you can use ProperTree > File > OC Snapshot)
-  - Your kernel is in your EFI partition (systemdboot), you don't need to set up any fs drivers
+  * Your kernel is in the system partition:
+    * Download a suitable UEFI driver for your filesystem in use:
+      * Download [rEFInd](https://sourceforge.net/projects/refind/)
+        * Extract the zip
+        * Explore the extracted zip > refind > drivers_x64
+        * You'll find these drivers:
+          * ext4
+          * ext2
+          * btrfs
+        * Pick the UEFI driver that you want and copy it to OC > Drivers
+        * Add it to your config.plist (you can use ProperTree > File > OC Snapshot)
+  * Your kernel is in your EFI partition (systemdboot), you don't need to set up any fs drivers
 
-- (Optional) In case you're using GRUB2, make sure you get a copy of `grub.cfg` to get your kernel arguments
+* (Optional) In case you're using GRUB2, make sure you get a copy of `grub.cfg` to get your kernel arguments
 
-- Open config.plist in your plist editor (recommend ProperTree), under Misc > Entries, make a new child with type `Dictionary`:
+* Open config.plist in your plist editor (recommend ProperTree), under Misc > Entries, make a new child with type `Dictionary`:
 
   | Key       | Type    | Value                                                        | Notes                                                        |
   | --------- | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -242,22 +242,22 @@ In case you're using systemd-boot, make sure you install the kernel in your EFI 
   | Arguments | String  | **Template:**<br />initrd=\path\to\rd.img\if\used *other_kernel_arguments*<br />**Example:**<br />initrd=\boot\intel_ucode.img initrd=\boot\initramfs-linux.img root=PARTUUID=608da4f8-da9e-4792-829f-a4cf4e5b8b82 ro quiet intel_iommu=on iommu=pt | *check below*                                                |
   | Auxiliary | Boolean | `False`/`NO`/`0`                                             | - False: Always shown<br />- True: Hidden until you press space<br />- Requires Misc\Boot\HideAuxiliary=True if this is set to True |
 
-  - **Path Notes:**
-    - **your_ids**: from the map text file
-    - **Type**: NVMe/SATA
-    - **X**: partition number
-    - **SCH**: disk scheme (GPT/MBR)
-    - **PARTUUID**
-    - **stuff,from_map**: get them from the map
-    - *\path\to\kernel*: it's the path to the kernel binary
-    - **TL;DR: Copy the path of the partition from the map text file.**
-      - Note1: use backslash `\` for *kernel path*, that's how UEFI firmware handles file paths
-      - Note2: use regular slash `/` for the *PciRoot path*, like shown in the example and template
-  - **Arguments Notes:**
-    - You can add as much `initrd=` as you want (if you're using linux, you should know why and how)
-    - Your other arguments are the same as in any other bootloader, you can add/remove/modify in the config directly
+  * **Path Notes:**
+    * **your_ids**: from the map text file
+    * **Type**: NVMe/SATA
+    * **X**: partition number
+    * **SCH**: disk scheme (GPT/MBR)
+    * **PARTUUID**
+    * **stuff,from_map**: get them from the map
+    * *\path\to\kernel*: it's the path to the kernel binary
+    * **TL;DR: Copy the path of the partition from the map text file.**
+      * Note1: use backslash `\` for *kernel path*, that's how UEFI firmware handles file paths
+      * Note2: use regular slash `/` for the *PciRoot path*, like shown in the example and template
+  * **Arguments Notes:**
+    * You can add as much `initrd=` as you want (if you're using linux, you should know why and how)
+    * Your other arguments are the same as in any other bootloader, you can add/remove/modify in the config directly
 
-- Notes
+* Notes
 
-  - You can use the same scheme as above to add other efi files or uefi-loadable files (like systemdboot efi, Windows bootmgfw.efi...)
-  - **You will NOT be able to set it as the default boot option with Ctrl+Enter**, so you'll have to select it each time you want to boot it
+  * You can use the same scheme as above to add other efi files or uefi-loadable files (like systemdboot efi, Windows bootmgfw.efi...)
+  * **You will NOT be able to set it as the default boot option with Ctrl+Enter**, so you'll have to select it each time you want to boot it

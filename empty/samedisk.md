@@ -6,7 +6,7 @@ Basically, you only have one empty disk and you want to install multiple OSes to
 
 - BACKUP YOUR DATA
 - If possible, disconnect or disable any other disk/drive in your system, as it may interfere with the install procedure (especially windows')
-- The drive isn't corrupted or have bad sectors 
+- The drive isn't corrupted or have bad sectors
 - Stable power input
 
 ## Situation this applies for
@@ -36,21 +36,19 @@ Here is how it goes:
 2. Once done, select "Partition", press "**+**" and choose the size of the other partition(s), "Format" MUST be `Mac OS Extended` or `APFS` (otherwise, macOS will convert the drive to hMBR which will break Windows installation).
    ![You can add as many partitions as you like, **Remember their sizes**](../images/disku2.png)
 3. Hit Apply and let it do its thing:
-   * NOTE: on some macOS releases/setups, the disk utility may suddenly crash and send you back to the main menu, DO NOT PANIC (~~that sure helps~~), just wait for a minute or two then open disk utility back and check if the formatting is done.
+   - NOTE: on some macOS releases/setups, the disk utility may suddenly crash and send you back to the main menu, DO NOT PANIC (~~that sure helps~~), just wait for a minute or two then open disk utility back and check if the formatting is done.
 4. Once done, you can install macOS on the partition of your choosing and continue along.
 
 #### Note
 
-* You can still do the above if you have macOS already installed, do NOT use bootcamp assistant.
-  * BootCamp assistant will add extra drivers to the Windows installer that we do not need.
+- You can still do the above if you have macOS already installed, do NOT use bootcamp assistant.
+  - BootCamp assistant will add extra drivers to the Windows installer that we do not need.
 
 ### For the others
 
 #### Windows
 
-Windows can be a bit of a bitch when it comes to installing it as a second OS (like some kind of insult or just Microsoft doesn't realize that there are other OSes than Windows /s). Create your windows installer (on another computer with the windows creation disk utility or [Rufus](https://rufus.ie))
-
-In case Windows has any issues while installing, boot back to the installer, remove the MSR/Recovery/Windows partitions that the installer made (there may be more, make sure you do not delete macOS or other OSes partitions), and follow [this guide over at TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html) on how to install windows manually using the `dism` tool. 
+Create your windows installer (on another computer with the windows creation disk utility or [Rufus](https://rufus.ie)). If you have issues, please see the [troubleshooting section](../troubleshooting.md)
 
 #### Linux
 

@@ -8,7 +8,7 @@ Usually, 2012+ computers that came with Windows 8 would have a UEFI firmware (so
 - Loads its integrated drivers and services
 - Reads the boot menu entries and start loading the first boot entry
   - If failed starts the next one
-- Loads the bootloader 
+- Loads the bootloader
   - OS is loaded after that.
 
 Usually, the said "bootloader" is contained somewhere in the disk, and that somewhere is called a **EFI Partition**. You can find this named different things like ESP (EFI System Partition), SYSTEM, EFI, BOOT and so on. This partition is **FAT32** formatted and flagged as **EF00** in MBR or **C12A7328-F81F-11D2-BA4B-00A0C93EC93B** GUID in GPT. This partition contains usually the EFI applications (like an OS bootloader) in it that are loaded at boot by the UEFI firmware (remember this as it is important for later for recovery).
@@ -19,12 +19,12 @@ Contrary to UEFI, Legacy systems are older and much more mature (dating back to 
 
 These systems rely on another method of loading the bootloader. This piece of software is usually written in the first sectors of the disk (formatted as MBR) called **boot sector**, this sector is usually 512 or 4096 bytes big, the BIOS would then read the code, copy it to memory and then execute it, at that point an OS or Bootloader menu (like GRUB2) will show up:
 
-* BIOS Starts up
-* Reads the **boot sector**
-* Loads the program into memory
-* Executes the program
-* Bootloader appears
-  * The OS will boot now.
+- BIOS Starts up
+- Reads the **boot sector**
+- Loads the program into memory
+- Executes the program
+- Bootloader appears
+  - The OS will boot now.
 
 # Major differences between the systems
 
@@ -68,7 +68,7 @@ Check **BIOS Mode**, it will either say **UEFI** or **Legacy**. Note that this i
 
 ### Method 1
 
-On most Linux distributions, you can run 
+On most Linux distributions, you can run
 
 ```ls /sys/firmware/efi```
 

@@ -102,16 +102,15 @@ module.exports = {
             children: [
                 ['/Intro/Def', 'What is it?'],
 				['/Intro/Booting-part', 'UEFI? Legacy? CSM? What?'],
-				['/Intro/disc', 'Disclaimer'],
             ]
 
         },
 		{
-            title: 'Multibooting Situations',
+            title: 'UEFI Multibooting',
             collapsable: false,
             sidebarDepth: 1,
             children: [
-                ['/empty/', 'Multibooting Situations'],
+                ['/empty/', 'Empty Disk(s)'],
 				{
             	collapsable: false,
             	sidebarDepth: 1,
@@ -120,7 +119,7 @@ module.exports = {
 					['/empty/diffdisk', 'Multiple disks - multiple OSes'],
 	            ]
 				},
-				['/exist/', 'Existing Filled Disk'],
+				['/exist/', 'Existing Filled Disk(s)'],
 				{
             	collapsable: false,
             	sidebarDepth: 1,
@@ -132,16 +131,33 @@ module.exports = {
             ]
 
         },
+        {
+            title: 'Troubleshooting',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+                ['troubleshooting', 'Troubleshooting'],
+            ]
+
+        },
 		{
             title: 'OpenCore configuration',
             collapsable: false,
             sidebarDepth: 1,
             children: [
-                ['/oc/win', 'For Windows booting'],
 				['/oc/linux', 'For Linux booting'],
 				['/oc/duet', 'Installing OpenCore on a legacy system'],
 				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html', 'Using LauncherOption'],
 				['https://dortania.github.io/OpenCore-Post-Install/multiboot/bootcamp.html', 'BootCamp installation'],
+            ]
+
+        },
+		{
+            title: 'Windows 10 manual and automatic Installation',
+            collapsable: false,
+            sidebarDepth: 1,
+            children: [
+				['Win', 'Windows 10 manual and automatic Installation'],
             ]
 
         },

@@ -1,7 +1,6 @@
-_book/
 .vuepress/dist
 node_modules/
 .vscode/
 .DS_Store
 package-lock.json
-yarn.lock
+yarn*
