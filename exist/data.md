@@ -30,10 +30,10 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
   ![img](../images/ex-data/mbvm.png)
 - Go to *Volumes* and check *Partition Style*
   - **MBR** drives will show:
-    
+
     ![image-20200825010342403](../images/ex-data/mbr_disk.png)
   - **GPT** drives will show:
-    
+
     ![image-20200825010434237](../images/ex-data/gpt_disk.png)
 
 #### In Linux
@@ -90,7 +90,7 @@ Note: we do not speak of the MBR patch, that's a bad idea and really should not 
 
 #### Destructive Conversion
 
-This method will destroy all your data on your disk, making you a clean slate to work with. **Only use this if the data in the disk is not important or backed up already! YOUR DATA WILL BE GONE WITH THIS METHOD.** 
+This method will destroy all your data on your disk, making you a clean slate to work with. **Only use this if the data in the disk is not important or backed up already! YOUR DATA WILL BE GONE WITH THIS METHOD.**
 
 You can use any partitioning tool of your choice and destroy the data, OR you can just boot macOS installer that you made with the OpenCore Dortania Guide and select the disk and format it. You can check [Dualbooting on the same disk](../empty/samedisk.md) section for more information. You're not required to follow the rest of this section.
 
@@ -100,7 +100,7 @@ This method has higher chances of keeping your data intact, **however this does 
 
 We will be using `gdisk` ran on any linux distribution, I strongly NOT recommend using Windows or macOS gdisk to perform this operation as it may break seeing how Windows and macOS disk handling differs from Linux. You can use a USB distribution like `gparted` (lightweight iso/usb image) to do the manipulations or any distribution disk in hand (arch, Ubuntu, Fedora...).
 
-- Download/Install `gdisk` following you distribution 
+- Download/Install `gdisk` following you distribution
 
 - Run `lsblk` to check for the destination drive identifiers
 
@@ -140,9 +140,9 @@ Once your drive is converted, check again following the instruction above. You m
 
 ## Partitioning the Disk
 
-Once you converted (or already formated) your disk is GPT, it is time to repartition it for macOS partition and the EFI partition if there isn't. 
+Once you converted (or already formated) your disk is GPT, it is time to repartition it for macOS partition and the EFI partition if there isn't.
 
-### Checking the disk existing partitions:
+### Checking the disk existing partitions
 
 Just because the disk is now GPT partitioned, it doesn't mean that macOS will accept it, macOS's HFS Plus (Mac OS Journaled File System) or APFS won't accept formatting it and will return an error with `MediaKit reports not enough space on device for requested operation`, this is because either there is no EFI partition or it's not large enough. Either way, if you're just using a disk with non-OS data, chances are you do not have that partition and we will have to make one.
 
@@ -154,7 +154,7 @@ With that said, we still need to determine if it's required or not:
 - Check your destination disk
   - In case your disk already contains an EFI partition: (usually if your disk was already GPT or formatted before)
     ![img](../images/ex-data/gpt_efi.png)
-    - You'll see a description with `(EFI SYSTEM PARTITION)` 
+    - You'll see a description with `(EFI SYSTEM PARTITION)`
     - The size of this partition is usually between 100MB and 500MB (any more and it's a waste of storage space)
       - In case the size of it is <200MB, **expand** the partition to 200MB (or a bit more)
       - In case the size of it is >500MB, **shrink** the partition to 500MB (or 200MB) because it's a waste of space
@@ -164,7 +164,7 @@ With that said, we still need to determine if it's required or not:
 
 #### In Linux
 
-- Download/Install `gdisk` following you distrubution 
+- Download/Install `gdisk` following you distrubution
 
 - Run `lsblk` to check for the destination drive identifiers
 
@@ -313,7 +313,7 @@ In this section I'll be using MPW, the other tools are very similar and have ver
 
   - Run the following commands:
 
-    - `list disk` 
+    - `list disk`
 
       - Will show your disks, check the destination disk carefully
       - You can check Disk Manager as the disk numbering is the same
@@ -322,7 +322,7 @@ In this section I'll be using MPW, the other tools are very similar and have ver
 
       - Where X is your destination disk number
 
-    - `list part` 
+    - `list part`
 
       - Will list partitions on that selected disk
       - Check the partitions as it may help you check for the destination

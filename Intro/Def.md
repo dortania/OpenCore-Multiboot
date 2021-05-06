@@ -19,5 +19,4 @@ Now that you made the difference, there are thing you need to know about dualboo
 
 But before starting any of this
 
-# PLEASE BACKUP YOUR DATA.
-
+# PLEASE BACKUP YOUR DATA

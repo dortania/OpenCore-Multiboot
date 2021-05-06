@@ -1,12 +1,18 @@
 # Installation of Windows 10
+
 **Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls). This guide referes to Windows 10, however it's still valid for Windows 8/8.1. (for Windows 7 or older, follow the legacy section (duetpkg configurations only))
+
 ## Downloading and flashing Windows 10
+
 You can download Windows in different ways. In this guide we talk about Windows 10. So:
+
 - [Downloading from MacOS/Linux](#MacOS/Linux)
 - [Downloading from Windows](#Windows)
 
 ### Macos
+
 Requirement:
+
 - [Windows 10 ISO file](https://www.microsoft.com/software-download/windows10)
 - An USB device
 
@@ -17,13 +23,17 @@ Open Boot Camp Assistant and click on "Create a windows 10 device"
 Wait until it finishes flashing, then boot on the USB.
 
 ### Linux
+
 Requirement:
+
 - [Windows 10 ISO file](https://www.microsoft.com/software-download/windows10)
 - An USB device
-At the moment use https://github.com/WoeUSB/WoeUSB/tree/master
+At the moment use <https://github.com/WoeUSB/WoeUSB/tree/master>
 
 ### Windows
+
 Requirement:
+
 - [MediaCreationTool](https://www.microsoft.com/software-download/windows10)
   ![Media Creation Tool Download page](./images/win-md/dlMediaCreationTool.png)
 - [Rufus](https://rufus.ie)
@@ -48,24 +58,31 @@ Wait until it finishes flashing, then boot on the USB.
 ![The usb booted up](/images/win-md/esd-iso.png)
 
 When the usb booted, you can chose what to do:
+
 - [Install Windows 10 automatically](#Automatically)
 - [Install Windows 10 manually](#Manually) (only when there are problems or when you want to control the procedure)
+
 ### Automatically
+
 Follow the procedure printed on screen!
 
 ![Installation image](/images/win-md/installation.png)
 
 ### Manually
+
 This guide it's planned for a full installation. If you want to do a dualboot you can create the partition as you want. To open a terminal window use the key combo SHIFT-F10
 
 Find and remember your path to install.esd/install.wim file. I suppose that `<path>` it will be its path.
 
 #### Creating partitions
+
 You have to choose:
+
 - Create the partitions [automatically](#Automatically-partitions)
 - Create the partition [manually](#Manually-partitions)
 
 ##### Automatically partitions
+
 NOTE: This process can be followed only on blank disks.
 
 Follow the procedure since appears this section:
@@ -128,7 +145,7 @@ Type `clean` to clear the whole disk
 
 We set up the System Reserved Partition: type `create part primary size 100` to create the MSR partition (default size 100) `remove` to remove its letter.
 
-Type `create part primary size ` (default size [totalspace]-550 MB. I remember that the size value should be in MB) to create the main partition, then type `format` to format it and `assign letter c` to assign correctly our drive.
+Type `create part primary size` (default size [totalspace]-550 MB. I remember that the size value should be in MB) to create the main partition, then type `format` to format it and `assign letter c` to assign correctly our drive.
 
 Finally we set up the recovery enviroment: type `create part primary` (default size 450, the remaining part of the disk), `set id 27` to change the type of partition (primary-->WINRE),`format` to format it in NTFS and `remove` to remove its letter.
 
