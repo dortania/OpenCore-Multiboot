@@ -338,6 +338,10 @@ In this section I'll be using MPW, the other tools are very similar and have ver
 
       - You'll see a new partition with Type `System`
       - The size should roughly match the one we left earlier
+     
+    - `sel part X`
+
+      - Where X is your destination partition number
 
     - `format fs=fat32 label="EFI"`
 
