@@ -102,3 +102,15 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 * if everything ran without any errors, type `exit` and it should return you back to the Advanced Boot Menu (or reboot)
 * reboot and check if Windows boot entry has been added
 :::
+
+## Troubleshooting
+
+### System BootOrder not found. Initialising defaults. Creating boot entry "Bootxxxx"...
+
+Linux has changed EFI on disk somehow. Hopefully you still have your installer USB with a clean copy of your EFI. 
+
+- Boot into Mac with your USB 
+- Open the EFI folder in your ESP, and you should see another folder such as "Ubuntu" added to it. Copy this somewhere on your PC. 
+- Delete everything in EFI, and replace it with what was on your USB. 
+- Copy back the "Ubuntu" or other folder into the EFI folder. 
+- Restart and OC should boot up properly.  
