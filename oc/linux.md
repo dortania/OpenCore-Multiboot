@@ -1,8 +1,22 @@
 # Dualbooting with Linux
 
-**WORK IN PROGRESS**
+## Method A: OpenLinuxBoot
 
-## Method A: Chainloading a EFI Bootloader (GRUB2, Systemd-boot)
+OpenCore now includes a driver `OpenLinuxBoot.efi` which should make dualbooting with Linux much easier.
+
+The steps to using it are:
+
+ 1. Install Linux as you normally would e.g. by booting from an .iso image burnt to a removable USB drive - OpenLinuxBoot.efi is not involved in this stage
+ 2. Add `OpenLinuxBoot.efi` and `ext4_x64.efi` to your `config.plist` `Drivers` section
+ 3. Make sure `RequestBootVarRouting` and `LauncherOption` are enabled in `config.plist`; it is also recommended to enable `HideAuxiliary` in order to hide older Linux kernels except when you need to see them (which you would do by pressing SPACE to show auxiliary entries in the OpenCore boot menu)
+ 4. Reboot into OpenCore, installed Linux should now just appear
+ 5. Never use Grub again
+
+If you previously used method B or C below, you will need to remove those settings in order not to see your Linux distro twice in the OpenCore boot menu.
+
+For further information on how OpenLinuxBoot works and additional trouble-shooting guidance, see the OpenLinuxBoot section in OpenCore’s Configuration.pdf document.
+
+## Method B: Chainloading a EFI Bootloader (GRUB2, Systemd-boot)
 
 #### Method 1: Using BlessOverride
 
@@ -85,7 +99,7 @@ Some common Linux bootloader paths:
 
 This can be used for **any EFI application** you want to add to the UEFI Boot Manager.
 
-## Method B: Chainloading the kernel (must support EFISTUB)
+## Method C: Chainloading the kernel (must support EFISTUB)
 
 Some linux kernels are built with EFISTUB enabled in their configuration, which makes them loadable by the UEFI firmware like a regular UEFI application (neat, right?), we can use this feature with OpenCore and let it load the kernel as an EFI application while also passing boot arguments and other information.
 
