@@ -1,3 +1,3 @@
 # On a filled OS related disk (Windows/Linux)
 
-**Work in Progess**, you can help contibute via [PRs](https://github.com/dortania/OpenCore-Multiboot/pulls)
+This section is meant for those who have disks with an OS installed on it already.
