@@ -8,7 +8,6 @@ You have one disk with Windows installed and want to install macOS on the same d
 - If possible, disconnect or disable any other disk/drive in your system, as it may interfere with the install procedure
 - The drive isn't corrupted or have bad sectors
 - Stable power input
-- If you cannot add custom entries in your BIOS boot menu this method may not work for you, read all steps before proceeding
 
 ## Situation this applies for
 
@@ -27,19 +26,15 @@ If your EFI partition is bigger than the default of 100MB (at least 200MB to be 
 
 Use a bootable partition manager to resize the EFI partition. To do this you must first move all the partitions in front of it so make sure to backup your data. 
 
-![Gparted original partitions](../images/ex-os/before_gparted.png)
+![Minitool original partitions](../images/ex-os/before_minitool.png)
 
-Moving a partition cannot be done while running Windows, so you will need a **bootable** partition manager (free alternative is GParted). This is a potentially destructive operation. 
+Moving a partition cannot be done while running Windows, so you will need a **bootable** partition manager. This is a potentially destructive operation. Backup your data and proceed at your own risk. If there is not enough free space to move existing partitions to the right, first shrink the existing Windows one. 
 
-![Gparted warning](../images/ex-os/move_partition_warning_gparted.png)
-
-Backup your data and proceed at your own risk. If there is not enough free space to move existing partitions to the right, first shrink the existing Windows one. 
-
-![Gparted move Windows right](../images/ex-os/move_windows_right_gparted.png)
+![Minitool move Windows right](../images/ex-os/move_windows_right_minitool.png)
 
 Once there is enough free space after the EFI partition, extend it to at least 200MB. 
 
-![Gparted resize EFI](../images/ex-os/resize_efi_gparted.png)
+![Minitool resize EFI](../images/ex-os/resize_efi_minitool.png)
 
 ## Resize Windows partition 
 
@@ -47,13 +42,13 @@ If you already have free unallocated space to create the macOS partition, you ca
 
 Use a partition manager shrink to your Windows partition so that there is enough free space to create a partition that will hold your macOS installation. 
 
-![Gparted shrink Windows](../images/ex-os/shrink_windows_gparted.png)
+![Minitool shrink Windows](../images/ex-os/shrink_windows_minitool.png)
 
-## Create new exFAT partition
+## Create new partition for macOS
 
-Create a new exFAT **or FAT32** volume on the free unallocated space (GParted does not support exFAT natively until v1.2.0). 
+Create a new exFAT **or FAT32** volume on the free unallocated space. 
 
-![Gparted create FAT32](../images/ex-os/create_fat32_gparted.png)
+![Minitool create FAT32](../images/ex-os/create_new_mac_part_minitool.png)
 
 If you have other drives you intend to use between both operating systems, now is a good time to format them too. Don't forget to unplug the other drives before proceeding with the macOS installation. 
 
@@ -83,19 +78,32 @@ Once installation is finished remove OpenCore USB and the system will boot into 
 
 ## Mount EFI partition from Windows
 
-Using a partition manager or diskpart, mount the EFI partition. [Using MiniTool Partition Wizard](https://www.partitionwizard.com/free-partition-manager.html), this is as simple as assigning a letter to the drive. It will then be visible to Windows in File Explorer.
+Using diskpart or partition manager, mount the EFI partition. To do this with diskpart, launch command prompt with administrator privileges and enter:
+```
+diskpart
+list disk
+select disk 0
+list partition
+select partition 1
+assign letter=e
+exit
+``` 
+Once the partition is mounted you will be able to see it but no access it. To be able to read/write to EFI, restart File Explorer with administrative privileges. 
+```
+taskkill /im explorer.exe /f
+explorer.exe
+```
+You can also use [Explorer++](https://explorerplusplus.com/download). Right click and select Run as administrator to read and write to the EFI folder.
 
-![Windows mount efi 1](../images/ex-os/mount_efi_windows_a.png)
-
-![Windows mount efi 2](../images/ex-os/mount_efi_windows_b.png)
-
-Plug your OpenCore USB in and copy contents of Open Core USB EFI into the mounted EFI partition. In File Explorer, you can see the EFI partition but will not be able to access it. An easy workaround is to just use [Explorer++](https://explorerplusplus.com/download). Right click and select Run as administrator to read and write to the EFI folder.
+After read/write access is obtained, plug your OpenCore USB and backup your existing EFI folder before continuing. 
 
 ![Windows explorer++](../images/ex-os/explorer++_windows.png)
 
-Backup your existing EFI folder before continuing. Copy the BOOT and OC folder from inside the USB EFI into the partition's EFI folder from within Explorer++. When prompted, overwrite the BOOTx64.efi that exists with the one from OpenCore.
+ Copy the BOOT and OC folder from inside the USB EFI into the partition's EFI folder from within Explorer++. When prompted, overwrite the BOOTx64.efi that exists with the one from OpenCore.
 
-Open command prompt with Administrator priveleges and run:
+## Manually add OpenCore boot menu option
+
+Open command prompt with administrator privileges and run:
 
 ```
 bcdedit /set {bootmgr} path \EFI\OC\OpenCore.efi 
@@ -103,17 +111,11 @@ bcdedit /set {bootmgr} path \EFI\OC\OpenCore.efi
 
 After this is complete, do a reboot of the system.  If the OpenCore picker shows, then you can skip the next section.
 
-## Manually add OpenCore boot menu option
+Using your BIOS setup menu, add a custom boot entry for OpenCore to `EFI/OC/OpenCore.efi`. If you are unable to add custom entries to the BIOS boot menu there are tools available to accomplish this:
 
-Using your BIOS setup menu, add a custom boot entry for OpenCore. How to do this varies, so Google how to do it per your specific model if you're not sure.
-
-![Bios add entry 1](../images/ex-os/bios_add_entry_a.png)
-
-![Bios add entry 2](../images/ex-os/bios_add_entry_b.png)
-
-Add a boot entry to the path `EFI/OC/OpenCore.efi`. Verify that this entry has priority over Windows in the boot order.
-
-![Bios add entry 3](../images/ex-os/bios_add_entry_c.png)
+* [UEFI shell](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Obtaining_UEFI_Shell)
+* [efibootmgr](https://github.com/rhboot/efibootmgr)
+* [BOOTICE](https://m.majorgeeks.com/files/details/bootice_64_bit.html)
 
 ## Change startup disk
 
