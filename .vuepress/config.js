@@ -125,8 +125,17 @@ module.exports = {
             	collapsable: false,
             	sidebarDepth: 1,
 	            children: [
-	                ['/exist/data', 'On a filled non-OS related disk (Data disk)'],
-					['/exist/os', 'On a filled OS related disk (Windows/Linux)'],
+                    ['/exist/data', 'On a filled non-OS related disk (Data disk)'],
+                    ['/exist/os', 'On a filled OS related disk'],
+                    {
+                        collapsable: false,
+                        sidebarDepth: 1,
+                        children: [
+                            ['/exist/windows', 'Windows'],
+                            ['/exist/linux', 'Linux'],
+                        ]
+
+                    },
 	            ]
 				},
             ]
