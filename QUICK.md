@@ -33,13 +33,6 @@ Ok, if you're quite experienced with how partitioning and booting multiple OSes 
   - If you're using linux it's the same steps as earlier (just 200MB EFI partition and somewhere to put macOS on)
 - Make sure the disk doesn't have any S.M.A.R.T errors
 - DO NOT have multiple EFIs on the same disk, you **MUST** only have **ONE** EFI partition per disk
-- The OS Install order **does not matter at all**
-  - however windows can be a bit of a bitch, so installing it after macOS can be challenging, linux doesn't pose such problems
-  - If you happen to stumble on the sad windows crap you can:
-    - Boot windows installer
-    - Erase the partition where you want windows to be installed on to NTFS (as expected)
-    - Follow the rest from this [guide over at TenForums](https://www.tenforums.com/tutorials/84331-apply-windows-image-using-dism-instead-clean-install.html#Part2)
-      - You do NOT need MSR and Recovery, and you cannot create them when there are things already installed on the disk (blame windows installer)
-        - TODO: some way of creating a separate windows Recovery, I cannot find any guide on how to do that so that Windows would recognize it natively, if you know of a guide or know how to do it, open [a PR](https://github.com/dortania/OpenCore-Multiboot/) or [an issue](https://github.com/dortania/bugtracker) with your ideas. 
+- The OS Install order **does not matter at all**, however windows can be a bit of a bitch, so installing it after macOS can be challenging, linux doesn't pose such problems. [If you happen to stumble on the sad windows crap](./troubleshooting.md#Windows)
 
 Now that you have all these information, good luck with the rest. However if you're not sure, follow then the long way that has more explanations and details on how to properly do it.
