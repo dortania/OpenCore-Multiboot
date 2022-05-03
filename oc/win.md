@@ -12,14 +12,14 @@ Misc -> BlessOverride -> \EFI\Microsoft\Boot\bootmgfw.efi
 
 ![](../images/win-md/blessoverride.png)
 
-#### Solution 2: To make Windows get picked up, boot to recovery mode from within Windows
+#### Solution 2: To make Windows get picked up via recovery mode from within Windows
 
 - **make sure you boot windows from OpenCore**
   - after loading OpenCore, press space > OpenShell (make sure you have it in Tools and in the config)
   - run `map -r -b`
   - look for your EFI drive (usually it's in the first lines, watch out if you're a multidisk user, there might be many EFIs)
   - run `FSX:\EFI\Microsoft\Boot\bootmgfw.efi` where X is the number of the EFI partition with windows bootloader
-- **make sure that RequestBootVarRouting is set to True**
+- **make sure that RequestBootVarRouting is set to True and ScanPolicy set to 0**
 - open CMD/PS with admin rights
 - run `shutdown /r /o /t 0`
   - this will reboot your windows system immediately to Advanced Boot Menu menu
